@@ -1,0 +1,30 @@
+body {
+    border: 20px solid #bdc3c7; 
+    padding: 20px;
+    max-width: 900px;
+    width: 80%;
+    margin: 20px auto; /*having just two specs means the first is top/bottom, second is left/right*/
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.quote {
+    border-left: 5px solid #bdc3c7; 
+    padding-left: 5px;
+    font-style: italic;
+}
+
+.date {
+    color: #3498db;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem; /*spacing relative to root font style on page*/
+}
+
+h2 {
+    font-size: 2.0rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.post {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,12 @@
+body .row {
+    padding: 10px;
+}
+
+.winner {
+    color: green;
+}
+
+/*
+body input {
+    padding: 5px;
+}*/

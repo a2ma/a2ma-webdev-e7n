@@ -1,0 +1,8 @@
+body{
+    background: #4c1816; /* add #411213 in stripes  or squares--although, these are te colors used in https://wordpress.com/theme/quintus*/
+        color: black;
+}
+h1{
+
+    font-size: 80px;
+}

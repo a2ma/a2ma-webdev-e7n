@@ -1,0 +1,27 @@
+body{
+    background: url(http://handluggageonly.co.uk/wp-content/uploads/2015/05/The-Scottish-Highlands-Scotland-North-Coast-500-Route-002.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+h1{
+    color: red;
+    font-size: 80px;
+}
+li {
+    color: firebrick;
+}
+
+#special{
+    background: orange;
+}
+
+.urgent{
+    background: red;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+.normal {
+    background: violet;
+}

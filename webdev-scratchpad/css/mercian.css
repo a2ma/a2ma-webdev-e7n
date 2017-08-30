@@ -1,0 +1,44 @@
+h1 {
+    background: #660005;
+    font-size: 80px;
+}
+h2 {
+    font-family: Lobster, Monospace;
+    color: black;
+    background: rgb(48, 0, 170);
+    font-size: 60px;
+    border-color: darkgreen;
+    border-width: 10px;
+    border-style: solid;
+}
+h3 {
+    border: 5px purple solid;
+}
+body{
+    background: pink;
+}
+
+.thick-green-border {
+  border-color: green;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 50%;
+}
+.thick-red-border {
+  border-color: red;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 50%;
+}
+.thick-blue-border {
+  border-color: blue;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 50%;
+}
+
+/*font size can be pixels or relative, with em*/
+/*font weight: bold, for example, or maybe 100-800 in 100-increments*/
+/*line height: spacing between lines*/
+/*text align: center, e.g.*/
+/*text-decoration - underline, strikethrough, line above*/

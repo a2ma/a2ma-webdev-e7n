@@ -1,0 +1,100 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#logo{
+  opacity: 1;
+  width: 50%;
+  height: auto;
+}
+
+body{
+  margin: 0;
+  font-family: 'Alice', serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+#content{
+  color: #B4252D;
+  text-align: center;
+  text-shadow: 0px 8px 6px rgba(0,0,0,0.4),
+                 0px 16px 26px rgba(0,0,0,0.2),
+                 0px 36px 46px rgba(0,0,0,0.2);
+}
+
+#showcase{
+  background-image: url('../img/landingpage-showcase.jpeg');
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  opacity: .9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+#showcase img {
+  opacity: 1;
+}
+
+#showcase h1{
+  font-size: 50px;
+  line-height: 1.2;
+}
+
+#showcase p{
+  font-size: 20px;
+  font-weight: 800;
+  opacity: 1;
+  color: #631419;
+}
+
+#showcase .button {
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  /*border: #B4252D 1px solid;*/
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  background: #785035;
+}
+
+#showcase .button:hover {
+  background: #572F23;
+  color: #fff;
+}
+
+#section-a {
+  padding: 20px;
+  background: #572F23;
+  color: #fff;
+  text-align: center;
+}
+#section-b {
+  padding: 20px;
+  background: #8C5E3E;
+  color: black;
+  text-align: center;
+}
+#section-c {
+  display: flex;
+}
+
+#section-c div {
+  padding: 20px;
+}
+
+#section-c .box-1, #section-c .box-3 {
+  background: #572F23;
+  color: white;
+}
+
+#section-c .box-2 {
+  background: #785035;
+}

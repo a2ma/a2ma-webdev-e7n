@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <title>Guess the Color!</title>
     <link rel="stylesheet" href="css/colorgame.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
 </head>
 <body>
-   <h1>The Great <span id="colorDisplay">RGB</span> Color Game</h1>
-   
-   <div>
-       <span id="message"></span>
+   <h1>The Great
+   <br> 
+<!--frowned upon as way of line break, but used here temporarily-->
+   <span id="colorDisplay">RGB</span>
+   <br>
+   Color Game</h1>
+   <div id="stripe">
+      <button id="reset">New Colors</button>
+      <span id="message"></span>
+      <button class="mode">Easy</button>
+      <button class="mode selected">Hard</button>
    </div>
     <div id="container">
       <div class="square"></div>

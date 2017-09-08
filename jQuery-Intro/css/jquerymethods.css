@@ -1,0 +1,19 @@
+img {
+    max-height: 600px;
+    max-width: auto;
+}
+
+.correct {
+    color: green;
+    
+}
+
+.wrong {
+    color: red;
+    text-decoration: line-through;
+}
+
+.done {
+    color: grey;
+    text-decoration: line-through;
+}

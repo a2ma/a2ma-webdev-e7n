@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-intro",
+  "homepage": "https://github.com/sanyemaa/a2ma-webdev-e7n",
+  "authors": [
+    "a2ma"
+  ],
+  "description": "a2ma's first experience with bower",
+  "main": "test.js",
+  "keywords": [
+    "a2ma",
+    "bower"
+  ],
+  "license": "MIT",
+  "private": true
+}

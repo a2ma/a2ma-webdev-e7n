@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="lib/test.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/test.css">
+  </head>
+  <body>
+    <h1>jQuery Events Practice</h1>
+     <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello {{yourName}}!</h1>
+    </div>
+
+    <input type="text" id="myInput">
+  <input type="button" id="myButton" value="Show Name">
+
+    <script type="text/javascript">
+       var myButton = document.getElementById('myButton');
+
+        function outputText(){
+              var myInputText = document.getElementById('myInput').value;
+              alert(myInputText);
+        }
+
+        myButton.addEventListener('click', outputText);
+    </script>
+    <hr>
+    <button>Don't Click Here</button>
+    <button>Please, I'm begging you</button>
+    <button>Last warning</button>
+    <div class="padded-div"><input type="text"></div>
+  </body>
+</html>

@@ -78,6 +78,13 @@ function palindromeThree(str){
 
 //insert the last example, the most efficient one, below:
 
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
 // ##############################################################################################
 // Find Word Length, Return length of longest word
 // //First Try
@@ -264,4 +271,90 @@ function titleCase(str) {
 
 titleCase("i'm a little tea pot");
 
-//2017-09-26: REVIEW solutions on freecodecamp; also go back and look at last solution to the palindrome problem
+Review attempt:
+//function titleCase(str) {
+//  var words = str.toLowerCase().split(" ");
+//  for(var i = 0; i < words.length; i++){
+//    var eachWord = words[i];
+//    var lttrs = eachWord.split('');
+//    lttrs[0] = lttrs[0].toUpperCase();
+//    words[i] = lttrs.join('');
+//  }
+//  return words.join(" ");
+//}
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX2017-09-26: REVIEW solutions on freecodecamp; also go back and look at last solution to the palindrome problem
+
+//2017-09-30
+//FCCamp "Basic" solution for TitleCase problem:
+String.prototype.replaceAt = function(index, character) {
+    return this.substr(0, index) + character + this.substr(index+character.length);
+};
+
+
+function titleCase(str) {
+    var newTitle = str.split(' ');
+    var updatedTitle = [];
+    for (var st in newTitle) {
+        updatedTitle[st] = newTitle[st].toLowerCase().replaceAt(0, newTitle[st].charAt(0).toUpperCase());
+    }
+    return updatedTitle.join(' ');
+}
+
+
+//Intermediate Solution on FCCamp
+function titleCase(str) {
+  var convertToArray = str.toLowerCase().split(" ");
+  var result = convertToArray.map(function(val){
+      return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+  });
+  return result.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+
+//Advanced solution:
+function titleCase(str) {
+  return str.toLowerCase().replace(/(^|\s)\S/g, (L) => L.toUpperCase());
+}
+
+//the regex searches from the beginning of the string (^) for a non-whitespace character (\S) that comes only after a whitespace (\s), and the search is global. 
+
+// ##############################################################################################
+
+//Retrieve Largest Numbers from two dimensional Array
+//first Try
+function largestOfFour(arr) {
+  var maxNumArr = [];
+  var maxNum = 0;
+  for(var i = 0; i< arr.length; i++){
+    for(var j = 0; j < arr[i].length; j++){
+      if(arr[i][j] > maxNum){
+        maxNum = arr[i][j];
+      }
+    }
+    maxNumArr.push(maxNum);
+    maxNum = 0; //this shouldn't necessarily be set to zero here; could be reset to arr[i][0] at each round above
+  }
+  return maxNumArr;
+}
+
+//Second try
+function largestOfFour(arr) {
+  var maxNumArr = [];
+  var maxNum = 0;
+  for(var i = 0; i< arr.length; i++){
+    for(var j = 0; j < arr[i].length; j++){
+        maxNum = arr[i][0];
+      if(arr[i][j] > maxNum){
+        maxNum = arr[i][j];
+      }
+    }
+    maxNumArr.push(maxNum);
+  }
+  return maxNumArr;
+}
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXgo back and check intermediate and advanced solutions later
+// ##############################################################################################
+

@@ -1,0 +1,12 @@
+<% include partials/header%>
+<h1>Welcome, <%= username %></h1>
+
+<% if(username.toLowerCase() === "a2ma"){ %>
+    <p>You have administrator privileges.</p>   
+<% }else{ %>
+    <p>You are not an administrator.</p>
+<% } %>
+
+<h1>A message from welcome.ejs</h1>
+<% include partials/footer%>
+

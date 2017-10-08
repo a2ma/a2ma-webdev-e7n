@@ -7,33 +7,40 @@ console.log('Hello from the Express App!');
 //Routes
 //=====================================================
 
-app.get("/", function(req, res){
-   res.send("Hello. Welcome to my assignment."); 
+app.get("/", function (req, res) {
+    res.send("Hello. Welcome to my assignment."); 
 });
 
 app.get("/speak/:pet", function(req, res){
-    var animal = req.params.pet;
-    if(animal === 'dog'){
-        res.send("The " + animal + " says woof!");
-        console.log("DOG!");
-    }else if(animal === 'cat'){
-        res.send("The " + animal + " says meow!");
-        console.log("CAT!");
-    }else if(animal === 'pig'){
-        res.send("The " + animal + " says oink!");
-        console.log("PIG!");
+    var sounds = {
+        pig: "Oink",
+        dog: "Woof",
+        cat: "Meow",
+        goldfish: "..."
     }
+    var animal = req.params.pet.toLowerCase;
+    var sound = sounds[animal];
+//    if(animal === 'dog'){
+//        sound = "woof!";
+//    }else if(animal === 'cat'){
+//        sound = "meow!";
+//    }else if(animal === 'pig'){
+//        sound = "oink!"
+//    }
+    
+    res.send("The " + animal + " says " + sound + "!");
 });
 
-app.get("/repeat/:word/:number", function(req, res){
-    var count = parseInt(req.params.number, 10);
+app.get("/repeat/:word/:times", function(req, res){
+    var count = parseInt(req.params.times, 10); //or Number(req.params.times)
     console.log(count);
     var word = req.params.word;
     console.log(word);
+    var repeat = []; //don't have to use an array, can just use a string and then concatenate each time, with the addition of a space
     for(var i = 0; i < count; i++){
-        res.send(word);
+        repeat.push(word)
     }
-    
+        res.send(repeat.join(" "));
     
 //    while(count>0){
 //        res.send(word);

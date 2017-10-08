@@ -11,5 +11,8 @@
     "bower"
   ],
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "angular": "^1.6.6"
+  }
 }

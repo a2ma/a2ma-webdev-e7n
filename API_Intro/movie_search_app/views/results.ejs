@@ -1,0 +1,15 @@
+<h1>Movies</h1>
+
+<ul>
+<% parsedData["Search"].forEach(function(movie){ %>
+    <li>
+        <em>
+            <%= movie["Title"] %>
+        </em>
+        (<%= movie["Year"] %>)
+    </li>
+<% }); %>
+</ul>
+
+<a href="/"><button>Back</button></a>
+<form action="/"><button>Return</button></form>

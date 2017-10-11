@@ -13,3 +13,8 @@
 * how to include public assets in code
 * how to properly configure app for EJS
 * how to use partials to clean up code
+
+# Post requests
+* write post routes, send them to postman
+* use a form to send post request
+* use body parser to get form data

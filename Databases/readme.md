@@ -9,3 +9,5 @@
     * non-SQL - not "flat", in objects that can have nested inner layers, written in "BJSON"--Binary JS Object Notation.
     
 # Intro to MongoDB
+* Installation
+* Basic commands and instructions

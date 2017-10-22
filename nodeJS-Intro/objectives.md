@@ -1,5 +1,5 @@
 # Intro to Node
 
 * What is node?
-*Why are we learning it?
+* Why are we learning it?
 *

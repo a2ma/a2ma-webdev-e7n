@@ -1,4 +1,5 @@
 var express    = require("express"),
+    methodOverride = require("method-override"),
     bodyParser = require("body-parser"),
     mongoose   = require("mongoose"),
     app        = express();
@@ -7,9 +8,10 @@ var express    = require("express"),
 //APP CONFIG
 mongoose.connect("mongodb://localhost/restful_blog_app", {useMongoClient: true});
 mongoose.Promise = global.Promise;
+app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-app.set("view engine", "ejs");
+app.use(methodOverride("_method"));
 
 //MONGOOSE SCHEMA/MODEL CONFIG
 var blogSchema = new mongoose.Schema({
@@ -59,6 +61,45 @@ app.post("/blogs", function(req, res){
         }else{
             //redirect to index
             res.redirect("/blogs");
+        }
+    });
+});
+
+//SHOW route
+app.get("/blogs/:id", function(req, res){
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err){
+            res.redirect("/blogs");
+            console.log("Error. Unable to process request.");
+            console.log(err);
+        }else{
+            res.render("show", {blog: foundBlog});
+        }
+    });
+});
+
+app.get("/blogs/:id/edit", function(req, res){
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err){
+            res.redirect("/blogs");
+            console.log("Error. Unable to process request.");
+            console.log(err);
+        }else{
+            res.render("edit", {blog: foundBlog});
+        }
+    });
+
+});
+
+app.put("/blogs/:id", function(req, res){
+    console.log(req);
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
+        if(err){
+            res.redirect("/blogs");
+            console.log("Error. Unable to process request.");
+            console.log(err);
+        }else{
+            res.redirect("/blogs/"+ req.params.id);
         }
     });
 });

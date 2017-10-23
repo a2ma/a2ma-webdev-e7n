@@ -15,3 +15,17 @@
 * Add NEW template
 * Add CREATE route
 * Add NEW template
+
+# SHOWtime
+* Add SHOW route
+* Add SHOW template
+* Link to SHOW template
+* Style SHOW template
+
+
+# Edit/Update
+* Add Edit route
+* Add Edit form
+* Add update route
+* Add update form
+* Add method-override

@@ -3,6 +3,9 @@
 Mostly from freecodecamp
 *A2MA - 2017-09-06
 */
+// ##############################################################################################
+//FACTORIALIZE
+// ##############################################################################################
 
 console.log("Houston, we have a connection.");
 
@@ -21,6 +24,8 @@ function factorialize(num) {
 //var numfactorial = factorialize(num);
 //alert("The factorial of " + num + " = " + numfactorial);
 
+// ##############################################################################################
+//PALINDROME
 // ##############################################################################################
 
 // function palindromeTest(str){
@@ -45,10 +50,10 @@ function palindromeOne(str) {
 // console.log(palindromeOne("race car"));
 // console.log(palindromeOne("_eye"));
 
-//this version of the palindromeChecker is more efficient, since it compares first letter by last letter--that 
-//means it only has to check half--and
-//detects a failure as early as possible, after which it reports the failure without needlessly checking
-//subsequent letters
+//this version of the palindromeChecker is more efficient, since it 
+//compares first letter by last letter--that means it only has to check half--and
+//detects a failure as early as possible, after which it reports the failure
+//without needlessly checking subsequent letters
 function palindromeTwo(str){
     str = str.toLowerCase().replace(/[\W_]/g, '');
     console.log(str);
@@ -86,7 +91,9 @@ function palindromeThree(str){
 
 
 // ##############################################################################################
-// Find Word Length, Return length of longest word
+// Find WORD LENGTH, Return length of longest word
+// ##############################################################################################
+
 // //First Try
 // function findLongestWord(str) {
 //   strarray = str.split(" ");
@@ -200,7 +207,9 @@ function findLongestRecursion(str){
 
 
 // ##############################################################################################
-//Title Case A Sentence:
+//TitleCase A Sentence:
+// ##############################################################################################
+
 //First Try:
 // function titleCase(str) {
 //   var words = str.split(" ");
@@ -271,7 +280,7 @@ function titleCase(str) {
 
 titleCase("i'm a little tea pot");
 
-Review attempt:
+//Review attempt:
 //function titleCase(str) {
 //  var words = str.toLowerCase().split(" ");
 //  for(var i = 0; i < words.length; i++){
@@ -282,8 +291,6 @@ Review attempt:
 //  }
 //  return words.join(" ");
 //}
-
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX2017-09-26: REVIEW solutions on freecodecamp; also go back and look at last solution to the palindrome problem
 
 //2017-09-30
 //FCCamp "Basic" solution for TitleCase problem:
@@ -321,8 +328,9 @@ function titleCase(str) {
 //the regex searches from the beginning of the string (^) for a non-whitespace character (\S) that comes only after a whitespace (\s), and the search is global. 
 
 // ##############################################################################################
-
 //Retrieve Largest Numbers from two dimensional Array
+// ##############################################################################################
+
 //first Try
 function largestOfFour(arr) {
   var maxNumArr = [];
@@ -355,6 +363,69 @@ function largestOfFour(arr) {
   return maxNumArr;
 }
 
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXgo back and check intermediate and advanced solutions later
 // ##############################################################################################
+//CONFIRM ENDING
+// ##############################################################################################
+//My Solution
+function confirmEnding(str, target) {
+  var x = target.length;
+  if(str.substr(str.length-x, x) === target){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+console.log(confirmEnding("Bastian", "n"));
+
+//https://forum.freecodecamp.org/t/freecodecamp-algorithm-challenge-guide-confirm-the-ending/16006
+//[See confirmEnding solutions at link above]
+
+// ##############################################################################################
+//REPEAT STRING
+// ##############################################################################################
+
+function repeatStringNumTimes(str, num) {
+  var originalStr = str;
+  var count = num -1;
+  if(num > 0){
+    while(count > 0){
+      str += originalStr;
+      count --;
+    }
+  }else{
+    str = "";
+  }
+  return str;
+}
+
+repeatStringNumTimes("abc", 3);
+
+
+// ##############################################################################################
+//TRUNCATE STRING
+// ##############################################################################################
+//A2MA - first succesful effort
+function truncateString(str, num) {
+  var truncStr = str;
+  if(str.length > num){
+    if(num > 3){
+      truncStr = str.slice(0, str.length - (str.length - (num - 3))) +
+        "...";
+    }else{
+      truncStr = str.slice(0, str.length - (str.length - num)) +
+        "...";
+    }
+  }
+  return truncStr;
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 11);
+
+//FCCamp solutions @ https://forum.freecodecamp.org/t/freecodecamp-algorithm-challenge-guide-truncate-a-string/16089
+
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX go back and check intermediate and advanced largestNumber solutions later
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 2017-09-26: REVIEW solutions on freecodecamp; also go back and look at last palindrome solution
+
+
 

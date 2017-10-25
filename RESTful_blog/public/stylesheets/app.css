@@ -11,3 +11,12 @@ i.icon{
 #page-content{
     margin-top: 7.0em;
 }
+
+#mushroom{
+    margin: 20px auto;
+    width: 50%;
+}
+
+#delete{
+    display: inline;
+}

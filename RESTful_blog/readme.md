@@ -29,3 +29,7 @@
 * Add update route
 * Add update form
 * Add method-override
+
+# Destroy
+* Add destroy route
+* Add edit & destroy buttons

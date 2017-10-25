@@ -65,7 +65,7 @@ app.post("/blogs", function(req, res){
     });
 });
 
-//SHOW route
+//SHOW ROUTE
 app.get("/blogs/:id", function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
         if(err){
@@ -78,6 +78,7 @@ app.get("/blogs/:id", function(req, res){
     });
 });
 
+//Edit
 app.get("/blogs/:id/edit", function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
         if(err){
@@ -91,6 +92,8 @@ app.get("/blogs/:id/edit", function(req, res){
 
 });
 
+
+//UPDATE ROUTE
 app.put("/blogs/:id", function(req, res){
     console.log(req);
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
@@ -100,6 +103,19 @@ app.put("/blogs/:id", function(req, res){
             console.log(err);
         }else{
             res.redirect("/blogs/"+ req.params.id);
+        }
+    });
+});
+
+//DESTROY ROUTE
+app.delete("/blogs/:id", function(req, res){
+    Blog.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/blogs");
+            console.log("Error. Unable to process request.");
+            console.log(err);
+        }else{
+            res.render("vishnu");
         }
     });
 });

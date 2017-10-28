@@ -1,7 +1,8 @@
-var express    = require("express"),
+var bodyParser = require("body-parser"),
     methodOverride = require("method-override"),
-    bodyParser = require("body-parser"),
+    expressSanitizer = require("express-sanitizer"),
     mongoose   = require("mongoose"),
+    express    = require("express"),
     app        = express();
 
 
@@ -11,6 +12,7 @@ mongoose.Promise = global.Promise;
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+app.use(expressSanitizer()); //must come after body-parser
 app.use(methodOverride("_method"));
 
 //MONGOOSE SCHEMA/MODEL CONFIG
@@ -95,7 +97,8 @@ app.get("/blogs/:id/edit", function(req, res){
 
 //UPDATE ROUTE
 app.put("/blogs/:id", function(req, res){
-    console.log(req);
+    req.body.blog.body = req.sanitize(req.body.blog.body); //could be converted to middleware that is referenced here and elsewhere
+    //putting this here will work for CREATE too -- ?
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
         if(err){
             res.redirect("/blogs");

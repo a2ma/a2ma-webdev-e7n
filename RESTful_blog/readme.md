@@ -33,3 +33,8 @@
 # Destroy
 * Add destroy route
 * Add edit & destroy buttons
+
+# Finishing Touches
+* Sanitize input in blog body
+* style the index
+* update REST table

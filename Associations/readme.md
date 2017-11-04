@@ -5,5 +5,7 @@
 * Types: one-one, one-many, many-many
 
 ## Embedding Data
+* User
+* Post
 
 ## Referencing

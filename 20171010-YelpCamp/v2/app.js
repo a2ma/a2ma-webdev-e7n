@@ -3,7 +3,7 @@ var express    = require("express"),
     bodyParser = require("body-parser"),
     mongoose   = require("mongoose");
 
-mongoose.connect("mongodb://localhost/yelp_camp", {useMongoClient: true});
+mongoose.connect("mongodb://localhost/yelp_camp_v2", {useMongoClient: true});
 
 mongoose.Promise = global.Promise;
 

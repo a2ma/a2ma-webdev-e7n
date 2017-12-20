@@ -8,4 +8,8 @@
 * User
 * Post
 
-## Referencing
+## Referencing Data
+
+## Module.Exports
+* Introduce module.exports
+* move models into separate files

@@ -405,6 +405,7 @@ repeatStringNumTimes("abc", 3);
 // ##############################################################################################
 //TRUNCATE STRING
 // ##############################################################################################
+
 //A2MA - first succesful effort
 function truncateString(str, num) {
   var truncStr = str;
@@ -427,5 +428,43 @@ truncateString("A-tisket a-tasket A green and yellow basket", 11);
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX go back and check intermediate and advanced largestNumber solutions later
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 2017-09-26: REVIEW solutions on freecodecamp; also go back and look at last palindrome solution
 
+// ##############################################################################################
+//SPLIT ARRAY INTO 2D ARRAY
+//2017-12-07
+// ##############################################################################################
 
+//attempt 0.1
+//function chunkArrayInGroups(arr, chunkSize){
+//    arrSliced = [];
+//    for(var i = 0; i < arr.length; i + chunkSize){
+//        arrSliced.push(arr.slice(i, chunkSize));
+//    }
+//    
+//    return arrSliced;
+//}
+
+//FCC says: potential infinite loop. I had some confusion with the loop, with i, and with the start and end of the slice function.
+
+//Final: 
+function chunkArrayInGroups(arr, chunkSize){
+  arr2 = [];  
+  var start = 0;
+  var end = 0;
+  for(var i = 0; i < arr.length; i += chunkSize){
+    end += chunkSize;
+    miniArr = arr.slice(start, end); 
+    arr2.push(miniArr);
+    start += chunkSize;
+  }
+    
+  return arr2;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3);
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2);
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4);
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3);
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4);
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2); 
 

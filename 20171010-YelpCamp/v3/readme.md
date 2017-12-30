@@ -49,3 +49,7 @@ SHOW  | /x/:id | GET
 # Seeds
 * add a seeds.js file
 * require seeds file every time the server starts
+
+# Add Comment Model
+* Make error go away
+* display comments on campgrounds show page

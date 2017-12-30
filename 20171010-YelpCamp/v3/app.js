@@ -2,10 +2,9 @@ var express    = require("express"),
     app        = express(),
     bodyParser = require("body-parser"),
     mongoose   = require("mongoose"),
-    Campground = require("./models/campground.js"),
+    Campground = require("./models/campground"),
     seedDB     = require("./seeds");
 
-seedDB();
 
 mongoose.connect("mongodb://localhost/yelp_camp_v3", {useMongoClient: true});
 
@@ -15,22 +14,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.set("view engine", "ejs");
 
+seedDB();
+
 //Schema setup now in ./models/campground.js
 
-
-//Campground.create({
-//    name: "Salmon Creek", 
-//    image: "https://www.nps.gov/brca/planyourvisit/images/camper-tent_001.jpg",
-//    description: "This is a charming locale, guaranteed to give you that authentic outdoors experience you need to unwind and connect with nature!"
-//}, function(err, newCamp){
-//    if(err){
-//        console.log("An error has occurred.")
-//        console.log(err);
-//    }else{
-//        console.log("New campground added.");
-//        console.log(newCamp);
-//    }
-//});
+//Seed code now in seeds.js
 
 //INDEX - show homepage
 app.get("/", function(req, res){
@@ -78,10 +66,11 @@ app.get("/campgrounds/new", function(req, res){
 //SHOW - shows more info about specified campground
 app.get("/campgrounds/:id", function(req, res){
     //find campground with requested ID
-    Campground.findById(req.params.id, function(err, foundCampground){
+    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
         if(err){
             console.log(err);
         }else{
+            console.log(foundCampground);
             //render template with requested campground
             res.render("show", {campground: foundCampground});
         }
@@ -142,3 +131,17 @@ app.listen(3000, function(){
 //    {name: "Grand Canyon National Park", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Fairy_Meadows_Camping.jpg/640px-Fairy_Meadows_Camping.jpg"},
 //    {name: "Death Valley National Park", image: "https://www.nps.gov/havo/planyourvisit/images/Namakanipaio_960.jpg"},
 //]
+
+//Campground.create({
+//    name: "Salmon Creek", 
+//    image: "https://www.nps.gov/brca/planyourvisit/images/camper-tent_001.jpg",
+//    description: "This is a charming locale, guaranteed to give you that authentic outdoors experience you need to unwind and connect with nature!"
+//}, function(err, newCamp){
+//    if(err){
+//        console.log("An error has occurred.")
+//        console.log(err);
+//    }else{
+//        console.log("New campground added.");
+//        console.log(newCamp);
+//    }
+//});

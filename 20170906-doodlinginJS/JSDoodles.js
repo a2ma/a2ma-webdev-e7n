@@ -468,3 +468,28 @@ chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3);
 chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4);
 chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2); 
 
+
+// ##############################################################################################
+//COMPARE FIRST TWO STRINGS IN AN ARRAY
+//2018-01-01
+// ##############################################################################################
+
+function mutation(arr) {
+  var match = true;
+  var first = arr[0].toLowerCase();
+  var second = arr[1].toLowerCase();
+  
+  for(var i = 0; i < second.length; i++){
+    var result = first.indexOf(second[i]);
+    if(result != -1){
+      match = true;
+    }else{
+      match = false;
+      break;
+    }
+  }
+  return match;
+}
+
+mutation(["hello", "hey"]);
+

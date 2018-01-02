@@ -5,18 +5,18 @@ var Comment = require("./models/comment");
 var data = [
     {
         name: "Cloud's Rest",
-        image: "https://c.pxhere.com/photos/db/a6/zugspitze_glacier_garmisch_outdoor_snow_silent_view_holiday-566245.jpg!d",
-        description: "The clouds come here to rest their weary wings. Come rest with them."
+        image: "http://www.weatherwizkids.com/wp-content/uploads/2015/02/cirrus1.jpg",
+        description: "The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them. The clouds come here to rest their weary wings. Come rest with them."
     },
     {
         name: "Hunter's Retreat",
-        image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Barns_grand_tetons.jpg",
-        description: "When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat."
+        image: "http://www.weatherwizkids.com/wp-content/uploads/2015/02/cirrus1.jpg",
+        description: "When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat. When the hounds grow weary, let them frolic by the creeks at Hunter's Retreat."
     },
     {
         name: "Salmon Creek",
-        image: "https://www.nps.gov/brca/planyourvisit/images/camper-tent_001.jpg",
-        description: "Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn."
+        image: "http://www.weatherwizkids.com/wp-content/uploads/2015/02/cirrus1.jpg",
+        description: "Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn. Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn. Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn. Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn. Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn. Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn. Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn. Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn. Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn. Catch a salmon, but be wise--and canny, lest some bear come by and catch you, for a turn."
     }
 ];
 

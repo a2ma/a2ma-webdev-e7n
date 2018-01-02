@@ -58,3 +58,7 @@ SHOW  | /x/:id | GET
 * Discuss nested routes
 * Add comment new and create routes
 * Add new comment form
+
+# Style the Show Page
+* Add sidebar to show page
+* Display comments nicely

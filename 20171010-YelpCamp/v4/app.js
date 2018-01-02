@@ -11,6 +11,7 @@ mongoose.connect("mongodb://localhost/yelp_camp_v4", {useMongoClient: true});
 mongoose.Promise = global.Promise;
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 seedDB();
 
 //Schema setup now in ./models/campground.js

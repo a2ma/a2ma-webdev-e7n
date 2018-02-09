@@ -526,3 +526,130 @@ function bouncer2(arr) {
 //bouncer([false, null, 0, NaN, undefined, ""]) should return [].
 //bouncer([1, null, NaN, 2, undefined]) should return [1, 2]. 
 
+
+// ##############################################################################################
+//Filter certain Values from Array
+// ##############################################################################################
+
+function destroyer(arr) {
+  // Remove all the values
+  var rawArr = arguments[0];
+  console.log(arguments);
+//   console.log(arg1);
+//   console.log(arg2);
+  var filtArr = rawArr;
+  
+  for(var i = 1; i < arguments.length; i++){
+    filtArr = filtArr.filter(element => element != arguments[i]);
+  }
+  
+  console.log(filtArr);
+  console.log(rawArr);
+  return filtArr;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+
+
+// ##############################################################################################
+//Find Place of Value in Array
+// ##############################################################################################
+function getIndexToIns(arr, num) {
+  // Find my place in this sorted array.
+  
+  var placement;
+  
+  arr.sort(function(a, b){
+    return a-b;
+  });
+  
+  
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] - num >= 0){
+      placement = i;
+      break;
+    }
+    placement = i + 1;
+  }
+  
+  return placement;
+}
+
+getIndexToIns([40, 60], 50);
+
+
+// ##############################################################################################
+//Binary Search Implementation in JavaScript
+// ##############################################################################################
+/* Returns either the index of the location in the array,
+  or -1 if the array did not contain the targetValue */
+
+/* var doSearch = function(array, targetValue) {
+	var min = 0;
+	var max = array.length - 1;
+    var guess = -1;
+    
+    while(max >= min){
+        guess = Math.floor((min + max) / 2);
+        println(max);
+        println(min);
+        // println(guess);
+        // println(array[guess]);
+        if(array[guess] === targetValue){
+            min = guess + 1;
+        }else if(array[guess] < targetValue){
+            min = guess + 1;
+        }else{
+            max = guess - 1;
+        }
+    }
+
+	return guess;
+}; */
+
+var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 
+		41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+
+var result = doSearch(primes, 73);
+println("Found prime at index " + result);
+
+Program.assertEqual(doSearch(primes, 73), 20);
+
+
+/* Returns either the index of the location in the array,
+  or -1 if the array did not contain the targetValue */
+
+var doSearch = function(array, targetValue) {
+	var min = 0;
+	var max = array.length - 1;
+    var guess = -1;
+    
+    while(max >= min){
+        guess = Math.floor((min + max) / 2);
+        println(max);
+        println(min);
+        // println(guess);
+        // println(array[guess]);
+        if(array[guess] === targetValue){
+            return guess;
+        }else if(array[guess] < targetValue){
+            min = guess + 1;
+        }else{
+            max = guess - 1;
+        }
+    }
+
+	return -1;
+};
+
+var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 
+		41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+
+var result = doSearch(primes, 73);
+println("Found prime at index " + result);
+
+Program.assertEqual(doSearch(primes, 73), 20);
+
+
+

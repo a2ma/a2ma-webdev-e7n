@@ -105,7 +105,27 @@ SHOW  | /x/:id | GET
 * fix $set problem
 
 # Deleting Campgrounds
+* Add destroy route
+* Add delete button
 
-# Authorization
+# Authorization pt. 1 - Campgrounds
+* User can edit only his/her campgrounds
+* User can delete only his/her campgrounds
+* Hide/Show edit/delete buttons based on authorization level
+
+# Editing Comments
+* Add edit route for comments
+* Add edit button
+* Add update button
+
+# Delete Comments
+* Add destroy route
+* add destroy button
+
+# Authorization pt. 2 - Comments
+* User can edit only his/her comments
+* User can delete only his/her comments
+* Hide/show edit/delete buttons based on authorization
+* refactor the middleware
 
 # Refactoring Middleware

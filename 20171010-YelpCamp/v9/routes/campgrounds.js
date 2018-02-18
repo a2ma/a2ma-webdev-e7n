@@ -53,7 +53,7 @@ router.get("/:id", function(req, res){
         if(err){
             console.log(err);
         }else{
-            console.log(foundCampground);
+            // console.log(foundCampground);
             //render template with requested campground
             res.render("campgrounds/show", {campground: foundCampground});
         }
@@ -61,14 +61,14 @@ router.get("/:id", function(req, res){
 });
 
 //EDIT CAMPGROUND ROUTE
-router.get("/:id/edit", isAuthorized, function(req, res){
+router.get("/:id/edit", isAuthorizedCampground, function(req, res){
     Campground.findById(req.params.id, function(err, foundCampground){
         res.render("campgrounds/edit", {campground: foundCampground});
     });
 });
 
 //UPDATE CAMPGROUND ROUTE
-router.put("/:id", isAuthorized, function(req, res){
+router.put("/:id", isAuthorizedCampground, function(req, res){
     //find and update the correct campground
     Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground){
        if(err){
@@ -82,7 +82,7 @@ router.put("/:id", isAuthorized, function(req, res){
 });
 
 //DESTROY CAMPGROUND ROUTE
-router.delete("/:id", isLoggedIn, isAuthorized, function(req, res){
+router.delete("/:id", isLoggedIn, isAuthorizedCampground, function(req, res){
     Campground.findByIdAndRemove(req.params.id, function(err){
         if(err){
             res.redirect('/campgrounds');
@@ -101,7 +101,7 @@ function isLoggedIn(req, res, next){
     res.redirect("/login");
 };
 
-function isAuthorized(req, res, next){
+function isAuthorizedCampground(req, res, next){
     //check if user logged in
     if(req.isAuthenticated()){
         Campground.findById(req.params.id, function(err, foundCampground){
@@ -113,6 +113,7 @@ function isAuthorized(req, res, next){
                 // console.log("req.user._id - " + req.user._id); //string
                 // if(foundCampground.author.id === req.user._id) //can't use this because the two comparees are of different types
                 //can however use a method in mongoose
+                //checking here if user owns campground
                 if(foundCampground.author.id.equals(req.user._id)){
                     next();
                 }else{
@@ -120,7 +121,7 @@ function isAuthorized(req, res, next){
                     res.redirect("back");
                 }
             }
-            });
+        });
     }else{
         console.log("Error. Log in to attempt that operation.")
         // res.send("Error. Log in to attempt that operation.")

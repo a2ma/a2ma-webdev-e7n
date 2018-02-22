@@ -10,6 +10,7 @@ middlewareObj.isAuthorizedCampground = function(req, res, next){
     if(req.isAuthenticated()){
         Campground.findById(req.params.id, function(err, foundCampground){
             if(err){
+                req.flash("error", "An error occured. Please try again later or contact an administrator.");
                 res.redirect("back");
             } else{
                 //check if user owns the campground post      
@@ -21,14 +22,14 @@ middlewareObj.isAuthorizedCampground = function(req, res, next){
                 if(foundCampground.author.id.equals(req.user._id)){
                     next();
                 }else{
-                    // res.send("You do not have permission to carry out the requested operation.");
+                    req.flash("error", "You do not have permission to carry out the requested operation.");
                     res.redirect("back");
                 }
             }
         });
     }else{
-        console.log("Error. Log in to attempt that operation.")
-        // res.send("Error. Log in to attempt that operation.")
+        req.flash("error", "Log in to do that!");
+        console.log("Error. Please log in to attempt that operation.");
         res.redirect("back");
     }
 }
@@ -38,20 +39,20 @@ middlewareObj.isAuthorizedComment = function(req, res, next){
     if(req.isAuthenticated()){
         Comment.findById(req.params.comment_id, function(err, foundComment){
             if(err){
+                req.flash("error", "An error occured. Please try again later or contact an administrator.");                
                 res.redirect("back");
             } else{
                 //does user own comment?
                 if(foundComment.author.id.equals(req.user._id)){
                     next();
                 }else{
-                    // res.send("You do not have permission to carry out the requested operation.");
+                    req.flash("error", "You do not have permission to carry out the requested operation.");                    
                     res.redirect("back");
                 }
             }
             });
     }else{
-        console.log("Error. Log in to attempt that operation.")
-        // res.send("Error. Log in to attempt that operation.")
+        console.log("Error. Log in to attempt that operation.");
         res.redirect("back");
     }
 }
@@ -61,6 +62,7 @@ middlewareObj.isLoggedIn = function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
+    req.flash("error", "Please log in to do that.");
     res.redirect("/login");
 };
 

@@ -64,6 +64,10 @@ router.get("/:id", function(req, res){
 //EDIT CAMPGROUND ROUTE
 router.get("/:id/edit", middleware.isAuthorizedCampground, function(req, res){
     Campground.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            req.flash("error", "Requested item not found.");
+            res.redirect("back");
+        }
         res.render("campgrounds/edit", {campground: foundCampground});
     });
 });

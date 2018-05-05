@@ -58,12 +58,16 @@ function reset(){
     h1.style.background = "steelblue";
     resetButton.textContent = "New Colors";
     messageDisplay.textContent = "";
+    
     //get new colors
     colors = generateRandomColors(numSquares);
+    
     //pick the answer
     pickedColor = pickColor();
+    
     //change colorDisplay
     colorDisplay.textContent = pickedColor;
+    
     //color the squares with new colors
     for (var i = 0; i < squares.length; i++){
       if(colors[i]){
@@ -92,11 +96,13 @@ function pickColor(){
 function generateRandomColors(num){
     //build an array
     var colorArray = [];
+    
     //fill the array with randomly generated colors (RGB)
     for (var i = 0; i < num; i++){
         //get random RGB color and push into array
         colorArray.push(randomColor());
     }
+    
     //return array
     return colorArray;
 };

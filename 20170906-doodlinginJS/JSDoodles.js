@@ -652,4 +652,48 @@ println("Found prime at index " + result);
 Program.assertEqual(doSearch(primes, 73), 20);
 
 
+// ##############################################################################################
+//Deciphering a message encoded by the Caesar cipher
+// ##############################################################################################
 
+function rot13(str) { // LBH QVQ VG!
+  var original = [];
+  for(var i = 0; i < str.length; i++){
+    if(str.charCodeAt(i) > 65 && str.charCodeAt(i) < 90){
+//     var test = "Z";
+//     console.log(test.charCodeAt(0));
+      var code = str.charCodeAt(i) - 13;
+      original.push(String.fromCharCode(code));
+    }
+  }
+  str2 = original.toString();
+  return str2;
+}
+
+// Change the inputs below to test
+rot13("SERR PBQR PNZC");
+
+FINAL:
+function rot13(str) { // LBH QVQ VG!
+  var original = [];
+  for(var i = 0; i < str.length; i++){
+    if(str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90){
+//     var test = "Z";
+//     console.log(test.charCodeAt(0));
+      var code = str.charCodeAt(i) - 13;
+      if(code < 65){
+        var diff = 65 - code;
+        code = 91 - diff;
+      }
+      original.push(String.fromCharCode(code));
+    }else{
+      original.push(str[i]);
+    }
+  }
+  str2 = original.join("");
+  return str2;
+}
+
+// Change the inputs below to test
+rot13("SERR PBQR PNZC.");
+rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.");

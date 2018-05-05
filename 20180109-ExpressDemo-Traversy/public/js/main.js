@@ -7,8 +7,9 @@ function deleteUser(){
     
     if(confirmation){
         $.ajax({
-           type: 'DELETE',
+            type: 'DELETE',
             url: '/users/delete/'+$(this).data('id')
+            //+$('.deleteUser')
         }).done(function(response){
             window.location.replace('/');
         });

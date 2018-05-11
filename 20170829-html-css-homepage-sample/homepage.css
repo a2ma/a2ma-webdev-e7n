@@ -1,3 +1,9 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: url(https://images.unsplash.com/photo-1500835176302-48dbd01f6437?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=6ebe0893d15a030447ad5f637b48921c);
     background-size: cover;
@@ -8,14 +14,6 @@ body {
 
 html {
     height: 100%;
-}
-
-#content {
-    text-align: center;
-    padding-top: 25%;
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-                 0px 8px 13px rgba(0,0,0,0.2),
-                 0px 18px 23px rgba(0,0,0,0.2);
 }
 
 h1 {
@@ -32,6 +30,44 @@ hr {
 /*    height: 1px;*/
 }
 
-#photo-credit {
-    object-position: bottom;
+
+
+#content {
+    text-align: center;
+    padding-top: 25%;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.2),
+                 0px 18px 23px rgba(0,0,0,0.2);
 }
+
+#vessel{
+    min-height: 100%;
+    position: relative;
+}
+
+#header{
+    padding: 10px;
+}
+
+#body{
+    padding: 10px;
+    padding-bottom: 70px; /*height of footer + comfortable layer */
+}
+
+#footer{
+    /* max-width: 100%; */
+    width: 100%;
+    height: 60px;
+    background: grey;
+    opacity: 0.4;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    font-weight: 800;
+    margin-top: 10px;
+    left: 0;
+}
+
+/* #photo-credit {
+    object-position: bottom;
+} */

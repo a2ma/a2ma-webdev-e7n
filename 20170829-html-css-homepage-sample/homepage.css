@@ -30,7 +30,9 @@ hr {
 /*    height: 1px;*/
 }
 
-
+.form-inline{
+    flex-flow: nowrap;
+}
 
 #content {
     text-align: center;
@@ -71,3 +73,9 @@ hr {
 /* #photo-credit {
     object-position: bottom;
 } */
+
+@media(max-width: 400px){
+    .form-inline{
+        flex-flow: row wrap;
+    }
+}

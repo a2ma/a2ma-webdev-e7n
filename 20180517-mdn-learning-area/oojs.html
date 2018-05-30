@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Guide</title>
+</head>
+
+<body>
+    <h1>OOP JavaScript</h1>
+    <h2>JavaScript Objects</h2>
+    <h3>What is kept in JS Objects?</h3>
+    <p>Object Properties: data stored in an object</p>
+    <p>Object Methods: functions stored in an object</p>
+    <p>An object written out is called an
+        <strong>object literal</strong>. This is different from an object instantiated from a class.</p>
+    <h3>Dot notation</h3>
+    <p>Accessing data in an object with a dot, as in:</p>
+    <ul>
+        <li>person.age</li>
+        <li>person.interests</li>
+        <li>person.bio</li>
+    </ul>
+    <p>Why is dot notation used? To access an object's
+        <strong>namespace</strong> and retrieve the object properties and methods
+        <strong>encapsulated</strong> in the object.</p>
+    <h3>Bracket notation</h3>
+    <p>Brackets can also be used to access object namespaces:</p>
+    <ul>
+        <li>person['age']</li>
+        <li>person['name']['first']</li>
+    </ul>
+    <h3>Setting object members</h3>
+    <p>One can use dot or bracket notation to access a field and update it. A new field can also be created and set by using
+        a new name with dot or bracket notation.</p>
+    <p>Dot notation cannot accept a variable value that points to a name; it has to have a literal member name.</p>
+    <h3>this.&lt;field&gt;</h3>
+    <p>This refers to the object in which code is being written. This allows the same code snippet to be used inside different
+        objects, with no needed change.</p>
+    <h3>Using Objects in JavaScript:</h3>
+    <p>The methods stored in an object are available in an instance.</p>
+    <p>The Document class is an example of this.</p>
+</body>
+<script>
+    //object literal
+    var person = {
+        // name: ['Bob', 'Smith'],
+        name: {
+            first: 'Bob',
+            last: 'Smith'
+        },
+        age: 32,
+        gender: 'male',
+        interests: ['music', 'skiing'],
+        bio: function () {
+            alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+        },
+        greeting: function () {
+            alert('Hi! I\'m ' + this.name[0] + '.');
+        }
+    };
+    var myDataName = 'height';
+    var myDataValue = '1.75m';
+    person[myDataName] = myDataValue;
+</script>
+
+</html>

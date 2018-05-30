@@ -1,21 +1,31 @@
-h1 {
-    background: #660005;
-    font-size: 80px;
+body{
+    font-size: 100%;
+    background: pink;
+
 }
+
+#h1-container {
+    background: #660005;
+    padding-bottom: 5px;
+    padding-left: -2px;
+    padding-right: -2px;
+}
+
+h1{
+    font-size: 8em;
+}
+
 h2 {
     font-family: Lobster, Monospace;
     color: black;
     background: rgb(48, 0, 170);
-    font-size: 60px;
+    font-size: 1.875em;
     border-color: darkgreen;
     border-width: 10px;
     border-style: solid;
 }
 h3 {
     border: 5px purple solid;
-}
-body{
-    background: pink;
 }
 
 .thick-green-border {
@@ -35,6 +45,10 @@ body{
   border-width: 10px;
   border-style: solid;
   border-radius: 50%;
+}
+
+.container-fluid {
+    padding: 5px;
 }
 
 /*font size can be pixels or relative, with em*/

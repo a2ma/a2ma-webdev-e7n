@@ -64,6 +64,47 @@
     var myDataName = 'height';
     var myDataValue = '1.75m';
     person[myDataName] = myDataValue;
+
+    function createNewPerson(name) {
+        var obj = {};
+        obj.name = name;
+        obj.greeting = function () {
+            alert('Hi!, I\'m' + this.name + '.');
+        };
+
+        return obj;
+    }
+    function Person(first, last, age, gender, interests) {
+        this.name = {
+            'first': first,
+            'last': last
+        };
+        this.age = age;
+        this.gender = gender;
+        var string = this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old.';
+        this.interests = interests;
+        this.bio = function () {
+            var pronoun = '';
+            if (gender === 'Male' || gender === 'M' || gender === 'male' || gender === 'm') {
+                pronoun = 'he'
+            } else {
+                pronoun = 'she'
+            }
+            string += pronoun + 'likes';
+
+            for (var i = 0; i < this.interests; i++) {
+                if (i === this.interests.length - 1) {
+                    string += 'and ' + this.interests[i] + '.';
+                }else{
+                    string += this.interests[i] + ', ';
+                }
+            };
+            alert(string);
+        };
+        this.greeting = function () {
+            alert('Hi! I\'m ' + this.name.first + '.');
+        };
+    }
 </script>
 
 </html>

@@ -23,9 +23,14 @@ $("input[type='text']").keypress(function(event){
     }
 });
 
-$(".fa-pencil-square-o").click(function(){
+// with font-awesome 5: use
+$("#toggle-form").click(function(){
     $("input[type='text']").fadeToggle();
 });
+
+// $(".fa-pencil-square-o").click(function(){
+//     $("input[type='text']").fadeToggle();
+// });
 
 
 //When an li is clicked, turns grey and crossed out

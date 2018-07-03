@@ -1,44 +1,47 @@
 console.log("CONNECTED");
 var todos = [];
 var input;
-actionMenu();
 
-while(input.toLowerCase() != "quit"){
-  if(input.toLowerCase() === "add"){
-      listAdd();
-  }else if(input.toLowerCase() === "list"){
-      listToDos();
-  }else if(input.toLowerCase() === "delete"){
-      listDelete();
-  }
-  actionMenu();
-}
-console.log("Program terminated");
-alert("Program sucessfully terminated.");
+window.setTimeout(function () {
+    actionMenu();
+
+    while (input.toLowerCase() != "quit") {
+        if (input.toLowerCase() === "add") {
+            listAdd();
+        } else if (input.toLowerCase() === "list") {
+            listToDos();
+        } else if (input.toLowerCase() === "delete") {
+            listDelete();
+        }
+        actionMenu();
+    }
+    console.log("Program terminated");
+    alert("Program sucessfully terminated.");
+}, 500);
 
 //seems to me that functions should be defined above the code, even if below works.
-function listToDos(){
+function listToDos() {
     console.log("*********");
-    todos.forEach(function(todo, i){
-      console.log((i+1) + ": " + todo);
+    todos.forEach(function (todo, i) {
+        console.log((i + 1) + ": " + todo);
     });
     console.log("*********");
 }
 
-function listAdd(){
+function listAdd() {
     var addition = prompt("Please enter new item: ");
     todos.push(addition);
     console.log("Item added.")
     console.log(todos);
 }
 
-function listDelete(){
-    var deletionindex = prompt("Which item do you want to delete? (Enter list number).");
-      todos.splice(deletionindex, 1);
-      console.log("Item Deleted.")
+function listDelete() {
+    var deletionindex = (prompt("Which item do you want to delete? (Enter list number).")) - 1;
+    todos.splice(deletionindex, 1);
+    console.log("Item Deleted.")
 }
 
-function actionMenu(){
+function actionMenu() {
     input = prompt("What do you want to do? \n 1. \"Add\" - Enters new item \n 2. \"List\" - prints out to do list" +
-                  "\n 3. \"Delete\" - deletes an item from the list \n 4. \"Quit\" - ends program");
+        "\n 3. \"Delete\" - deletes an item from the list \n 4. \"Quit\" - ends program");
 }

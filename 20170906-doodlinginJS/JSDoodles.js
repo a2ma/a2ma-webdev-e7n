@@ -10,14 +10,14 @@ Mostly from freecodecamp
 console.log("Houston, we have a connection.");
 
 function factorialize(num) {
-  if(num > 0){
-      var factorialization = num;
-      for (var i = 1; i < num; i++){
+  if (num > 0) {
+    var factorialization = num;
+    for (var i = 1; i < num; i++) {
       factorialization *= (num - i);
     }
-      return factorialization;
+    return factorialization;
   }
-    return 1;
+  return 1;
 }
 
 //var num = prompt("Enter a number to be factorialized: ");
@@ -34,16 +34,16 @@ function factorialize(num) {
 
 function palindromeOne(str) {
   str = str.replace(/[\W_]/g, ''); //was not assigning string with the replaced regex to anything
-    console.log(str);
+  console.log(str);
   str = str.toLowerCase();
-    console.log(str);
+  console.log(str);
   var strreversed = str.split('').reverse().join('');
-    console.log(strreversed);
-  if(str === strreversed){
+  console.log(strreversed);
+  if (str === strreversed) {
     return true;
   }
 
-    return false;
+  return false;
 }
 
 // console.log(palindromeOne("eye"));
@@ -54,16 +54,16 @@ function palindromeOne(str) {
 //compares first letter by last letter--that means it only has to check half--and
 //detects a failure as early as possible, after which it reports the failure
 //without needlessly checking subsequent letters
-function palindromeTwo(str){
-    str = str.toLowerCase().replace(/[\W_]/g, '');
-    console.log(str);
-    for(var i = 0, len = str.length-1; i < len/2; i++){
-        if(str[i] !== str[len-i]){
-            return false;
-        }
-
-        return true;
+function palindromeTwo(str) {
+  str = str.toLowerCase().replace(/[\W_]/g, '');
+  console.log(str);
+  for (var i = 0, len = str.length - 1; i < len / 2; i++) {
+    if (str[i] !== str[len - i]) {
+      return false;
     }
+
+    return true;
+  }
 }
 
 // console.log(palindromeTwo("eye"));
@@ -71,9 +71,9 @@ function palindromeTwo(str){
 // console.log(palindromeTwo("_eye"));
 
 //this version of the palindrome check is the shortest
-function palindromeThree(str){
-    return str.replace(/[\W_]/g, '').toLowerCase().split('').reverse().join('') ===
-        str.replace(/[\W_]/g, '').toLowerCase();
+function palindromeThree(str) {
+  return str.replace(/[\W_]/g, '').toLowerCase().split('').reverse().join('') ===
+    str.replace(/[\W_]/g, '').toLowerCase();
 }
 
 // console.log(palindromeThree("eye"));
@@ -122,19 +122,19 @@ function findLongestWord(str) {
   var longest = '';
   // console.log(strarray.length);
   // console.log(strarray[9]);
-  for(var i = 0; i < strarray.length-1; i++){
+  for (var i = 0; i < strarray.length - 1; i++) {
     //using length-1 with i < is made neccessary only by the convoluted logic within the function.
     //and only works because of "i+1" below
     //var i = 0; i < strarray would work as well if i+1 hadn't been used.
     // console.log(strarray[i]); //the last word would never be printed because i ends at strarray[length-1]
     //the comparison would still work though, because i+1 ensures the scan is to the end.
-    if(strarray[i].length > strarray[i+1].length){
-      if(longest.length < strarray[i].length){
+    if (strarray[i].length > strarray[i + 1].length) {
+      if (longest.length < strarray[i].length) {
         longest = strarray[i];
       }
-    }else{
-      if(longest.length < strarray[i+1].length){
-        longest = strarray[i+1];
+    } else {
+      if (longest.length < strarray[i + 1].length) {
+        longest = strarray[i + 1];
       }
     }
   }
@@ -151,13 +151,13 @@ console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
 
 
 // for just finding the maximum length, without returning the longest word:
-function longestWord(str){
+function longestWord(str) {
   var words = str.split(" ");
   var maxlength = 0;
 
-  for(var i = 0; i < words.length; i++){
+  for (var i = 0; i < words.length; i++) {
     console.log(words[i]);
-    if(words[i].length > maxlength){
+    if (words[i].length > maxlength) {
       maxlength = words[i].length;
     }
   }
@@ -168,11 +168,11 @@ function longestWord(str){
 
 //Another solution, using the Array object's reduce() method:
 
-function longestWordReduce(str){
+function longestWordReduce(str) {
   return str.split(" ")
-    .reduce(function(x, y){
+    .reduce(function (x, y) {
       return Math.max(x, y.length)
-  },[0]);
+    }, [0]);
 }
 // see: https://forum.freecodecamp.org/t/javascript-array-prototype-reduce/14299
 // AND: https://forum.freecodecamp.org/t/using-array-prototype-reduce-to-reduce-conceptual-boilerplate-for-problems-on-arrays/14687
@@ -182,25 +182,25 @@ function longestWordReduce(str){
 //array each time, using splice to get rid of the parts already compared
 //and found to be shorter
 
-function findLongestRecursion(str){
+function findLongestRecursion(str) {
   //splits each time because of the recursion
   str = str.split(" ");
 
   //if the array resulting from split is just one element long
   //then that singular element is the longest
-  if(str.length ==1){
+  if (str.length == 1) {
     return str[0].length;
   }
 
   //compares first two elements; if first is greater, discard second
   //and pass back to function as argument.
-  if(str[0].length >= str[1].length){
-    str.splice(1,1);
+  if (str[0].length >= str[1].length) {
+    str.splice(1, 1);
     return findLongestRecursion(str.join(" "));
   }
   //if second is greater, cut away the second and subsequent elements
   // away from the first and pass back to function as argument
-  if(str[0].length <= str[1].length){
+  if (str[0].length <= str[1].length) {
     return findLongestRecursion(str.slice(1, str.length).join(" "));
   }
 }
@@ -268,7 +268,7 @@ function findLongestRecursion(str){
 function titleCase(str) {
   var words = str.toLowerCase().split(" ");
 
-  for(var i = 0; i < words.length; i++){
+  for (var i = 0; i < words.length; i++) {
     var letters = words[i].split('');
     var firstLetter = letters[0];
     letters[0] = firstLetter.toUpperCase();
@@ -294,26 +294,26 @@ titleCase("i'm a little tea pot");
 
 //2017-09-30
 //FCCamp "Basic" solution for TitleCase problem:
-String.prototype.replaceAt = function(index, character) {
-    return this.substr(0, index) + character + this.substr(index+character.length);
+String.prototype.replaceAt = function (index, character) {
+  return this.substr(0, index) + character + this.substr(index + character.length);
 };
 
 
 function titleCase(str) {
-    var newTitle = str.split(' ');
-    var updatedTitle = [];
-    for (var st in newTitle) {
-        updatedTitle[st] = newTitle[st].toLowerCase().replaceAt(0, newTitle[st].charAt(0).toUpperCase());
-    }
-    return updatedTitle.join(' ');
+  var newTitle = str.split(' ');
+  var updatedTitle = [];
+  for (var st in newTitle) {
+    updatedTitle[st] = newTitle[st].toLowerCase().replaceAt(0, newTitle[st].charAt(0).toUpperCase());
+  }
+  return updatedTitle.join(' ');
 }
 
 
 //Intermediate Solution on FCCamp
 function titleCase(str) {
   var convertToArray = str.toLowerCase().split(" ");
-  var result = convertToArray.map(function(val){
-      return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+  var result = convertToArray.map(function (val) {
+    return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
   });
   return result.join(" ");
 }
@@ -335,9 +335,9 @@ function titleCase(str) {
 function largestOfFour(arr) {
   var maxNumArr = [];
   var maxNum = 0;
-  for(var i = 0; i< arr.length; i++){
-    for(var j = 0; j < arr[i].length; j++){
-      if(arr[i][j] > maxNum){
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] > maxNum) {
         maxNum = arr[i][j];
       }
     }
@@ -351,10 +351,10 @@ function largestOfFour(arr) {
 function largestOfFour(arr) {
   var maxNumArr = [];
   var maxNum = 0;
-  for(var i = 0; i< arr.length; i++){
-    for(var j = 0; j < arr[i].length; j++){
-        maxNum = arr[i][0];
-      if(arr[i][j] > maxNum){
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      maxNum = arr[i][0];
+      if (arr[i][j] > maxNum) {
         maxNum = arr[i][j];
       }
     }
@@ -369,9 +369,9 @@ function largestOfFour(arr) {
 //My Solution
 function confirmEnding(str, target) {
   var x = target.length;
-  if(str.substr(str.length-x, x) === target){
+  if (str.substr(str.length - x, x) === target) {
     return true;
-  }else{
+  } else {
     return false;
   }
 }
@@ -387,13 +387,13 @@ console.log(confirmEnding("Bastian", "n"));
 
 function repeatStringNumTimes(str, num) {
   var originalStr = str;
-  var count = num -1;
-  if(num > 0){
-    while(count > 0){
+  var count = num - 1;
+  if (num > 0) {
+    while (count > 0) {
       str += originalStr;
-      count --;
+      count--;
     }
-  }else{
+  } else {
     str = "";
   }
   return str;
@@ -409,11 +409,11 @@ repeatStringNumTimes("abc", 3);
 //A2MA - first succesful effort
 function truncateString(str, num) {
   var truncStr = str;
-  if(str.length > num){
-    if(num > 3){
+  if (str.length > num) {
+    if (num > 3) {
       truncStr = str.slice(0, str.length - (str.length - (num - 3))) +
         "...";
-    }else{
+    } else {
       truncStr = str.slice(0, str.length - (str.length - num)) +
         "...";
     }
@@ -446,17 +446,17 @@ truncateString("A-tisket a-tasket A green and yellow basket", 11);
 //FCC says: potential infinite loop. I had some confusion with the loop, with i, and with the start and end of the slice function.
 
 //Final: 
-function chunkArrayInGroups(arr, chunkSize){
-  arr2 = [];  
+function chunkArrayInGroups(arr, chunkSize) {
+  arr2 = [];
   var start = 0;
   var end = 0;
-  for(var i = 0; i < arr.length; i += chunkSize){
+  for (var i = 0; i < arr.length; i += chunkSize) {
     end += chunkSize;
-    miniArr = arr.slice(start, end); 
+    miniArr = arr.slice(start, end);
     arr2.push(miniArr);
     start += chunkSize;
   }
-    
+
   return arr2;
 }
 
@@ -466,7 +466,7 @@ chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2);
 chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4);
 chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3);
 chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4);
-chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2); 
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2);
 
 
 // ##############################################################################################
@@ -478,12 +478,12 @@ function mutation(arr) {
   var match = true;
   var first = arr[0].toLowerCase();
   var second = arr[1].toLowerCase();
-  
-  for(var i = 0; i < second.length; i++){
+
+  for (var i = 0; i < second.length; i++) {
     var result = first.indexOf(second[i]);
-    if(result != -1){
+    if (result != -1) {
       match = true;
-    }else{
+    } else {
       match = false;
       break;
     }
@@ -506,18 +506,18 @@ mutation(["hello", "hey"]);
 
 function bouncer(arr) {
   // Don't show a false ID to this bouncer.
-    var filtered = arr.filter(Boolean);
-    return filtered;
+  var filtered = arr.filter(Boolean);
+  return filtered;
 }
 
 //OR
 
 function bouncer2(arr) {
   // Don't show a false ID to this bouncer.
-    var filtered = arr.filter(function(v){
-        return !!v;
-    });
-    return filtered;
+  var filtered = arr.filter(function (v) {
+    return !!v;
+  });
+  return filtered;
 }
 
 //bouncer([7, "ate", "", false, 9]);
@@ -535,14 +535,14 @@ function destroyer(arr) {
   // Remove all the values
   var rawArr = arguments[0];
   console.log(arguments);
-//   console.log(arg1);
-//   console.log(arg2);
+  //   console.log(arg1);
+  //   console.log(arg2);
   var filtArr = rawArr;
-  
-  for(var i = 1; i < arguments.length; i++){
+
+  for (var i = 1; i < arguments.length; i++) {
     filtArr = filtArr.filter(element => element != arguments[i]);
   }
-  
+
   console.log(filtArr);
   console.log(rawArr);
   return filtArr;
@@ -557,22 +557,22 @@ destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 // ##############################################################################################
 function getIndexToIns(arr, num) {
   // Find my place in this sorted array.
-  
+
   var placement;
-  
-  arr.sort(function(a, b){
-    return a-b;
+
+  arr.sort(function (a, b) {
+    return a - b;
   });
-  
-  
-  for(var i = 0; i < arr.length; i++){
-    if(arr[i] - num >= 0){
+
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] - num >= 0) {
       placement = i;
       break;
     }
     placement = i + 1;
   }
-  
+
   return placement;
 }
 
@@ -608,46 +608,46 @@ getIndexToIns([40, 60], 50);
 	return guess;
 }; */
 
-var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 
-		41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37,
+  41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 
-var result = doSearch(primes, 73);
-println("Found prime at index " + result);
+// var result = doSearch(primes, 73);
+// println("Found prime at index " + result);
 
-Program.assertEqual(doSearch(primes, 73), 20);
+// Program.assertEqual(doSearch(primes, 73), 20);
 
 
 /* Returns either the index of the location in the array,
   or -1 if the array did not contain the targetValue */
 
-var doSearch = function(array, targetValue) {
-	var min = 0;
-	var max = array.length - 1;
-    var guess = -1;
-    
-    while(max >= min){
-        guess = Math.floor((min + max) / 2);
-        println(max);
-        println(min);
-        // println(guess);
-        // println(array[guess]);
-        if(array[guess] === targetValue){
-            return guess;
-        }else if(array[guess] < targetValue){
-            min = guess + 1;
-        }else{
-            max = guess - 1;
-        }
-    }
+var doSearch = function (array, targetValue) {
+  var min = 0;
+  var max = array.length - 1;
+  var guess = -1;
 
-	return -1;
+  while (max >= min) {
+    guess = Math.floor((min + max) / 2);
+    // println(max);
+    // println(min);
+    // println(guess);
+    // println(array[guess]);
+    if (array[guess] === targetValue) {
+      return guess;
+    } else if (array[guess] < targetValue) {
+      min = guess + 1;
+    } else {
+      max = guess - 1;
+    }
+  }
+
+  return -1;
 };
 
-var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 
-		41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37,
+  41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 
 var result = doSearch(primes, 73);
-println("Found prime at index " + result);
+// println("Found prime at index " + result);
 
 Program.assertEqual(doSearch(primes, 73), 20);
 
@@ -658,10 +658,10 @@ Program.assertEqual(doSearch(primes, 73), 20);
 
 function rot13(str) { // LBH QVQ VG!
   var original = [];
-  for(var i = 0; i < str.length; i++){
-    if(str.charCodeAt(i) > 65 && str.charCodeAt(i) < 90){
-//     var test = "Z";
-//     console.log(test.charCodeAt(0));
+  for (var i = 0; i < str.length; i++) {
+    if (str.charCodeAt(i) > 65 && str.charCodeAt(i) < 90) {
+      //     var test = "Z";
+      //     console.log(test.charCodeAt(0));
       var code = str.charCodeAt(i) - 13;
       original.push(String.fromCharCode(code));
     }
@@ -676,17 +676,17 @@ rot13("SERR PBQR PNZC");
 FINAL:
 function rot13(str) { // LBH QVQ VG!
   var original = [];
-  for(var i = 0; i < str.length; i++){
-    if(str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90){
-//     var test = "Z";
-//     console.log(test.charCodeAt(0));
+  for (var i = 0; i < str.length; i++) {
+    if (str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90) {
+      //     var test = "Z";
+      //     console.log(test.charCodeAt(0));
       var code = str.charCodeAt(i) - 13;
-      if(code < 65){
+      if (code < 65) {
         var diff = 65 - code;
         code = 91 - diff;
       }
       original.push(String.fromCharCode(code));
-    }else{
+    } else {
       original.push(str[i]);
     }
   }
@@ -697,3 +697,61 @@ function rot13(str) { // LBH QVQ VG!
 // Change the inputs below to test
 rot13("SERR PBQR PNZC.");
 rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.");
+
+
+// ##############################################################################################
+//REVIEW: isEven, factorial, replace characters with regex 2018-06-26, CSteele Web Dev Bootcamp, Udemy
+// ##############################################################################################
+
+function isEven(num) {
+  if (num % 2 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isEvenShorter(num) {
+  return num % 2 == 0;
+}
+
+//recursive factorialization
+function factorialRecursive(num) {
+  if (num > 1) {
+    return num * (factorialRecursive(num - 1));
+  } else if (num = 1) {
+    return 1;
+  } else {
+    return "Error";
+  }
+}
+
+function factorial (num){
+  var result = 1;
+  for(var i = 2; i <= num; i++){
+    result *= i;
+  }
+  return result;
+}
+
+
+function kebabToSnake(str){
+  return str.replace(/-/g, '_');
+}
+
+
+// ##############################################################################################
+//forEach implementation, 2018-06-26, CSteele Web Dev Bootcamp, Udemy
+// ##############################################################################################
+
+function myForEach(arr, func){
+  for(var i = 0; i < arr.length - 1; i++){
+    func(arr[i]);
+  }
+}
+
+// Array.prototype.myForEach = function(func){
+//   for(var i = 0; i < this.length; i++){
+//     func(this[i]);
+//   }
+// }

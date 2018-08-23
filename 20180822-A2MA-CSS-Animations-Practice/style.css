@@ -1,0 +1,59 @@
+#color-hover:hover{
+    color: purple;
+    background: blue;
+}
+
+#color-focus:focus{
+    color: pink;
+    background: black;
+    border-radius: 5px;
+}
+
+#color-active:active{
+    color: black;
+    background: red;
+    border-radius: 5px;
+    font-size: 30px;
+}
+
+#btn1:active{
+    background: purple;
+  }
+  
+  #btn2:hover{
+    background: green;
+  }
+  
+  #btn3:focus{
+    background: orange;
+  }
+
+  .btn{
+      outline: none;
+      border: none;
+      cursor: pointer;
+      display: block;
+      position: relative;
+      background-color: #fcadfc;
+      font-size: 16px;
+      font-weight: 300px;
+      color: black;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 25px 80px; 
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 6px #81286b;
+
+  }
+
+  .btn:hover{
+      box-shadow: 0 4px #81286b;
+      top: 2px;
+  }
+
+  .btn:active{
+      box-shadow: 0 0px #81286b;
+      top: 6px;
+  }
+

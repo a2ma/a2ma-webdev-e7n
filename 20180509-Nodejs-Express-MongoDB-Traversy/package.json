@@ -15,6 +15,7 @@
   "author": "a2ma",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0"
   }
 }

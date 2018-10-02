@@ -1,7 +1,14 @@
 const express = require('express');
-// const exphbs = require('express-handlebars');
+const exphbs = require('express-handlebars');
 
 const app = express();
+
+// //how middleware works
+// app.use(function(req, res, next){
+//     console.log(Date.now());
+//     req.name = 'Testy McTesterson'; //adding variable to req object
+//     next();
+// });
 
 //Handlebars Middleware
 app.engine('handlebars', exphbs({
@@ -17,8 +24,12 @@ app.get('/', (req, res) => {
     });
 });
 
+//about route
 app.get('/about', (req, res) => {
-    res.send('about');
+    const title = 'About';
+    res.render('about', {
+        title: title
+    });
 });
 
 const port = 5000;

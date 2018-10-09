@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web Development Best Practices</title>
+  <link rel="stylesheet" href="./css/bestpractices.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <article>
+        <h1>This is the main header.</h1>
+        <figure>
+          <img id="featured-image" src="./images/P05-20-12_14-45.jpg" alt="A goose giving you side-eye, as if to say 'The **** is wrong with you?'">
+          <br>
+          <figcaption>
+            A goose looks at you sideways.
+          </figcaption>
+        </figure>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quibusdam vero veritatis, odio
+          molestias aut, perspiciatis animi a recusandae, repellendus ex tempore laborum, saepe dolorem iusto? Illum
+          dignissimos consequatur minima. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet facilis
+          itaque obcaecati nemo enim similique dolorum suscipit neque nulla nostrum, molestias soluta porro eligendi
+          asperiores sapiente ullam at. Non, neque!</p>
+          <p>Last <time datetime="2016-09-13">Wednesday, September 13<sup>th</sup></time>, we had a discussion on the virtues of knocking three times on wood so as to nullify jinxes.</p>
+        <!-- <audio src="https://s3.amazonaws.com/freecodecamp/screen-reader.mp3" controls></audio> -->
+        <audio controls>
+          <source src="https://s3.amazonaws.com/freecodecamp/screen-reader.mp3" type="audio/mpeg">
+        </audio>
+      </article>
+    </section>
+    <section>
+      <form action="">
+        <legend>Sign up for email alerts!</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <fieldset>
+          <legend>Choose one of these items:</legend>
+          <input type="radio" id="one" name="items" value="one">
+          <label for="one">Choice One</label><br>
+          <input type="radio" id="two" name="items" value="two">
+          <label for="two">Choice Two</label><br>
+          <input type="radio" id="three" name="items" value="three">
+          <label for="three">Choice Three</label><br>
+        </fieldset>
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="dob" id="dob">
+        <input type="submit" name="submit" value="Submit">
+      </form>
+    </section>
+  </main>
+  <footer>
+    &copy; Best Practices Inc.
+  </footer>
+</body>
+
+</html>

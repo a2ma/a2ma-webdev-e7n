@@ -1,0 +1,15 @@
+{{#if success_msg}}
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">Close</button> 
+        {{success_msg}}
+    </div>
+{{/if}}
+
+{{#if error_msg}}
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">Close</button>
+        {{error_msg}}
+    </div>
+{{/if}}
+
+{{!-- &times; --}}

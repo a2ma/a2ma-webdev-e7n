@@ -1,17 +1,22 @@
-const express           = require('express');
-const exphbs            = require('express-handlebars');
-const bodyParser        = require('body-parser');
-const mongoose          = require('mongoose');
-const methodOverride    = require('method-override');
-const flash             = require('connect-flash');
-const session           = require('express-session');
+const express = require('express');
+const path = require('path');
+const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
 
 
 const app = express();
 
 // Load Routes
 const entries = require('./routes/entries');
-const users   = require('./routes/users');
+const users = require('./routes/users');
+
+// Passport Config
+require('./config/passport')(passport);
 
 //Map global promise - get rid of warning (in previous 
 // version of Mongoose - issue looks fixed as of 5.3.1)
@@ -36,18 +41,12 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-//Index route
-app.get('/', (req, res) => {
-    pageTitle = 'Welcome';
-    res.render('index', {
-        pageTitle: pageTitle
-    });
-});
-
-//Body parser middleware
-app.use(bodyParser.urlencoded({extended: false}));
-//parse application/json
+// Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
 app.use(bodyParser.json());
+// Static folder middleware
+app.use(express.static(path.join(__dirname, 'public')));
 // Method override middleware
 app.use(methodOverride('_method'));
 // express session middleware
@@ -58,17 +57,29 @@ app.use(session({
     // cookie: { secure: true}
 }));
 
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Connect Flash middleware
 app.use(flash());
 
-
 //Global Variables
 var pageTitle = '';
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
     next();
+});
+
+//Index route
+app.get('/', (req, res) => {
+    pageTitle = 'Welcome';
+    res.render('index', {
+        pageTitle: pageTitle
+    });
 });
 
 //about route

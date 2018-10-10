@@ -5,6 +5,7 @@ const router  = express.Router();
 //Load Entry Model
 require('../models/Entry');
 const Entry = mongoose.model('entries');
+var pageTitle ='Welcome!';
 
 //Idea Index Page
 router.get('/', (req, res) => {

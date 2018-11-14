@@ -8,7 +8,7 @@ body {
     background: url(https://images.unsplash.com/photo-1500835176302-48dbd01f6437?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=6ebe0893d15a030447ad5f637b48921c);
     background-size: cover;
     background-position: center;
-    font-family: Lato;
+    font-family: 'Lato';
     color: white;
 }
 

@@ -11,9 +11,11 @@ const passport = require('passport');
 
 const app = express();
 
+
 // Load Routes
 const entries = require('./routes/entries');
 const users = require('./routes/users');
+const test = require('./routes/test');
 
 // Passport Config
 require('./config/passport')(passport);
@@ -93,6 +95,7 @@ app.get('/about', (req, res) => {
 // Use routes
 app.use('/entries', entries);
 app.use('/users', users);
+app.use('/test', test);
 
 const port = 5000;
 

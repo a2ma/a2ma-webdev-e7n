@@ -17,15 +17,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/test">Test</a>
                 </li>
+                {{#if user}}
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Entries</a>
+                    <div class="dropdown-menu">
+                        <a href="/entries" class="dropdown-item">Entries</a>
+                        <a href="/entries/add" class="dropdown-item">Add Entry</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/logout">Log Out</a>
+                </li>
             </ul>
-            {{#if user}}
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Entries</a>
-                <div class="dropdown-menu">
-                    <a href="/entries" class="dropdown-item">Entries</a>
-                    <a href="/entries/add" class="dropdown-item">Add Entry</a>
-                </div>
-            </li>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -38,7 +41,7 @@
                 <li class="nav-item">
                     <a href="/users/register" class="nav-link">Register</a>
                 </li>
-            {{/if}}
+                {{/if}}
             </ul>
         </div>
     </div>

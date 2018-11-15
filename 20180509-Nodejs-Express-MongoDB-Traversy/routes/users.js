@@ -33,6 +33,13 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
+// Logout Form GET
+router.get('/logout', (req, res) => {
+    req.logout();
+    req.flash('success_msg', 'You have successfully logged out.');
+    res.redirect('/users/login');
+});
+
 // Register Form POST Processing
 router.post('/register', (req, res) => {
     let errors = [];

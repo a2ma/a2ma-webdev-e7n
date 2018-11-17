@@ -1,8 +1,12 @@
+body{
+    background: coral;
+}
+
+nav .container{
+    padding: 0px !important;
+}
+
 .logo{
     width: 130px;
     margin: auto;
-}
-
-body{
-    background: coral;
 }

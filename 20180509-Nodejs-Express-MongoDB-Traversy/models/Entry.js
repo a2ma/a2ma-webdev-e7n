@@ -13,7 +13,7 @@ const EntrySchema = new Schema({
     },
     user: {
         type: String,
-        require: true
+        required: true
     },
     date: {
         type: Date,

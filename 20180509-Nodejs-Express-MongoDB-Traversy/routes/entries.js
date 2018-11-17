@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router  = express.Router();
+const {ensureAuthenticated} = require('../helpers/auth');
 
 //Load Entry Model
 require('../models/Entry');
@@ -8,7 +9,7 @@ const Entry = mongoose.model('entries');
 var pageTitle ='Welcome!';
 
 //Idea Index Page
-router.get('/', (req, res) => {
+router.get('/', ensureAuthenticated, (req, res) => {
     pageTitle = 'Entries';
     Entry.find({})
     .sort({date:'desc'})
@@ -21,7 +22,7 @@ router.get('/', (req, res) => {
 });
 
 //Add entry form
-router.get('/add', (req, res) => {
+router.get('/add', ensureAuthenticated, (req, res) => {
     pageTitle = 'Add Entry';
     res.render('entries/add', {
         pageTitle: pageTitle
@@ -30,7 +31,7 @@ router.get('/add', (req, res) => {
 
 
 //Add entry form
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', ensureAuthenticated, (req, res) => {
     pageTitle = 'Edit Entry';
     Entry.findOne({
         _id: req.params.id
@@ -44,7 +45,7 @@ router.get('/edit/:id', (req, res) => {
 });
 
 //Process Form
-router.post('/', (req, res) => {
+router.post('/', ensureAuthenticated, (req, res) => {
     let errors = [];
 
     if(!req.body.title){
@@ -75,7 +76,7 @@ router.post('/', (req, res) => {
 });
 
 // Edit form process
-router.put('/:id', (req, res) => {
+router.put('/:id', ensureAuthenticated, (req, res) => {
     Entry.findOne({
         _id: req.params.id
     })
@@ -93,7 +94,7 @@ router.put('/:id', (req, res) => {
 });
 
 // Delete entry
-router.delete('/:id', (req, res) => {
+router.delete('/:id', ensureAuthenticated, (req, res) => {
     Entry.remove({_id: req.params.id})
     .then(() => {
         req.flash('success_msg', 'Entry successfully removed.');

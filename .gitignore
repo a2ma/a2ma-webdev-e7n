@@ -1,16 +1,16 @@
 v12_deployed
-/20180509-Nodejs-Express-MongoDB-Traversy/node_modules
-/20170921-nodeJS-Intro/node_modules
-/20170921-nodeJS-Intro/angularjs
-20171010-YelpCamp/v1/node_modules
-20171010-YelpCamp/v2/node_modules
-20171010-YelpCamp/v3/node_modules
-20171010-YelpCamp/v4/node_modules
-20171010-YelpCamp/v5/node_modules
-20171010-YelpCamp/v6/node_modules
-20171010-YelpCamp/v7/node_modules
-20171010-YelpCamp/v8/node_modules
-20171010-YelpCamp/v9/node_modules
-20171010-YelpCamp/v10/node_modules
-20171010-YelpCamp/v11/node_modules
-20171010-YelpCamp/v12/node_modules
+**node_modules
+# /20180509-Nodejs-Express-MongoDB-Traversy/node_modules
+# /20170921-nodeJS-Intro/node_modules
+# 20171010-YelpCamp/v1/node_modules
+# 20171010-YelpCamp/v2/node_modules
+# 20171010-YelpCamp/v3/node_modules
+# 20171010-YelpCamp/v4/node_modules
+# 20171010-YelpCamp/v5/node_modules
+# 20171010-YelpCamp/v6/node_modules
+# 20171010-YelpCamp/v7/node_modules
+# 20171010-YelpCamp/v8/node_modules
+# 20171010-YelpCamp/v9/node_modules
+# 20171010-YelpCamp/v10/node_modules
+# 20171010-YelpCamp/v11/node_modules
+# 20171010-YelpCamp/v12/node_modules

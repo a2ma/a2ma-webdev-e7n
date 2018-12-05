@@ -1,0 +1,14 @@
+#main-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#title{
+    text-align: center;
+}
+  
+#survey-form{
+    display: flex;
+    background: grey;
+}

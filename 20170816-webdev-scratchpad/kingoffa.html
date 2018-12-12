@@ -8,16 +8,15 @@
 	 crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="css/mercian.css">
-	<title>The Kingdom of Mercia</title>
+	<title>Offa of Mercia</title>
 	<!-- <style type="text/css"></style> -->
 	<script>
-		$(document).ready(function () {
-			$("button").addClass("animated bounce");
-			$(".well").addClass("animated shake");
-
-		});
+		// return and fix hereafter!
+		var well = document.getElementsByClassName('.well');
+		well.onmouseover = function () { well.setAttribute("class", "animated shake") };
+		var button = document.getElementsByTagName("button");
+		button.onmouseover = function () { well.setAttribute("class", "animated bounce") };
 	</script>
-
 </head>
 
 <body>
@@ -25,8 +24,8 @@
 		<h1 class="text-center">King Offa</h1>
 	</div>
 	<div class="container-fluid">
-		<p>Hi, I am King Offa--and I reigned over the golden age of the Kingdom of Mercia!</p>
-		<img class="thick-blue-border" src="./images/Offa_king_of_Mercia_757_796.jpg">
+		<h2>Hi, I am King Offa--and I reigned over the golden age of the Kingdom of Mercia!</h2>
+		<div id="offa-profile-container"><img id="offa-profile" class="thick-blue-border" src="./images/Offa_king_of_Mercia_757_796.jpg"></div>
 		<h2>Who I am as a King</h2>
 		<h3>Some of my favorite places:</h3>
 		<ul>
@@ -40,7 +39,7 @@
 			<a target="_blank" href="./about-me.html">here</a>.</p>
 	</div>
 	<h3>Some of my Lands and Forces</h3>
-	<div class="container-fluid">
+	<div class="container-fluid table-div">
 		<table border="1">
 			<!--Styling is not normally done in HTML!-->
 			<tr>
@@ -49,18 +48,20 @@
 			</tr>
 			<tr>
 				<td>Essex</td>
-				<td>Wessex</td>
-				<td>Northumbria</td>
+				<td>London</td>
 			</tr>
 			<tr>
-				<td>London</td>
+				<td>Wessex</td>
 				<td>Uricon</td>
+			</tr>
+			<tr>
+				<td>Northumbria</td>
 				<td>Birmingham</td>
 			</tr>
 		</table>
 	</div>
 
-	<div class="container-fluid">
+	<div class="container-fluid table-div">
 		<table border="2">
 			<thead>
 				<tr>
@@ -85,7 +86,8 @@
 	<h3>Dr. Norman Borlaug</h3>
 	<div class="thumbnail">
 		<img src="https://c2.staticflickr.com/4/3689/10613180113_fdf7bcd316_b.jpg">
-		<div class="caption text-center">Dr. Norman Borlaug, third from left, trains biologists in Mexico on how to increase wheat yields - part of his life-long
+		<div class="caption text-center">Dr. Norman Borlaug, third from left, trains biologists in Mexico on how to increase
+			wheat yields - part of his life-long
 			war on hunger.</div>
 	</div>
 
@@ -100,8 +102,9 @@
 				</a>
 			</div>
 		</div>
-
-		<img src="https://bit.ly/fcc-running-cats" class="img-responsive" alt="Three kittens running towards the camera. ">
+		<div class="container-fluid" id="cat-img-container"><img src="https://bit.ly/fcc-running-cats" class="img-responsive"
+			 alt="Three kittens running towards the camera. ">
+		</div>
 
 		<div class="row">
 			<div class="col-xs-4">
@@ -137,29 +140,19 @@
 		</ol>
 
 		<form action="/submit-cat-photo">
-			<div class="row">
-				<div class="col-xs-6">
-					<label>
-						<input type="radio" name="indoor-outdoor"> Indoor</label>
-				</div>
-				<div class="col-xs-6">
-					<label>
-						<input type="radio" name="indoor-outdoor"> Outdoor</label>
-				</div>
+			<div>
+				<label>
+					<input type="radio" name="indoor-outdoor"> Indoor</label>
+				<label>
+					<input type="radio" name="indoor-outdoor"> Outdoor</label>
 			</div>
-			<div class="row">
-				<div class="col-xs-4">
-					<label>
-						<input type="checkbox" name="personality"> Loving</label>
-				</div>
-				<div class="col-xs-4">
-					<label>
-						<input type="checkbox" name="personality"> Lazy</label>
-				</div>
-				<div class="col-xs-4">
-					<label>
-						<input type="checkbox" name="personality"> Crazy</label>
-				</div>
+			<div>
+				<label>
+					<input type="checkbox" name="personality"> Loving</label>
+				<label>
+					<input type="checkbox" name="personality"> Lazy</label>
+				<label>
+					<input type="checkbox" name="personality"> Crazy</label>
 			</div>
 			<div class="row">
 				<div class="col-xs-7">
@@ -185,8 +178,7 @@
 			<tbody>
 				<tr>
 					<td>
-						<img width="70" class="img-responsive thick-green-border" src="https://img4.wikia.nocookie.net/__cb20140328190757/pokemon/images/thumb/2/21/001Bulbasaur.png/200px-001Bulbasaur.png"
-						 </img>
+						<img width="70" class="img-responsive thick-green-border" src="https://img4.wikia.nocookie.net/__cb20140328190757/pokemon/images/thumb/2/21/001Bulbasaur.png/200px-001Bulbasaur.png">
 					</td>
 					<td>Bulbasaur</td>
 					<td>Grass/Poison</td>
@@ -196,8 +188,7 @@
 				</tr>
 				<tr>
 					<td>
-						<img width="70" class="img-responsive thick-red-border" src="https://img4.wikia.nocookie.net/__cb20140724195345/pokemon/images/thumb/7/73/004Charmander.png/200px-004Charmander.png"
-						 </img>
+						<img width="70" class="img-responsive thick-red-border" src="https://img4.wikia.nocookie.net/__cb20140724195345/pokemon/images/thumb/7/73/004Charmander.png/200px-004Charmander.png">
 					</td>
 					<td>Charmander</td>
 					<td>Fire</td>
@@ -207,8 +198,7 @@
 				</tr>
 				<tr>
 					<td>
-						<img width="70" class="img-responsive thick-blue-border" src="https://img1.wikia.nocookie.net/__cb20140328191525/pokemon/images/thumb/3/39/007Squirtle.png/200px-007Squirtle.png"
-						 </img>
+						<img width="70" class="img-responsive thick-blue-border" src="https://img1.wikia.nocookie.net/__cb20140328191525/pokemon/images/thumb/3/39/007Squirtle.png/200px-007Squirtle.png">
 					</td>
 					<td>Squirtle</td>
 					<td>Water</td>
@@ -232,9 +222,9 @@
 	  		<input name="password" type="password" placeholder="password">
 	  	</label> -->
 		<label for="Username">Email:</label>
-		<input id="Username" name="Username" type="email" placeholder="Email" required>
+		<input id="username1" name="Username" type="email" placeholder="Email" required>
 		<label for="Password">Password:</label>
-		<input id="Password" name="password" type="password" placeholder="password" required>
+		<input id="password1" name="password" type="password" placeholder="password" required>
 
 		<input type="color">
 		<input type="radio">
@@ -295,9 +285,9 @@
 		</div>
 		<div>
 			<label for="Username">Email:</label>
-			<input id="Username" name="Username" type="email" placeholder="Email" required>
+			<input id="username2" name="Username" type="email" placeholder="Email" required>
 			<label for="Password">Password:</label>
-			<input id="Password" name="password" type="password" placeholder="password" pattern=".{5,10}" required title="5 to 10 characters">
+			<input id="password2" name="password" type="password" placeholder="password" pattern=".{5,10}" required title="5 to 10 characters">
 		</div>
 		<div>
 			<label for="Birthday">Birthday:</label>

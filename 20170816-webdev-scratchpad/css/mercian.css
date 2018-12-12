@@ -51,6 +51,22 @@ h3 {
     padding: 5px;
 }
 
+.shake, .bounce {
+    color: red;
+}
+
+.table-div{
+    text-align: center;
+}
+
+#offa-profile-container{
+    text-align: center;
+}
+
+#cat-img-container{
+    text-align: center;
+}
+
 /*font size can be pixels or relative, with em*/
 /*font weight: bold, for example, or maybe 100-800 in 100-increments*/
 /*line height: spacing between lines*/

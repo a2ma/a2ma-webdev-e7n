@@ -1,0 +1,11 @@
+{
+  "name": "20180626-patatapclone",
+  "version": "1.0.0",
+  "description": "A clone of the Patatap webpage's implementation of JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "a2ma",
+  "license": "ISC"
+}

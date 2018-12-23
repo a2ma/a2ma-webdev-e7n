@@ -24,6 +24,7 @@ vendor/bundle
 *.swp
 *.vi
 *.zip
+*.mp3
 *~
 
 # OS or Editor folders

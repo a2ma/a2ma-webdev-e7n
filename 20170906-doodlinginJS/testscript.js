@@ -20,10 +20,30 @@
 
 //alert("Enter your birthdate to find out your approximate age in days: ");
 
-var ageraw =  prompt("Enter your age in years to find your approximate age in days: ");
-console.log(ageraw + " years old.");
+const para = document.querySelector('#player');
+para.addEventListener('click', updateName);
+var ageDays = document.querySelector("#age-days");
+ageDays.addEventListener('click', updateAgeDays);
+var ageDayButton = document.querySelector("#age-day-button");
+ageDayButton.addEventListener('click', calcAgeDays);
+var ageRaw;
+var ageCooked;
 
-var agecooked = ageraw * 365.25;
+function calcAgeDays() {
+    ageRaw = prompt("Enter your age in years to find your approximate age in days: ");
+    ageCooked = ageRaw * 365.25;
+    
+}
+function updateAgeDays() {
+    ageDays.innerHTML = ageCooked;
+}
 
-alert("You are roughly " + agecooked + " days old.");
-console.log(agecooked + " days old.");
+
+function updateName() {
+   let name = prompt('Enter your name, player: ');
+   para.textContent = 'Player 1 is ' + name;
+}
+
+
+
+

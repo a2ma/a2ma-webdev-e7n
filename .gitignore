@@ -65,3 +65,6 @@ node_modules
 # 20171010-YelpCamp/v10/node_modules
 # 20171010-YelpCamp/v11/node_modules
 # 20171010-YelpCamp/v12/node_modules
+
+# Files to ignore
+20171023-Express-Routes-Req-content.txt

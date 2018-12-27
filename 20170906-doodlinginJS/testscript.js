@@ -20,29 +20,29 @@
 
 //alert("Enter your birthdate to find out your approximate age in days: ");
 
-const para = document.querySelector('#player');
-para.addEventListener('click', updateName);
-var ageDays = document.querySelector("#age-days");
-ageDays.addEventListener('click', updateAgeDays);
-var ageDayButton = document.querySelector("#age-day-button");
-ageDayButton.addEventListener('click', calcAgeDays);
-var ageRaw;
-var ageCooked;
+// const para = document.querySelector('#player');
+// para.addEventListener('click', updateName);
+// var ageDays = document.querySelector("#age-days");
+// ageDays.addEventListener('click', updateAgeDays);
+// var ageDayButton = document.querySelector("#age-day-button");
+// ageDayButton.addEventListener('click', calcAgeDays);
+// var ageRaw;
+// var ageCooked;
 
-function calcAgeDays() {
-    ageRaw = prompt("Enter your age in years to find your approximate age in days: ");
-    ageCooked = ageRaw * 365.25;
-    
-}
-function updateAgeDays() {
-    ageDays.innerHTML = ageCooked;
-}
+// function calcAgeDays() {
+//     ageRaw = prompt("Enter your age in years to find your approximate age in days: ");
+//     ageCooked = ageRaw * 365.25;
+
+// }
+// function updateAgeDays() {
+//     ageDays.innerHTML = ageCooked;
+// }
 
 
-function updateName() {
-   let name = prompt('Enter your name, player: ');
-   para.textContent = 'Player 1 is ' + name;
-}
+// function updateName() {
+//    let name = prompt('Enter your name, player: ');
+//    para.textContent = 'Player 1 is ' + name;
+// }
 
 
 

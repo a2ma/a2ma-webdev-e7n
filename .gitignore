@@ -68,3 +68,4 @@ node_modules
 
 # Files to ignore
 20171023-Express-Routes-Req-content.txt
+20180509-Nodejs-Express-MongoDB-Traversy/config/database.js

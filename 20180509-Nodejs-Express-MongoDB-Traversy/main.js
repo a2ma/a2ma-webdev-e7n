@@ -17,6 +17,9 @@ const entries = require('./routes/entries');
 const users = require('./routes/users');
 const test = require('./routes/test');
 
+// Load Database URI
+const db = require('./config/database');
+
 // Passport Config
 require('./config/passport')(passport);
 
@@ -24,7 +27,7 @@ require('./config/passport')(passport);
 // version of Mongoose - issue looks fixed as of 5.3.1)
 // mongoose.Promise = global.Promise;
 //connect to Mongoose
-mongoose.connect('mongodb://localhost/scribblr-dev', {
+mongoose.connect(db.mongoURI, {
     useNewUrlParser: true,
 })
     .then(() => console.log('MongoDB connected.'))
@@ -97,7 +100,7 @@ app.use('/entries', entries);
 app.use('/users', users);
 app.use('/test', test);
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);

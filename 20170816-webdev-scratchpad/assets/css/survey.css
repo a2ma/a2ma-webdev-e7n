@@ -1,7 +1,35 @@
+body{
+    background-color: black;
+    color: firebrick;
+    font-family: 'Charm', cursive;
+}
+
+.instructions{
+    font-size: 1.2em;
+}
+
 #main-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+ margin: 0 10%;
+    padding: 5%;
+}
+
+#description{
+    text-align: center;
+}
+
+#name, #email, #number{
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+    display: block;
+}
+
+
+
+
+
+#question-list{
+ list-style: none;
 }
 
 #title{
@@ -9,6 +37,26 @@
 }
   
 #survey-form{
-    display: flex;
-    background: grey;
+  margin: auto;
 }
+
+
+#logo{
+    display: block;
+    margin: auto;
+}
+
+#comments{
+    display: block;
+    width: 75%;
+    height: 80px;
+}
+
+#comments-label{
+    width: 100%;
+}
+
+
+
+
+

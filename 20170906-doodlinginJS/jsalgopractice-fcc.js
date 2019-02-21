@@ -1,3 +1,9 @@
+/*
+'Some Javascript Practice'
+Mostly from freecodecamp
+*A2MA - 2017-09-06
+*/
+
 // ##############################################################################################
 // Loops
 // ##############################################################################################
@@ -56,7 +62,7 @@ function printEven(){
       if(i % 2 === 0){
           console.log(i);
       }
-  }  
+  }
 };
 
 console.log("Print all odd numbers between 300 and 333");
@@ -65,7 +71,7 @@ function printOdd(){
       if(i % 2 !== 0){
           console.log(i);
       }
-  }  
+  }
 };
 
 console.log("Print all numbers divisible by 5 and 3 between 5 and 50");
@@ -74,17 +80,13 @@ function printOddFew(){
       if(i % 5 === 0 && i % 3 === 0){
           console.log(i);
       }
-  }  
+  }
 };
 
 
 
 
-/*
-'Some Javascript Practice'
-Mostly from freecodecamp
-*A2MA - 2017-09-06
-*/
+
 // ##############################################################################################
 //FACTORIALIZE
 // ##############################################################################################
@@ -132,7 +134,7 @@ function palindromeOne(str) {
 // console.log(palindromeOne("race car"));
 // console.log(palindromeOne("_eye"));
 
-//this version of the palindromeChecker is more efficient, since it 
+//this version of the palindromeChecker is more efficient, since it
 //compares first letter by last letter--that means it only has to check half--and
 //detects a failure as early as possible, after which it reports the failure
 //without needlessly checking subsequent letters
@@ -420,7 +422,7 @@ function titleCase(str) {
   return str.toLowerCase().replace(/(^|\s)\S/g, (L) => L.toUpperCase());
 }
 
-//the regex searches from the beginning of the string (^) for a non-whitespace character (\S) that comes only after a whitespace (\s), and the search is global. 
+//the regex searches from the beginning of the string (^) for a non-whitespace character (\S) that comes only after a whitespace (\s), and the search is global.
 
 // ##############################################################################################
 //Retrieve Largest Numbers from two dimensional Array
@@ -534,13 +536,13 @@ truncateString("A-tisket a-tasket A green and yellow basket", 11);
 //    for(var i = 0; i < arr.length; i + chunkSize){
 //        arrSliced.push(arr.slice(i, chunkSize));
 //    }
-//    
+//
 //    return arrSliced;
 //}
 
 //FCC says: potential infinite loop. I had some confusion with the loop, with i, and with the start and end of the slice function.
 
-//Final: 
+//Final:
 function chunkArrayInGroups(arr, chunkSize) {
   arr2 = [];
   var start = 0;
@@ -619,7 +621,7 @@ function bouncer2(arr) {
 //bouncer([7, "ate", "", false, 9]) should return [7, "ate", 9];
 //bouncer(["a", "b", "c"]) should return ["a", "b", "c"].
 //bouncer([false, null, 0, NaN, undefined, ""]) should return [].
-//bouncer([1, null, NaN, 2, undefined]) should return [1, 2]. 
+//bouncer([1, null, NaN, 2, undefined]) should return [1, 2].
 
 
 // ##############################################################################################
@@ -684,7 +686,7 @@ getIndexToIns([40, 60], 50);
 	var min = 0;
 	var max = array.length - 1;
     var guess = -1;
-    
+
     while(max >= min){
         guess = Math.floor((min + max) / 2);
         println(max);
@@ -850,3 +852,433 @@ function myForEach(arr, func) {
 //     func(this[i]);
 //   }
 // }
+
+// ##############################################################################################
+//Basic JS Objects: record collection, 2019-01-08, FreeCodeCamp
+// ##############################################################################################
+
+// Setup
+var collection = {
+  "2548": {
+    "album": "Slippery When Wet",
+    "artist": "Bon Jovi",
+    "tracks": [
+      "Let It Rock",
+      "You Give Love a Bad Name"
+    ]
+  },
+  "2468": {
+    "album": "1999",
+    "artist": "Prince",
+    "tracks": [
+      "1999",
+      "Little Red Corvette"
+    ]
+  },
+  "1245": {
+    "artist": "Robert Palmer",
+    "tracks": [ ]
+  },
+  "5439": {
+    "album": "ABBA Gold"
+  }
+};
+// Keep a copy of the collection for tests
+var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+// Only change code below this line
+function updateRecords(id, prop, value) {
+if (prop == 'tracks' && value != ''){
+  if(!collection[id].hasOwnProperty(prop)){
+    collection[id][prop] = [];
+    collection[id][prop].push(value);
+  }else{
+    collection[id][prop].push(value);
+  }
+}else if(!collection.hasOwnProperty(prop) && value !=''){
+    collection[id][prop] = value;
+}if(value == '') {
+  delete collection[id][prop];
+  console.log(collection[id]);
+}
+return collection;
+}
+
+// Alter values below to test your code
+updateRecords(5439, "artist", "ABBA");
+updateRecords(2548, "artist", "");
+
+
+/* ##############################################################################################
+Do...While, 2019-01-09, FreeCodeCamp
+Notes: stub
+##############################################################################################*/
+
+/* ##############################################################################################
+parseInt, 2019-01-10, FreeCodeCamp
+Notes: parseInt takes a string, parses it, and returns an integer. parseInt also has the radix argument,
+which tells you the base of the number in the string. The radix can range from 2 to 26; if 2, it is binary, for example,
+and the string will be read as binary and then returned as a (base 10) number.
+##############################################################################################*/
+function convertToInteger(str) {
+  return parseInt(str);
+}
+
+convertToInteger("56");
+
+
+/* ##############################################################################################
+Ternary Operator, 2019-01-10, FreeCodeCamp
+Notes: short version of if else. Syntax: condition ? <statement if true>: <statement if false>;.
+Chaining together ternary operators can achieve the effect of if-else if-else:
+(condition if) ? <statement> : (condition else if) ? <statement> : <statement for else>;
+##############################################################################################*/
+
+
+// regular ternary example
+function checkEqual(a, b) {
+  return a == b ? true : false;
+}
+
+checkEqual(1, 2);
+
+// chained ternary example
+function checkSign(num) {
+  return (num > 0) ? "positive" : (num == 0) ? "zero" : "negative";
+}
+
+checkSign(10);
+
+/* ##############################################################################################
+If statements, comparison, 2019-01-10, FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+// smart testing for undefined/defined variable:
+if(typeof id !== 'undefined'){
+  console.log(`The id is ${id}`);
+} else {
+  console.log('No id. ')
+}
+
+/* ##############################################################################################
+ES6 Write Higher Order Arrow Functions, 2019-01-22, FreeCodeCamp
+Notes:
+##############################################################################################*/
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+const squareList = (arr) => {
+  "use strict";
+  // change code below this line
+  const squaredIntegers = arr.filter((num) => num > 0 && num %1 == 0).map((num)=> num**2);
+  // change code above this line
+  return squaredIntegers;
+};
+// test your code
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+
+// OR
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+const squareList = (arr) => {
+  "use strict";
+  // change code below this line
+  const squaredIntegers = (arr.filter((num) => num > 0 && num % 1 === 0)).map((num) => Math.pow(num,2));
+  // change code above this line
+  return squaredIntegers;
+};
+// test your code
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+
+/* ##############################################################################################
+ES6 Example of setting default parameter, 2019-01-26, FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+const increment = (function() {
+  "use strict";
+  return function increment(number, value = 1) {
+    return number + value;
+  };
+})();
+console.log(increment(5, 2)); // returns 7
+console.log(increment(5)); // returns 6\
+
+/* ##############################################################################################
+ES6 Example of using rest operator to handle variable number of arguments held in an array 2019-01-26, FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+
+// BEFORE
+// const sum = (function() {
+//   "use strict";
+//   return function sum(x, y, z) {
+//     const args = [ x, y, z ];
+//     return args.reduce((a, b) => a + b, 0);
+//   };
+// })();
+// console.log(sum(1, 2, 3)); // 6
+
+// AFTER
+
+const sum = (function() {
+  "use strict";
+  return function sum(...args) {
+    return args.reduce((a, b) => a + b, 0);
+  };
+})();
+console.log(sum(1, 2, 3)); // 6
+console.log(sum(1, 2, 3, 4, 5));
+
+/* ##############################################################################################
+2019-01-29 - ES6 Example of using destructuring to swap two values, FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let a = 8, b = 6;
+(() => {
+  "use strict";
+  // change code below this line
+  [a, b] = [b, a];
+  // change code above this line
+})();
+console.log(a); // should be 6
+console.log(b); // should be 8
+
+/* ##############################################################################################
+2019-01-30 - ES6 Example of using destructuring to obtain part of an array, FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+const source = [1,2,3,4,5,6,7,8,9,10];
+function removeFirstTwo(list) {
+  "use strict";
+  // change code below this line
+  const [a, b, ...arr] = source; // change this
+  // change code above this line
+  return arr;
+}
+const arr = removeFirstTwo(source);
+console.log(arr); // should be [3,4,5,6,7,8,9,10]
+console.log(source); // should be [1,2,3,4,5,6,7,8,9,10];
+
+/* ##############################################################################################
+2019-02-01 - ES6 using destructuring to obtain part of an object, by passing it through or in-place. - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+/*
+// passing through, then destructuring
+const profileUpdate = (profileData) => {
+  const {name, age, nationality, location } = profileData;
+  // etc.
+}
+// destructuring in place
+const profileUpdate = ({name, age, nationality, location }) => {
+  // etc.
+}
+*/
+
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+const half = (function() {
+  "use strict"; // do not change this line
+
+  // change code below this line
+  return function half({max, min}) {
+    // use function argument destructuring
+    return (max + min) / 2.0;
+  };
+  // change code above this line
+
+})();
+console.log(stats); // should be object
+console.log(half(stats)); // should be 28.015
+
+
+// Create strings with template literals
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["id-blacklist", "no-dup-keys"]
+};
+function makeList(arr) {
+  "use strict";
+
+  // change code below this line
+  const resultDisplayArray = [`<li class="text-warning">${arr[0]}</li>`, `<li class="text-warning">${arr[1]}</li>`, `<li class="text-warning">${arr[2]}</li>`];
+  // change code above this line
+
+  return resultDisplayArray;
+}
+/**
+ * makeList(result.failure) should return:
+ * [ `<li class="text-warning">no-var</li>`,
+ *   `<li class="text-warning">var-on-top</li>`,
+ *   `<li class="text-warning">linebreak</li>` ]
+ **/
+const resultDisplayArray = makeList(result.failure);
+console.log(resultDisplayArray);
+
+/* ##############################################################################################
+2019-02-02 - ES6 concise object literal declaration - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+const createPerson = (name, age, gender) => {
+  "use strict";
+  // change code below this line
+  return {
+    name,
+    age,
+    gender
+  };
+  // change code above this line
+};
+console.log(createPerson("Zodiac Hasbro", 56, "male")); // returns a proper object
+
+/* ##############################################################################################
+2019-02-02 - ES6 removal of requirement for function keyword when defining function w/in object - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+
+// change code below this line
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    "use strict";
+    this.gear = newGear;
+  }
+};
+// change code above this line
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+/* ##############################################################################################
+2019-02-03 - ES6 class syntax usage - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+class Vegetable {
+  "use strict";
+  /* Alter code below this line */
+  constructor (name) {
+    this.name = name;
+  }
+  /* Alter code above this line */
+}
+
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // => should be 'carrot'
+
+/* ##############################################################################################
+2019-02-04 - ES6 getter and setter - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+function makeClass() {
+  "use strict";
+  /* Alter code below this line */
+  class Thermostat {
+    constructor(fahrenheit) {
+      this._fahrenheit = fahrenheit;
+    }
+
+    get temperature(){
+      return (this._fahrenheit - 32) * 5/9;
+    }
+
+    set temperature(updatedTemp){
+      this._fahrenheit = (updatedTemp *9.0 / 5)+ 32;
+    }
+  }
+  /* Alter code above this line */
+  return Thermostat;
+}
+const Thermostat = makeClass();
+const thermos = new Thermostat(76); // setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in C
+console.log(temp);
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in C
+console.log(temp);
+
+
+/* ##############################################################################################
+2019-02-18 - RegEx example for range of alphabetical characters - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let quoteSample = "The quick brown fox jumps over the lazy dog.";
+let alphabetRegex = /[a-z]/gi; // Change this line
+let result = quoteSample.match(alphabetRegex); // Change this line
+
+/* ##############################################################################################
+2019-02-19 - RegEx example for range of alphabetical characters and numerals - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let quoteSample = "Blueberry 3.141592653s are delicious.";
+let myRegex = /[h-s2-6]/gi; // Change this line
+let result = quoteSample.match(myRegex); // Change this line
+
+/* ##############################################################################################
+2019-02-19 - RegEx example of exclusion - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let quoteSample = "3 blind mice.";
+let myRegex = /[^\d^aeiou]/gi; // Change this line
+let result = quoteSample.match(myRegex); // Change this line
+console.log(result);
+
+/* ##############################################################################################
+2019-02-19 - RegEx example of matching one or more consecutively recurring characters - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/g; // Change this line
+let result = difficultSpelling.match(myRegex);
+console.log(result);
+
+/* ##############################################################################################
+2019-02-19 - RegEx example of finding a character that occurs zero or more times, consecutively - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+let chewieRegex = /Aa*/; // Change this line
+let result = chewieQuote.match(chewieRegex);
+console.log(result);
+
+/* ##############################################################################################
+2019-02-20 - RegEx example of finding lazy match - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.*?>/; // Change this line
+let result = text.match(myRegex);
+console.log(result);
+
+/* ##############################################################################################
+2019-02-20 - RegEx exercise - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+// example crowd gathering
+let crowd = 'P1P2P3P4P5P6CCCP7P8P9';
+
+let reCriminals = /C+/g; // Change this line
+
+let matchedCriminals = crowd.match(reCriminals);
+console.log(matchedCriminals);

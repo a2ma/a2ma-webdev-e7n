@@ -1,0 +1,66 @@
+/* Starter Kit
+refactor repetitive parts into classes
+*/
+body{
+   background: firebrick; 
+   font-family: 'IM Fell English SC', serif;
+}
+
+.home-main-content h2{
+   color: white;
+}
+
+.home-main-content p{
+   font-size: 1.25rem;
+   line-height: 2;
+}
+
+.content-card{ 
+   margin-top: 100px;
+}
+
+#mainNavbar{
+   font-size: 1.5rem;
+   font-weight: 100;
+}
+
+#mainNavbar .nav-link{
+   color: white;
+}
+
+#mainNavbar .nav-link:hover{
+   background: firebrick;
+}
+
+#mainNavbar .navbar-brand{
+   color: #EA1C2C;
+   font-size: 2rem;
+}
+
+#heading-group span{
+   color: black;
+}
+
+#heading-group h1{
+   font-style: oblique;
+   font-size: 4rem;
+}
+
+#center-image{
+   max-width: 100%;
+   height: auto;
+}
+
+
+@media (max-width: 1000px) {
+   #heading-group h1{
+      font-size: 3rem;
+   }
+}
+
+@media (max-width: 500px) {
+   #mainNavbar .navbar-brand{
+      font-size: 1.8rem;
+   }
+}
+

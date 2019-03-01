@@ -1282,3 +1282,156 @@ let reCriminals = /C+/g; // Change this line
 
 let matchedCriminals = crowd.match(reCriminals);
 console.log(matchedCriminals);
+
+/* ##############################################################################################
+2019-02-20 - RegEx example: finding a term only at the beginning of a searched value - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // Change this line
+let result = calRegex.test(rickyAndCal);
+
+/* ##############################################################################################
+2019-02-25 - RegEx exercise: username validation: 
+1) The only numbers in the username have to be at the end. There can be zero or more of them at the end.
+2) Username letters can be lowercase and uppercase.
+3) Usernames have to be at least two characters long. A two-letter username can only use alphabet letter characters.
+- FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let username = "007";
+let userCheck = /[a-z][a-z]+|[a-z]+[\d*$]/i; // Change this line
+let result = userCheck.test(username);
+let resultText = username.match(userCheck);
+console.log(resultText);
+
+/* ##############################################################################################
+2019-02-26 - RegEx example: finding whitespace - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g; // Change this line
+let result = sample.match(countWhiteSpace);
+console.log(result);
+
+/* ##############################################################################################
+2019-02-26 - RegEx example: finding inverse whitespace - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let sample = "Whitespace is important in separating words";
+let countNonWhiteSpace = /\S/g; // Change this line
+let result = sample.match(countNonWhiteSpace);
+
+/* ##############################################################################################
+2019-02-26 - RegEx example: finding a range of occurrences of a target, finding a specific number - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6} no/; // Change this line
+let result = ohRegex.test(ohStr);
+
+let haStr = "Hazzzzah";
+let haRegex = /Haz{4,}ah/; // Change this line
+let result = haRegex.test(haStr);
+
+let timRegex = /Tim{4}ber/; // Change this line
+let result = timRegex.test(timStr);
+
+/* ##############################################################################################
+2019-02-26 - RegEx example: marking a target item as optional with ? immediately succeeding. - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let favWord = "favorite";
+let favRegex = /favou?rite/; // Change this line
+let result = favRegex.test(favWord);
+
+/* ##############################################################################################
+2019-02-26 - RegEx example: lookaheads, positive and negative; using positive lookaheads to check
+password for length and for at least two numbers. - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{5,})(?=[\D]*\d\d)/; // Change this line
+let result = pwRegex.test(sampleWord);
+
+/* ##############################################################################################
+2019-02-26 - RegEx exercise: using capture groups with back-reference - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+)\s\1\s\1$/; // Change this line
+let result = reRegex.test(repeatNum);
+let resultText = repeatNum.match(reRegex);
+console.log(resultText);
+
+let repeatStr = "regex regex";
+let repeatRegex = /(\w+)\s\1/;
+repeatRegex.test(repeatStr); // Returns true
+repeatStr.match(repeatRegex); // Returns ["regex regex", "regex"]
+console.log(repeatStr.match(repeatRegex));
+
+/* ##############################################################################################
+2019-02-26 - RegEx example: calling :replace() on a string - FreeCodeCamp
+Notes:
+##############################################################################################*/
+
+let huhText = "This sandwich is good.";
+let fixRegex = /good/; // Change this line
+let replaceText = "okey-dokey"; // Change this line
+let result = huhText.replace(fixRegex, replaceText);
+
+/* ##############################################################################################
+2019-02-26 - RegEx exercise: calling :replace() on a string to strip whitespace - FreeCodeCamp
+Notes: review later; why is g necessary?
+##############################################################################################*/
+
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g; // Change this line
+let result = hello.replace(wsRegex, ''); // Change this line
+console.log(result);
+
+/* ##############################################################################################
+2019-02-26 - using Array.reduce - FreeCodeCamp
+Notes: 
+##############################################################################################*/
+
+let myArray = [1, 2, 3];
+let arraySum = myArray.reduce((previous, current) =>  previous + current);
+console.log(`Sum of array values is: ${arraySum}`);
+
+/* ##############################################################################################
+2019-02-26 - creating a matrix - FreeCodeCamp
+Notes: 
+##############################################################################################*/
+
+function zeroArray(m, n) {
+  // Creates a 2-D array with m rows and n columns of zeroes
+  let newArray = [];
+  let row = [];
+  for (let i = 0; i < m; i++) {
+    // Adds the m-th row into newArray
+    row =[];
+    console.log('i is' + i)
+    for (let j = 0; j < n; j++) {
+      // Pushes n zeroes into the current row to create the columns
+      row.push(0);
+      console.log('j is' + j)
+      console.log(row);
+    }
+    // Pushes the current row, which now has n zeroes in it, to the array
+    newArray.push(row);
+    console.log(newArray);
+  }
+  return newArray;
+}
+
+let matrix = zeroArray(3, 2);
+console.log(matrix);

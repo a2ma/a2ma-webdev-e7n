@@ -1435,3 +1435,38 @@ function zeroArray(m, n) {
 
 let matrix = zeroArray(3, 2);
 console.log(matrix);
+
+/* ##############################################################################################
+2019-03-05 - :splice() - FreeCodeCamp
+Notes: for the previous basic data structure sections (:push(), :unshift(), :pop(), :shift()) see
+B5h-a
+##############################################################################################*/
+
+// :splice(<starting index>, <number of elements to delete>, <optional: elements to replace removed elements>);
+// num of elements to delete includes the first.
+//:splice() returns a new array of the removed elements.
+
+function htmlColorNames(arr) {
+  // change code below this line
+  arr.splice(0, 2, 'DarkSalmon', 'BlanchedAlmond')
+  // change code above this line
+  return arr;
+} 
+ 
+// do not change code below this line
+console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurqoise', 'FireBrick']));
+
+
+/* ##############################################################################################
+2019-03-07 - :slice() - FreeCodeCamp
+Notes: see B5h
+##############################################################################################*/
+
+function forecast(arr) {
+  // change code below this line
+  let arrPortion = arr.slice(2, 4);
+  return arrPortion;
+}
+
+// do not change code below this line
+console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));

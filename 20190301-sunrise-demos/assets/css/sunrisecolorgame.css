@@ -1,19 +1,21 @@
 body {
-    background: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    text-align: center;
-  }
-  
-  #second-h1 {
-    font-size: 100px;
-  }
-  
-  .game-button {
-    margin: 10px;
-    padding: 5px;
-  }
-  
-  .game-button:hover {
-    background: red;
-    border: red;
-  }
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+#game-title{
+  font-size: 80px;
+}
+
+.game-button {
+  margin: 10px;
+  padding: 5px;
+}
+
+.color-option{
+  border: 1px solid firebrick;
+  padding: 5px;
+  float: left;
+  width: 30%;
+}

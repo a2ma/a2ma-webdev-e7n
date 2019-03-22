@@ -1470,3 +1470,22 @@ function forecast(arr) {
 
 // do not change code below this line
 console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
+
+/* ##############################################################################################
+2019-03-07 - copy array with spread operator- FreeCodeCamp
+Notes: see B5h
+##############################################################################################*/
+
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    // change code below this line
+    newArr.push([...arr]);
+    // change code above this line
+    num--;
+  }
+  return newArr;
+}
+
+// change code here to test different cases:
+console.log(copyMachine([true, false, true], 2));

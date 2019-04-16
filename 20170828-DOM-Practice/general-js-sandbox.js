@@ -69,36 +69,48 @@ Notes:
 Notes: 
 ##############################################################################################*/
 
-var a = 1;
-let b = 2;
-const c = 3;
+// var a = 1;
+// let b = 2;
+// const c = 3;
 
-function test() {
-    var a = 1;
-    let b = 2;
-    const c = 3;
-    console.log('Function scope: ' + a, b, c );
+// function test() {
+//     var a = 1;
+//     let b = 2;
+//     const c = 3;
+//     console.log('Function scope: ' + a, b, c );
+// }
+// //does not change var
+
+// test();
+
+// if(true){
+//     var a = 4;
+//     let b = 5;
+//     const c = 6;
+//     console.log('Block (if) scope: ' + a, b, c );
+// }
+
+// // var is changed globally
+
+// for(var a = 0; a < 10; a++){
+//     console.log(`For Loop: ${a}`)
+// }
+// // changes var
+
+// console.log('Global scope: ' + a, b, c );
+
+// // let and const: block level scop; var: function level scope
+
+const liOdd = document.querySelectorAll('li:nth-child(odd)');
+const liEven = document.querySelectorAll('li:nth-child(even)');
+
+liOdd.forEach(function(li){
+    li.style.background = "red";
+});
+
+for(let i = 0; i < liEven.length; i++){
+    liEven[i].style.background = 'blue';
+    liEven[i].style.color = 'white';
 }
-//does not change var
-
-test();
-
-if(true){
-    var a = 4;
-    let b = 5;
-    const c = 6;
-    console.log('Block (if) scope: ' + a, b, c );
-}
-
-// var is changed globally
-
-for(var a = 0; a < 10; a++){
-    console.log(`For Loop: ${a}`)
-}
-// changes var
-
-console.log('Global scope: ' + a, b, c );
-
-// let and const: block level scop; var: function level scope
 
 

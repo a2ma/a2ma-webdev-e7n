@@ -52,6 +52,10 @@ hr {
     padding-bottom: 70px; /*height of footer + comfortable layer */
 }
 
+#background-credit{
+    color: #68c7ff;
+}
+
 #footer{
     /* max-width: 100%; */
     width: 100%;

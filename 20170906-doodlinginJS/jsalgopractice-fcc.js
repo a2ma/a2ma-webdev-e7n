@@ -1521,3 +1521,134 @@ function quickCheck(arr, elem) {
 
 // change code here to test different cases:
 console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+
+/* ##############################################################################################
+2019-04-19 - iteration with for loop - FreeCodeCamp
+Notes: see B5h
+##############################################################################################*/
+
+function filteredArray(arr, elem) {
+  let newArr = [];
+  // change code below this line
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].indexOf(elem) == -1) {
+      newArr.push(arr[i]);
+    }
+
+  }
+  // change code above this line
+  return newArr;
+}
+
+// change code here to test different cases:
+console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
+console.log(filteredArray([[10, 8, 3], [14, 6, 23], [3, 18, 6]], 18));
+console.log(filteredArray([["trumpets", 2], ["flutes", 4], ["saxophones", 2]], 2));
+console.log(filteredArray([["amy", "beth", "sam"], ["dave", "sean", "peter"]], "peter"));
+
+/* ##############################################################################################
+2019-04-21 - objects: nesting, access with dot and bracket notations - FreeCodeCamp
+Notes: see B5h
+##############################################################################################*/
+
+let userActivity = {
+  id: 23894201352,
+  date: 'January 1, 2017',
+  data: {
+    totalUsers: 51,
+    online: 42
+  }
+};
+
+// change code below this line
+// userActivity.data.online = 45;
+userActivity['data']['online'] = 45;
+// change code above this line
+
+console.log(userActivity);
+
+/* ##############################################################################################
+2019-04-21 - objects: delete keyword - FreeCodeCamp
+Notes: see B5h
+##############################################################################################*/
+
+
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+// change code below this line
+delete foods.oranges;
+delete foods.plums;
+delete foods.strawberries;
+// change code above this line
+
+console.log(foods);
+
+
+/* ##############################################################################################
+2019-04-21 - objects: check object for property - FreeCodeCamp
+Notes: see B5h
+##############################################################################################*/
+
+// My Solution 
+
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+// function isEveryoneHere(obj) {
+//   // change code below this line
+//   if (users.hasOwnProperty('Alan') && users.hasOwnProperty('Jeff') && users.hasOwnProperty('Sarah')
+//     && users.hasOwnProperty('Ryan')) {
+//     return true;
+//   }
+//   return false;
+//   // change code above this line
+// }
+
+console.log(isEveryoneHere(users));
+
+// Better solution 
+
+function isEveryoneHere(obj) {
+  // change code below this line
+  if (users.hasOwnProperty('Alan', 'Sarah', 'Ryan', 'Jeff')) {
+    return true;
+  }
+  return false;
+  // change code above this line
+}
+
+// best solution
+
+function isEveryoneHere(obj) {
+  // change code below this line
+  return users.hasOwnProperty('Alan', 'Sarah', 'Ryan', 'Jeff') ? true : false;
+
+  // if (users.hasOwnProperty('Alan', 'Sarah', 'Ryan', 'Jeff')) {
+  //   return true;
+  // }
+  // return false;
+  // change code above this line
+}

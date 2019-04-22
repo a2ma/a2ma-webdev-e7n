@@ -101,16 +101,105 @@ Notes:
 
 // // let and const: block level scop; var: function level scope
 
-const liOdd = document.querySelectorAll('li:nth-child(odd)');
-const liEven = document.querySelectorAll('li:nth-child(even)');
+// const liOdd = document.querySelectorAll('li:nth-child(odd)');
+// const liEven = document.querySelectorAll('li:nth-child(even)');
 
-liOdd.forEach(function(li){
-    li.style.background = "red";
-});
+// liOdd.forEach(function(li){
+//     li.style.background = "red";
+// });
 
-for(let i = 0; i < liEven.length; i++){
-    liEven[i].style.background = 'blue';
-    liEven[i].style.color = 'white';
-}
+// for(let i = 0; i < liEven.length; i++){
+//     liEven[i].style.background = 'blue';
+//     liEven[i].style.color = 'white';
+// }
+
+let val;
+
+const list = document.querySelector('ul.collection');
+const listItem = document.querySelector('li.collection-item:first-child');
+
+val = listItem;
+val = list;
+
+// return the child nodes in a node list
+// also has line breaks as text nodes
+val = list.childNodes;
+val = list.childNodes[0];
+val = list.childNodes[0].nodeName;
+val = list.childNodes[0].nodeType;
+
+// Node types: {1: element, 2: attribute (deprecated), 3: text node, 8: comment, 9: document itself, 10: doctype}
+
+
+// to return only the children element nodes and not empty text nodes:
+val = list.children;
+
+val = list.children[0];
+
+list.children[1].textContent = 'Hello from the JS file.';
+
+// children of children
+list.children[3].children[0].id = 'test-link';
+val = list.children[3].children;
+
+
+// first child
+val = list.firstChild;
+val = list.firstElementChild; // first actual element without text nodes
+
+// last child
+val = list.lastChild;
+val = list.lastElementChild; // first actual element without text nodes
+
+
+// child node count
+val = list.childElementCount;
+
+// get parent node
+val = listItem.parentNode;
+val = listItem.parentElement;
+val = listItem.parentElement.parentElement;
+
+// get sibling
+val = listItem.nextSibling;
+val = listItem.nextElementSibling;
+val = listItem.nextElementSibling.nextElementSibling;
+val = listItem.previousSibling;
+val = listItem.previousElementSibling;
+
+
+
+// console.log(val);
+
+
+// create element
+const li = document.createElement('li');
+
+//Add Class
+li.className = "collection-item";
+li.id = "new-item";
+
+// add attribute
+li.setAttribute('title', 'New Item');
+
+//  create text node and append
+li.appendChild(document.createTextNode('Hello from the JS Dom Manipulation'));
+
+// create new link element
+const link = document.createElement('a');
+
+link.className = 'delete-item secondary-content';
+link.innerHTML = '<i class="fa fa-remove"></i>';
+
+// append link to li
+li.appendChild(link);
+
+// append li as child to ul
+document.querySelector('ul.collection').appendChild(li);
+
+console.log(li);
+
+
+
 
 

@@ -9,7 +9,7 @@
 
 	function sayHello($name){
 		// echo 'Hello, '.$name;
-		echo "Hello $name<br>"
+		echo "Hello $name<br>";
 	}
 
 

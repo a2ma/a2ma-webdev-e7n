@@ -1,3 +1,3 @@
 <?php
-  echo "hello rando;
+  echo "hello rando";
 ?>

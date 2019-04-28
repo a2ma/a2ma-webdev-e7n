@@ -1652,3 +1652,26 @@ function isEveryoneHere(obj) {
   // return false;
   // change code above this line
 }
+
+/* ##############################################################################################
+2019-04-25 - objects: iterate through keys with for...in - FreeCodeCamp
+Notes: see B5h
+##############################################################################################*/
+
+// FreeCodeCamp NOTE:
+// Objects do not maintain an ordering to stored keys like arrays do; thus a keys position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.
+
+function countOnline(obj) {
+  // change code below this line
+  let usersOnline = 0;
+  for (let user in obj) {
+    if (obj[user].online == true) {
+      usersOnline += 1;
+    };
+  };
+  return usersOnline;
+  // change code above this line
+}
+
+console.log(countOnline(users));
+console.log(users.Jeff.online === false);

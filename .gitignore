@@ -1,8 +1,27 @@
-v12_deployed
-**/node_modules
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Ignore Bootstrap Development Files
-bootstrap-4.0.0
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+**/node_modules
+**/assets/lib
+**/assets/img
+assets/**
+
+# System Files
+.DS_Store
+Thumbs.db
+
+#Backend Files
+/backend/images
+/backend/baurach-angular
+/backend/archive.zip
+
+#Env File
+nodemon.json
 
 # Ignore docs files
 _gh_pages
@@ -40,6 +59,18 @@ vendor/bundle
 *.sublime-workspace
 nbproject
 Thumbs.db
+# IDEs and editors
+/.idea
+.classpath
+.c9/
+*.launch
+.settings/
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # Komodo
 .komodotools
@@ -49,10 +80,15 @@ Thumbs.db
 docs/.jekyll-metadata
 twbsconfig.yml
 
-# Folders to ignore
-**/assets/lib
-**/assets/img
-
-# Files to ignore
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
 20171023-Express-Routes-Req-content.txt
 20180509-Nodejs-Express-MongoDB-Traversy/config/database.js
+v12_deployed

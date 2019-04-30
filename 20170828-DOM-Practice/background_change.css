@@ -1,3 +1,8 @@
 .red {
     background: red;
 }
+
+#main button{
+    float: left;
+    margin: 5px;
+}

@@ -1,3 +1,29 @@
+/* ##############################################################################################
+2017-08-28 - Basic DOM Introduction. Web Developer Bootcamp, Colt Steel, Udemy.
+Notes:
+##############################################################################################*/
+
+var button = document.querySelector(".win-button");
+var paragraph = document.querySelector(".winner-loser");
+var myImage = document.querySelector('#change');
+var clicked = false;
+
+button.addEventListener("click", function () {
+    clicked = !clicked;
+    if (clicked) {
+        paragraph.textContent = "You're a loser and you'll always be one. Or maybe...try again?";
+    } else {
+        paragraph.textContent = "Try Again!";
+    }
+
+});
+
+myImage.onclick = function () {
+    var mySrc = myImage.getAttribute('src');
+    if (mySrc === 'img/milos-simic-351441.jpg') {
+        myImage.setAttribute('src', 'img')
+    }
+}
 
 /* ##############################################################################################
 2019-03-05 - Window Interface - Traversy. JavaScript Basics. 2017?. Udemy.
@@ -268,7 +294,7 @@ Notes:
 // console.log(val);
 
 /* ##############################################################################################
-2019-04-22 - Event Listeners - Traversy. JavaScript Basics. 2017?. Udemy.
+2019-04-22 - Event Listeners, Event handlers - Traversy. JavaScript Basics. 2017?. Udemy.
 Notes:
 ##############################################################################################*/
 
@@ -279,38 +305,108 @@ Notes:
     
 // });
 
-document.querySelector('.clear-tasks').addEventListener('click', onClick);
+// document.querySelector('.clear-tasks').addEventListener('click', onClick);
 
-function onClick(e){
-    console.log('Clicked from the onClick function.');
+// function onClick(e){
+//     console.log('Clicked from the onClick function.');
 
-    let val;
+//     let val;
 
-    val = e;
+//     val = e;
 
-    // event target element
-    val = e.target;
-    val = e.target.className;
-    val = e.target.classList;
+//     // event target element
+//     val = e.target;
+//     val = e.target.className;
+//     val = e.target.classList;
 
-    e.target.innerText = 'You\'ve clicked me!';
+//     e.target.innerText = 'You\'ve clicked me!';
 
-    // event type
-    val = e.type;
+//     // event type
+//     val = e.type;
 
-    // time stamp
-    val = e.timeStamp;
-    val = e.type;
+//     // time stamp
+//     val = e.timeStamp;
+//     val = e.type;
 
-    // coordinates relative to the window
-    val = e.clientY;
-    val = e.clientX;
+//     // coordinates relative to the window
+//     val = e.clientY;
+//     val = e.clientX;
 
 
-    // coordinates relative to the element
-    val = e.offsetY;
-    val = e.offsetX;
+//     // coordinates relative to the element
+//     val = e.offsetY;
+//     val = e.offsetX;
 
-    console.log(val);
+//     console.log(val);
+// }
+
+
+// const clearBtn = document.querySelector('.clear-tasks');
+// const card = document.querySelector('.card');
+// const heading = document.querySelector('h5');
+
+// // // click
+// // clearBtn.addEventListener('click', runEvent);
+// // double click
+// // clearBtn.addEventListener('dblclick', runEvent);
+// // other examples: mousedown, mouseup, mouseenter, mouseleave, mouseover, mouseout
+// document.addEventListener('mousemove', runEvent);
+// card.addEventListener('mousemove', runEvent);
+
+// //Event Handler
+// function runEvent(e){
+//     console.log(`EVENT TYPE: ${e.type}`);
+//     // heading.textContent = `Mouse X: ${e.offsetX}, Mouse Y: ${e.offsetY}`;
+//     heading.textContent = `Mouse X: ${e.clientX}, Mouse Y: ${e.clientY}`;
+//     // document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, ${e.offsetY - e.offsetX})`
+//     document.body.style.backgroundColor = `rgb(${e.clientX}, ${e.clientY}, ${e.clientY - e.clientX})`
+// }
+
+// const form = document.querySelector('form');
+// const taskInput = document.getElementById('task');
+// const heading = document.querySelector('h5');
+
+// taskInput.addEventListener('keydown', runEvent);
+// // keyup, keypress, focus, blur (clicking out of an input), cut, paste, input (any kind of event)
+// // change - in select inputs for changing the selection
+
+// // form.addEventListener('submit', runEvent);
+
+// function runEvent(e) {
+//     console.log(`Event type: ${e.type}`);
+
+//     console.log(e.target.value);
+//     heading.innerText = e.target.value;
+//     // // get input value
+//     // console.log(taskInput.value);
+//     // // clear form
+//     // taskInput.value = '';
+//     // e.preventDefault();
+// }
+
+/* ##############################################################################################
+2019-04-27 - DOM bubbling, delegation - Traversy. JavaScript Basics. 2017?. Udemy.
+Notes:
+##############################################################################################*/
+
+// event bubbling
+
+// document.querySelector('.card-title').addEventListener('click', function(){console.log('card-title')});
+// document.querySelector('.card-content').addEventListener('click', function(){console.log('card-content')});
+// document.querySelector('.card').addEventListener('click', function(){console.log('card')});
+// document.querySelector('.col').addEventListener('click', function(){console.log('col')});
+
+
+//event delegation
+document.body.addEventListener('click', deleteItem);
+
+function deleteItem(e) {
+    // console.log(e.target);
+    // if(e.target.parentElement.className === 'delete-item secondary-content'){
+    //     console.log('delete item');
+    // }
+    if (e.target.parentElement.classList.contains('delete-item')) {
+        console.log('delete item');
+        e.target.parentElement.parentElement.remove();
+    }
 }
-

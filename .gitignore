@@ -9,7 +9,7 @@
 **/node_modules
 **/assets/lib
 **/assets/img
-assets/**
+**/bootstrap-4.1.1-dist
 
 # System Files
 .DS_Store
@@ -22,6 +22,7 @@ Thumbs.db
 
 #Env File
 nodemon.json
+*.env
 
 # Ignore docs files
 _gh_pages
@@ -59,6 +60,7 @@ vendor/bundle
 *.sublime-workspace
 nbproject
 Thumbs.db
+
 # IDEs and editors
 /.idea
 .classpath
@@ -91,4 +93,4 @@ testem.log
 /typings
 20171023-Express-Routes-Req-content.txt
 20180509-Nodejs-Express-MongoDB-Traversy/config/database.js
-v12_deployed
+20171010-YelpCamp/v12_deployed

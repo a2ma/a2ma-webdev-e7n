@@ -1,0 +1,25 @@
+#quote-div{
+    max-width: 50%;
+    background: purple;
+    margin-left: auto;
+    margin-right: auto;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    
+}
+
+#quote-button{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+
+#quote-p{
+    position: relative;
+    top: 50%;
+    left: 50%;
+}

@@ -10,7 +10,7 @@ Rules:
 // game values
 let min = 1,
     max = 10,
-    x = Math.floor(Math.random() * 11),
+    x = getRandomNum(max, min),
     guesses = 3;
 
 
@@ -27,6 +27,13 @@ minNumEl.textContent = min;
 maxNumEl.textContent = max;
 console.log(x);
 
+// event listener for play again
+gameEl.addEventListener('mousedown', function (e) {
+    if (e.target.className === 'play-again') {
+        window.location.reload();
+    }
+});
+
 // Listen for guess
 guessBtnEl.addEventListener('click', function () {
     // traversey uses parseInt() to transform the string to a num
@@ -37,23 +44,39 @@ guessBtnEl.addEventListener('click', function () {
         setMessage(`Your guess is invalid. Try again with a number between ${min} and ${max}.`, 'red');
     } else {
         if (guess == x) {
-            guessInputEl.disabled = true;
-            guessInputEl.style.borderColor = 'green';
-            setMessage('You are correct.', 'green');
+            gameOver(true, 'Correct. You win!');
         } else {
             guesses--;
             if (guesses > 0) {
                 setMessage(`Incorrect. ${guesses} guesses remaining.`);
+                guessInputEl.value = '';
             } else {
-                setMessage(`Sorry, you did not guess correctly. The number was ${x}. <a href=#>Try again!</a>`)
+                // game over - lost
+                gameOver(false, `Sorry, you did not guess correctly. The number was ${x}.`, 'red');
             }
         }
     }
 });
 
-function setMessage(msg, style){
+// game over function
+function gameOver(won, msg) {
+    let color;
+    won === true ? color = 'green' : color = 'red';
+    // game over - won
+    guessInputEl.disabled = true;
+    guessInputEl.style.borderColor = color;
+    setMessage(msg, color);
+    guessBtnEl.value = 'Play Again';
+    guessBtnEl.classList += 'play-again';
+}
+
+function getRandomNum(max, min){
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function setMessage(msg, color) {
     messageEl.innerHTML = msg;
-    messageEl.style.color = style;
+    messageEl.style.color = color;
 }
 
 

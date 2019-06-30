@@ -1,8 +1,241 @@
 /*
-'Some Javascript Practice'
-Mostly from freecodecamp
+JavaScript Curriculum
+Sources:
+  -FreeCodeCamp
+  -Traversy - JavaScript Course, Udemy
 *A2MA - 2017-09-06
 */
+
+//alert("بسم الله الرحمن الرحيم");
+
+//Takes name and age
+
+//alert("Hello world, from JS");
+//var user1Name = prompt("Welcome, user. What is your first name?");
+//alert("Hello " + user1Name);
+//console.log(user1Name);
+//
+//var user2Name = prompt("What is your last name?");
+//alert("Name recorded: " + user1Name + " " + user2Name);
+//console.log(user2Name);
+//
+//var age = prompt("How old are you, " + user1Name + "? Don't worry, I'm not a stalker. Honest.");
+//alert("User age recorded: " + age);
+//console.log(age);
+//
+//alert("Welcome, " + user1Name + " " + user2Name + ". You are " + age + " years old. Congrats.");
+
+//finds age (approximate--come back and find exact age)
+
+//alert("Enter your birthdate to find out your approximate age in days: ");
+
+// const para = document.querySelector('#player');
+// para.addEventListener('click', updateName);
+// var ageDays = document.querySelector("#age-days");
+// ageDays.addEventListener('click', updateAgeDays);
+// var ageDayButton = document.querySelector("#age-day-button");
+// ageDayButton.addEventListener('click', calcAgeDays);
+// var ageRaw;
+// var ageCooked;
+
+// function calcAgeDays() {
+//     ageRaw = prompt("Enter your age in years to find your approximate age in days: ");
+//     ageCooked = ageRaw * 365.25;
+
+// }
+// function updateAgeDays() {
+//     ageDays.innerHTML = ageCooked;
+// }
+
+
+// function updateName() {
+//    let name = prompt('Enter your name, player: ');
+//    para.textContent = 'Player 1 is ' + name;
+// }
+
+
+
+// function createParagraph() {
+//     let para = document.createElement('p');
+//     para.textContent = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ad commodi possimus tempore. Repellat accusamus fuga debitis, molestias laborum porro saepe facere. Magni, tenetur. Incidunt sapiente cumque reprehenderit recusandae, quam labore ratione culpa, dolorum officiis accusantium aperiam ea debitis velit laborum voluptatibus quaerat blanditiis error pariatur, ullam quasi. Aspernatur error pariatur, nam nostrum eaque harum sunt porro voluptas suscipit dignissimos architecto voluptate? Ea eum ipsam possimus corporis aperiam quis ut ducimus quidem totam tempora cupiditate explicabo rerum repellat maxime nostrum, a, mollitia consectetur at quod velit sapiente accusantium! Odit cum fugit repudiandae reprehenderit quae, maxime doloremque numquam optio expedita voluptas nostrum repellat eos. Delectus, nesciunt quos! Nostrum dignissimos, dolorem quas architecto nobis incidunt dolor ab obcaecati similique fuga sequi ipsum.';
+//     document.body.appendChild(para);
+// }
+// const buttons = document.querySelectorAll('button');
+
+// for(let i = 0; i < buttons.length; i++) {
+//     buttons[i].addEventListener('click', createParagraph);
+// }
+
+
+let val;
+
+val = 5;
+
+console.log(typeof val);
+
+val = String(5);
+
+val = (5).toString();
+
+val = Number('5'); // 5
+
+val = Number(true); // gives 1
+val = Number(false); // gives 0
+val = Number(null); // also gives 0
+val = Number('Some string'); // gives NaN
+val = Number([1, 2, 3, 4, 5]); // gives NaN
+
+
+val = parseInt('100.30'); // returns 100
+val = parseFloat('100.33'); // returns 100.3
+val = val.toFixed(2); // to get 2 more spaces
+
+// type coercion - when JS engine auto converts one data type to another
+
+// Math Object
+Math.PI
+Math.E
+Math.round() // rounds up or down depending on decimal
+Math.ceil() // rounds up always
+Math.floor() // rounds down always
+Math.sqrt()
+Math.abs()
+Math.pow(2, 2);
+Math.min()
+Math.max()
+
+// randomNumber = Math.floor(Math.random() * 10 + 1);
+
+// console.log(randomNumber);
+
+
+// Strings
+
+let stringVal = 'some string';
+
+stringVal = stringVal.concat(' ', 'and some concatenated material');
+
+console.log(stringVal);
+
+val = stringVal.indexOf('s');
+console.log(val);
+val = stringVal.lastIndexOf('s');
+console.log(val);
+val = stringVal.charAt('4');
+console.log(val);
+val = stringVal.charAt(stringVal.length - 1);
+console.log(val);
+
+val = stringVal.substring(0, 20); // end is non-inclusive; if no 
+// end indicated goes to end of string
+console.log(val);
+
+val = stringVal.slice(0, 20);
+console.log(val);
+val = stringVal.slice(-10);
+console.log(val);
+
+val = 'tag1, tag2, tag3, tag4, tag5';
+val = val.split(', ');
+console.log(val);
+
+val = stringVal.replace('material', 'string');
+
+console.log(val);
+
+val = stringVal.includes('Humpty');
+console.log(val);
+
+// Template literals - introduced in ES6
+const name = 'Joe';
+const age = 30;
+const job = 'consigliere';
+const city = 'New York';
+let html;
+
+// without template strings (es5)
+html = '<ul><li>Name: ' + name + '</li><li>, etc.</li></ul>';
+
+document.body.querySelector('#js-pad').innerHTML = html;
+
+// with template literals
+html = `<ul>
+            <li>Name: ${name}</li>
+            <li>, etc.</li>
+        </ul>`
+
+document.body.querySelector('#js-pad').innerHTML = html;
+
+/* 
+Arrays
+*/
+testArray = new Array();
+
+for (var i = 0; i < 10; i++) {
+  testArray[i] = i + 45;
+}
+
+console.log(testArray);
+
+// testArray.unshift() // - adds on to the front.
+// testArray.shift() // remove from the front
+// testArray.splice();
+// testArray.reverse();
+
+testArray.sort(function (x, y) {
+  return x - y;
+})
+
+console.log(testArray);
+
+// finding with specific criteria
+
+function over50(num) {
+  return num > 50;
+}
+
+
+val = testArray.find(over50);
+
+console.log(val);
+
+/* 
+OBJECT LITERAL
+*/
+
+person = {
+  name: 'Harry',
+  age: 11,
+  address: {
+    city: 'Little Whinging',
+    state: 'Surrey'
+  },
+  getBirthYear: function () {
+    return 2018 - this.age;
+  }
+}
+
+/* 
+Dates and Times
+*/
+
+let someDate = new Date('10 12 1999 12:23:15');
+console.log(someDate);
+
+someDate = new Date('October 12 1999 12:23:15');
+console.log(someDate);
+
+someDate = new Date('10/12/1999 12:23:15');
+console.log(someDate);
+
+let someDate2 = new Date();
+console.log(someDate2);
+
+val = someDate2.getMonth(); // starts off at 0, so each month is one less
+console.log(val);
+
+someDate.getTime(); // gets the time since a set date
+
 
 // ##############################################################################################################
 // ##############################################################################################################
@@ -1829,7 +2062,7 @@ console.log(frankenSplice([1, 2, 3], [4, 5], 1));
 
 // ##############################################################################################################
 
-// Basic Algorithm Scripting
+// Object Oriented Programming
 
 // ##############################################################################################################
 
@@ -1855,3 +2088,36 @@ function House(numBedrooms) {
 // Add your code below this line
 let myHouse = new House(9);
 myHouse instanceof House;
+
+
+// ##############################################################################################################
+
+// Algorithms in JavaScript
+
+// ##############################################################################################################
+
+// This function partitions given array and returns 
+//  the index of the pivot.
+var partition = function (array, p, r) {
+  // This code has been purposefully obfuscated,
+  // as you will implement it yourself in next challenge
+  var e = array, t = p, n = r; var r = function (e, t, n) { var r = e[t]; e[t] = e[n]; e[n] = r; }; var i = t; for (var s = t; s < n; s++) { if (e[s] <= e[n]) { r(e, s, i); i++; } } r(e, n, i); return i;
+};
+
+var quickSort = function (array, p, r) {
+  if (p < r) {
+    var pivot = partition(array, p, r);
+    quickSort(array, p, pivot - 1);
+    quickSort(array, pivot + 1, r);
+  }
+};
+
+var array = [9, 7, 5, 11, 12, 2, 14, 3, 10, 6];
+quickSort(array, 0, array.length - 1);
+println("Array after sorting: " + array);
+Program.assertEqual(array, [2, 3, 5, 6, 7, 9, 10, 11, 12, 14]);
+
+var array2 = [9, 7, 5, 11, 12, 2, 14, 3, 10, 6, 90, 0];
+quickSort(array2, 0, array2.length - 1);
+println("Array after sorting: " + array2);
+Program.assertEqual(array2, [0, 2, 3, 5, 6, 7, 9, 10, 11, 12, 14, 90]);

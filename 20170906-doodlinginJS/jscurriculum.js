@@ -414,7 +414,7 @@ function palindromeThree(str) {
 // Find WORD LENGTH, Return length of longest word
 // #############################################################################
 
-// //First Try
+// // First Try
 // function findLongestWord(str) {
 //   strarray = str.split(" ");
 //   var longest = '';
@@ -434,9 +434,9 @@ function palindromeThree(str) {
 //   return longest.length;
 // }
 
-//Second Try - works BUT:
-//I forgot to compare the LENGTH of longest to the length of the array element; careless mistake
-//unnecessary length and convolutedness.
+// Second Try - works BUT:
+// I forgot to compare the LENGTH of longest to the length of the array element; careless mistake
+// unnecessary length and convolutedness.
 function findLongestWord(str) {
   strarray = str.split(" ");
   var longest = '';
@@ -462,7 +462,7 @@ function findLongestWord(str) {
   return longest.length;
 }
 
-console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
+// console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
 // console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); //should return 6.
 // console.log(findLongestWord("May the force be with you")); //should return 5.
 // console.log(findLongestWord("Google do a barrel roll")); //should return 6.
@@ -486,7 +486,7 @@ function longestWord(str) {
 }
 // console.log(longestWord("The quick brown fox jumped over the lazy dog"));
 
-//Another solution, using the Array object's reduce() method:
+// Another solution, using the Array object's reduce() method:
 
 function longestWordReduce(str) {
   return str.split(" ")
@@ -496,18 +496,19 @@ function longestWordReduce(str) {
 }
 // see: https://forum.freecodecamp.org/t/javascript-array-prototype-reduce/14299
 // AND: https://forum.freecodecamp.org/t/using-array-prototype-reduce-to-reduce-conceptual-boilerplate-for-problems-on-arrays/14687
+
 // console.log(longestWordReduce("What if we try a super-long word such as otorhinolaryngology"));
 
 // Advanced solution, seems most efficient because it compares a shorter
-//array each time, using splice to get rid of the parts already compared
-//and found to be shorter
+// array each time, using splice to get rid of the parts already compared
+// and found to be shorter
 
 function findLongestRecursion(str) {
-  //splits each time because of the recursion
+  // splits each time because of the recursion
   str = str.split(" ");
 
-  //if the array resulting from split is just one element long
-  //then that singular element is the longest
+  // if the array resulting from split is just one element long
+  // then that singular element is the longest
   if (str.length == 1) {
     return str[0].length;
   }
@@ -518,13 +519,12 @@ function findLongestRecursion(str) {
     str.splice(1, 1);
     return findLongestRecursion(str.join(" "));
   }
-  //if second is greater, cut away the second and subsequent elements
+  // if second is greater, cut away the second and subsequent elements
   // away from the first and pass back to function as argument
   if (str[0].length <= str[1].length) {
     return findLongestRecursion(str.slice(1, str.length).join(" "));
   }
 }
-
 
 // #############################################################################
 //TitleCase A Sentence:
@@ -966,7 +966,7 @@ var doSearch = function (array, targetValue) {
 var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37,
   41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 
-var result = doSearch(primes, 73);
+// var result = doSearch(primes, 73);
 // println("Found prime at index " + result);
 
 Program.assertEqual(doSearch(primes, 73), 20);
@@ -1194,17 +1194,17 @@ if(typeof id !== 'undefined'){
 ES6 Write Higher Order Arrow Functions, 2019-01-22, FreeCodeCamp
 Notes:
 #############################################################################*/
-const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
-const squareList = (arr) => {
-  "use strict";
-  // change code below this line
-  const squaredIntegers = arr.filter((num) => num > 0 && num %1 == 0).map((num)=> num**2);
-  // change code above this line
-  return squaredIntegers;
-};
-// test your code
-const squaredIntegers = squareList(realNumberArray);
-console.log(squaredIntegers);
+// // const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+// const squareList = (arr) => {
+//   "use strict";
+//   // change code below this line
+//   const squaredIntegers = arr.filter((num) => num > 0 && num %1 == 0).map((num)=> num**2);
+//   // change code above this line
+//   return squaredIntegers;
+// };
+// // test your code
+// const squaredIntegers = squareList(realNumberArray);
+// console.log(squaredIntegers);
 
 // OR
 const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
@@ -1332,12 +1332,13 @@ console.log(stats); // should be object
 console.log(half(stats)); // should be 28.015
 
 
-// Create strings with template literals
-const result = {
-  success: ["max-length", "no-amd", "prefer-arrow-functions"],
-  failure: ["no-var", "var-on-top", "linebreak"],
-  skipped: ["id-blacklist", "no-dup-keys"]
-};
+// // Create strings with template literals
+// const result = {
+//   success: ["max-length", "no-amd", "prefer-arrow-functions"],
+//   failure: ["no-var", "var-on-top", "linebreak"],
+//   skipped: ["id-blacklist", "no-dup-keys"]
+// };
+
 function makeList(arr) {
   "use strict";
 
@@ -1452,18 +1453,18 @@ console.log(temp);
 Notes:
 #############################################################################*/
 
-let quoteSample = "The quick brown fox jumps over the lazy dog.";
-let alphabetRegex = /[a-z]/gi; // Change this line
-let result = quoteSample.match(alphabetRegex); // Change this line
+// let quoteSample = "The quick brown fox jumps over the lazy dog.";
+// let alphabetRegex = /[a-z]/gi; // Change this line
+// let result = quoteSample.match(alphabetRegex); // Change this line
 
 /* #############################################################################
 2019-02-19 - RegEx example for range of alphabetical characters and numerals - FreeCodeCamp
 Notes:
 #############################################################################*/
 
-let quoteSample = "Blueberry 3.141592653s are delicious.";
-let myRegex = /[h-s2-6]/gi; // Change this line
-let result = quoteSample.match(myRegex); // Change this line
+// let quoteSample = "Blueberry 3.141592653s are delicious.";
+// let myRegex = /[h-s2-6]/gi; // Change this line
+// let result = quoteSample.match(myRegex); // Change this line
 
 /* #############################################################################
 2019-02-19 - RegEx example of exclusion - FreeCodeCamp
@@ -2065,6 +2066,121 @@ console.log(frankenSplice([1, 2, 3], [4, 5], 1));
 // Object Oriented Programming
 
 // ##############################################################################################################
+
+// // ES5 and ES2015
+// const something = {
+//   name: 'something',
+//   age: 17289403
+// }
+
+// constructor
+
+// function Person(name){
+//     this.name = name;
+//     console.log(this);
+// }
+
+// function Person(name, dob){
+//     this.name = name;
+//     this.birthday = new Date(dob);
+//     this.calcAge = function(){
+//         const diff = Date.now() - this.birthday.getTime(); // figuring out the difference between now and time at birth
+//         console.log(diff);
+//         const ageDate = new Date(diff); // calculating time between now and birth as if it were from 1970
+//         console.log(ageDate);
+//         console.log(ageDate.getUTCFullYear());
+//         return Math.abs(ageDate.getUTCFullYear() - 1970); // converting to years, taking away 1970 to get the difference between now and birth in years.
+//     };
+// }
+
+// const henry = new Person('Henry');
+// const pavlov = new Person('Pavlov', '9-26-1849'); // M-DD-YYYY does not work in firefox, works in chrome 
+// const marietta = new Person('Marietta', '9-26-2000');
+// const brad = new Person('Brad', '9-10-1981');
+// const martius = new Person('Martius', '1981-10-10'); // YYYY-MM-DD works in firefox and chrome
+
+// // 'this' in the global scope refers to Window
+
+// // JavaScript built in constructors
+
+// // String
+// const name1 = 'Publius'; // creates a string
+// const name2 = new String('Publius'); // creates an object of the String class.
+// console.log(typeof name1); // string
+// console.log(typeof name2); // object - meaning CANNOT compare with === to a string, but can compare with == which checks just value not type
+
+// // Number
+// const num1 = 5; // creates a number
+// const num2 = new Number(5); // creates an object of the Number class.
+
+// // Boolean
+// const bool1 = true; // creates a number
+// const bool2 = new Boolean(true); // creates an object of the Number class.
+
+// // Function
+// const getSum1 = function(x, y) {
+//     return x + y;
+// }
+
+// const getSum2 = new Function('x', 'y', 'return x + y');
+
+// // Objects
+// const yara = {name: 'Yara'};
+// const yara2 = new Object({name: 'Yara'});
+// console.log(yara2);
+
+// // Arrays
+// const arr1 = [1, 2, 3, 4, 5, 6];
+// const arr2 = new Array(1, 2, 3,4,5, 6);
+// console.log(arr2);
+
+// // Regular expressions
+// const re1 = /\w+/;
+// const re2 = new RegExp ('\\w+'); // have to escape with the constructor
+
+// ______________________________________________________________________
+// // Prototypes
+// // object literals from Object.prototype
+// // creating an object from a constructor: Constructor.prototype
+// // prototype chain: can go up from Constructor.prototype to Object.prototype
+
+// function Person(firstName, lastName, dob){
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.birthday = new Date(dob);
+//     // this.calcAge = function(){
+//     //     const diff = Date.now() - this.birthday.getTime(); // figuring out the difference 
+//     //     const ageDate = new Date(diff); // calculating time between now and birth as if it were from 1970
+//     //     return Math.abs(ageDate.getUTCFullYear() - 1970); // converting to years, taking away 1970 to get the difference between now and birth in years.
+//     // };
+// }
+
+// // functions that would be repeated across different objects can be placed in
+// // a prototype instead of the constructor:
+// Person.prototype.calcAge = function () {
+//     const diff = Date.now() - this.birthday.getTime(); // figuring out the difference 
+//     const ageDate = new Date(diff); // calculating time between now and birth as if it were from 1970
+//     return Math.abs(ageDate.getUTCFullYear() - 1970); // converting to years, taking away 1970 to get the difference between now and birth in years.
+// };
+
+// Person.prototype.getFullName = function() {
+//     return `${this.firstName} ${this.lastName}`;
+// }
+
+// // this can still be called in the old way: hala.calcAge(), rashed.calcAge().
+
+// const hala = new Person('Hala', 'Hammoud', '8-12-90');
+// const rashed = new Person('Rashed', 'Zaidoun', 'April 15 1987');
+
+// // gets married
+// Person.prototype.getsMarried = function(newLastName) {
+//     this.lastName = newLastName;
+// }
+
+
+// // hasOwnProperty
+// console.log(hala.hasOwnProperty('firstName')); // returns true
+// console.log(hala.hasOwnProperty('getFullName')); // returns false
 
 //Objects can hold methods.
 

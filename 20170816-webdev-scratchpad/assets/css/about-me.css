@@ -1,8 +1,18 @@
 body{
-    background: #4c1816; /* add #411213 in stripes  or squares--although, these are te colors used in https://wordpress.com/theme/quintus*/
-        color: black;
+    background: #4c1816; /* add #411213 in stripes  or squares--although, these are the colors used in https://wordpress.com/theme/quintus*/
+    color: black;
+    font-family: 'Bellefair', serif;
+    font-family: 'Montserrat', sans-serif;
 }
-h1{
 
+nav{
+    padding: 5px;
+}
+
+h1{
     font-size: 80px;
+}
+
+main{
+    padding-top: 60px;
 }

@@ -1059,23 +1059,6 @@ function kebabToSnake(str) {
   return str.replace(/-/g, '_');
 }
 
-
-// #############################################################################
-//forEach implementation, 2018-06-26, CSteele Web Dev Bootcamp, Udemy
-// #############################################################################
-
-function myForEach(arr, func) {
-  for (var i = 0; i < arr.length - 1; i++) {
-    func(arr[i]);
-  }
-}
-
-// Array.prototype.myForEach = function(func){
-//   for(var i = 0; i < this.length; i++){
-//     func(this[i]);
-//   }
-// }
-
 // #############################################################################
 //Basic JS Objects: record collection, 2019-01-08, FreeCodeCamp
 // #############################################################################
@@ -2067,7 +2050,10 @@ console.log(frankenSplice([1, 2, 3], [4, 5], 1));
 
 // ##############################################################################################################
 
-// // ES5 and ES2015
+/* #############################################################################
+// // ES5 and ES2015 - constructors
+#############################################################################*/
+
 // const something = {
 //   name: 'something',
 //   age: 17289403
@@ -2138,8 +2124,9 @@ console.log(frankenSplice([1, 2, 3], [4, 5], 1));
 // const re1 = /\w+/;
 // const re2 = new RegExp ('\\w+'); // have to escape with the constructor
 
-// ______________________________________________________________________
-// // Prototypes
+/* #############################################################################
+// // ES5 and ES2015: Prototypes
+#############################################################################*/
 // // object literals from Object.prototype
 // // creating an object from a constructor: Constructor.prototype
 // // prototype chain: can go up from Constructor.prototype to Object.prototype
@@ -2184,26 +2171,169 @@ console.log(frankenSplice([1, 2, 3], [4, 5], 1));
 
 //Objects can hold methods.
 
+/* #############################################################################
+// // ES5 and ES2015: Constructor
+#############################################################################*/
 
+// function Dog(name, color) {
+//   this.name = name;
+//   this.color = color;
+//   this.numLegs = 4;
+// }
 
-//Constructor
+// let terrier = new Dog('Donato', 'Puce');
+// console.log(terrier.name);
 
-function Dog(name, color) {
-  this.name = name;
-  this.color = color;
-  this.numLegs = 4;
-}
+// function House(numBedrooms) {
+//   this.numBedrooms = numBedrooms;
+// }
 
-let terrier = new Dog('Donato', 'Puce');
-console.log(terrier.name);
+// // Add your code below this line
+// let myHouse = new House(9);
+// myHouse instanceof House;
 
-function House(numBedrooms) {
-  this.numBedrooms = numBedrooms;
-}
+/* #############################################################################
+// // ES5 and ES2015: Prototypal Inheritance
+#############################################################################*/ 
 
-// Add your code below this line
-let myHouse = new House(9);
-myHouse instanceof House;
+// function Person(firstName, lastName) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+// }
+
+// Person.prototype.greeting = function () {
+//   return `Hello there, from ${this.firstName} ${this.lastName}.`;
+// }
+
+// person1 = new Person('Adam', 'Sayyad');
+
+// // customer constructor using Person constructor
+// function Customer(firstName, lastName, phoneNumber, membership) {
+//   Person.call(this, firstName, lastName);
+//   this.phoneNumber = phoneNumber;
+//   this.membership = membership;
+// }
+
+// // inheriting Person prototype methods
+// Customer.prototype = Object.create(Person.prototype);
+
+// // make customer.prototype return Customer()
+// Customer.prototype.constructor = Customer;
+
+// customer1 = new Customer('Adil', 'Waddah', '614-908-7654', 'Standard');
+
+// // override with new customer greeting
+// Customer.prototype.greeting = function () {
+//   return `Hello there, ${this.firstName} ${this.lastName}. Welcome to our company!`;
+// }
+
+// using Object.create
+
+// const personPrototypes = {
+//   greeting: function () {
+//     return `Hello, ${this.firstName} ${this.lastName}`;
+//   },
+//   getsMarried: function (newLastName) {
+//     this.lastName = newLastName;
+//   }
+// }
+
+// const hind = Object.create(personPrototypes);
+// hind.firstName = 'Hind';
+// hind.lastName = 'Umara';
+// hind.age = 45;
+
+// // can call the function from prototype:
+// console.log(hind.greeting());
+
+// hind.getsMarried("Still Umara");
+
+// console.log(hind.greeting());
+
+// // Object.create can take in another argument, an object of values
+// const jabir = Object.create(personPrototypes, {
+//   firstName: { value: 'Jabir' },
+//   lastName: { value: 'Rassas' },
+//   age: { value: 32 }
+// });
+
+/* #############################################################################
+// // ES6 way of making classes: syntactic "sugar" or cover over the ES5 ways.
+#############################################################################*/
+
+// // // CLASS DECLARATION IN ES2015 suggested by VSCode:
+// // class Person {
+// //     constructor(firstName, lastName) {
+// //         this.firstName = firstName;
+// //         this.lastName = lastName;
+// //     }
+// //     greeting() {
+// //     }
+// // }
+
+// class Person {
+//   constructor(firstName, lastName, dob) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.dob = new Date(dob);
+//   }
+
+//   greeting() {
+//     return `Hello there, ${this.firstName} ${this.lastName}!`
+//   }
+
+//   calculateAge() {
+//     const diff = Date.now() - this.dob.getTime();
+//     const ageDate = new Date(diff);
+//     return Math.abs(ageDate.getUTCFullYear() - 1970);
+//   }
+
+//   getsMarried(newLastName) {
+//     this.lastName = newLastName;
+//   }
+
+//   // static methods: use without instantiating Object
+//   static addNum(x, y) {
+//     return x + y;
+//   }
+// }
+
+// const rabia = new Person('Rabia', 'Chawdhry', '6/30/1990');
+
+// rabia.getsMarried('Henderson');
+
+// console.log(Personl.addNum(1, 2));
+
+// ##############################################################################################################
+
+// Async Foundations
+// CSteele Web Dev Bootcamp, Udemy
+
+// ##############################################################################################################
+
+// // forEach implementation, 2018-06-26, 
+
+// function myForEach(arr, func) {
+//   for (var i = 0; i < arr.length - 1; i++) {
+//     func(arr[i]);
+//   }
+// }
+
+// // Array.prototype.myForEach = function(func){
+// //   for(var i = 0; i < this.length; i++){
+// //     func(this[i]);
+// //   }
+// // }
+
+// // implementation of findIndex
+// function findIndex(arr, callback) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (callback(arr[i], i, arr)) {  //  === true not necessary
+//       return i;
+//     }
+//   }
+//   return -1;
+// }
 
 
 // ##############################################################################################################
@@ -2215,8 +2345,8 @@ myHouse instanceof House;
 // This function partitions given array and returns 
 //  the index of the pivot.
 var partition = function (array, p, r) {
-  // This code has been purposefully obfuscated,
-  // as you will implement it yourself in next challenge
+  // KA: This code has been purposefully obfuscated,
+  // KA: as you will implement it yourself in next challenge
   var e = array, t = p, n = r; var r = function (e, t, n) { var r = e[t]; e[t] = e[n]; e[n] = r; }; var i = t; for (var s = t; s < n; s++) { if (e[s] <= e[n]) { r(e, s, i); i++; } } r(e, n, i); return i;
 };
 

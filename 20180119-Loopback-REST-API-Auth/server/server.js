@@ -1,7 +1,7 @@
 'use strict';
 
-var loopback = require('loopback');
-var boot = require('loopback-boot');
+var loopback = require('../node_modules/loopback');
+var boot = require('../node_modules/loopback-boot');
 
 var app = module.exports = loopback();
 

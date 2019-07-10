@@ -1,10 +1,10 @@
-var express               = require("express"),
+var express               = require("./node_modules/express"),
     mongoose              = require("mongoose"),
-    bodyParser            = require("body-parser"),
+    bodyParser            = require("./node_modules/body-parser"),
     User                  = require("./models/user"),
-    passport              = require("passport"),
-    LocalStrategy         = require("passport-local"),
-    passportLocalMongoose = require("passport-local-mongoose");
+    passport              = require("./node_modules/passport/lib"),
+    LocalStrategy         = require("./node_modules/passport-local/lib"),
+    passportLocalMongoose = require("./node_modules/passport-local-mongoose");
 
 mongoose.connect("mongodb://localhost/node_auth_demo", {useMongoClient: true});
 mongoose.Promise = global.Promise;
@@ -13,7 +13,7 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 //combining several steps into one here
-app.use(require("express-session")({
+app.use(require("./node_modules/express-session")({
     secret: "Antara was the most valiant and the most despised.",
     resave: false,
     saveUninitialized: false

@@ -2304,6 +2304,40 @@ console.log(frankenSplice([1, 2, 3], [4, 5], 1));
 
 // console.log(Personl.addNum(1, 2));
 
+// // 
+// // sub classes
+
+// class Person {
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
+
+//   greeting() {
+//     return `Hello there, ${this.firstName} ${this.lastName}!`;
+//   }
+// }
+
+// class Customer extends Person {
+//   constructor(firstName, lastName, phone, membership) {
+//     super(firstName, lastName);
+//     this.phone = phone;
+//     this.membership = membership;
+//   }
+
+//   static getMembershipCost() {
+//     if (this.membership == 'Deluxe') {
+//       return 500;
+//     } else {
+//       return 200;
+//     }
+//   }
+// }
+
+// const abed = new Customer('Abed', 'Amro', '456-852-8974', 'Deluxe');
+
+// // can use methods extended from parent class
+
 // ##############################################################################################################
 
 // Async Foundations

@@ -1,0 +1,21 @@
+.container-main{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    align-self: center;
+}
+.success, .error {
+    color: white;
+    padding: 5px;
+    margin: 5px 0 15px 0;
+}
+
+.success{
+    background: green;
+}
+
+.error{
+    background: red;
+}

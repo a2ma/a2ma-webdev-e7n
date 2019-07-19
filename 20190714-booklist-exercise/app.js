@@ -8,9 +8,27 @@ function Book(title, author, isbn) {
 // UI constructor
 function UI() { }
 
-// add function to the prototype
+// add book function to the prototype
 UI.prototype.addBookToList = function (book) {
+    const list = document.getElementById('book-list');
 
+    // create tr element in list
+    const row = document.createElement('tr');
+    // insert columns into table row
+    row.innerHTML =
+        `<td>${book.title}</td>
+        <td>${book.author}</td>
+        <td>${book.isbn}</td>
+        <td><a href="#" class="delete">X</a></td>`
+
+    list.appendChild(row);
+}
+
+// add clear function to the prototype
+UI.prototype.clearFields = function () {
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+    document.getElementById('isbn').value = '';
 }
 
 // event listeners
@@ -33,7 +51,8 @@ document.getElementById('book-form').addEventListener('submit',
         // add book to list
         ui.addBookToList(book);
 
-        console.log(book);
+        // clear fields
+        ui.clearFields();
 
         e.preventDefault();
     }

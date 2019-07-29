@@ -1,3 +1,7 @@
+/*
+Constructors
+*/
+
 // book constructor
 function Book(title, author, isbn) {
     this.title = title;
@@ -61,7 +65,46 @@ UI.prototype.clearFields = function () {
     document.getElementById('isbn').value = '';
 }
 
-// event listeners
+// Store constructor
+function Store(){
+    this.loadBooks = function() {
+        let books;
+        if (localStorage.getItem('books') === null) {
+            books = [];
+        } else {
+            books = JSON.parse(localStorage.getItem('books'));
+        }
+    
+        return books;
+    }
+    this.addBook = function(book) {
+        let books = this.loadBooks();
+        books.push(book);
+        localStorage.setItem('books', JSON.stringify(books));
+    }
+    this.deleteBook = function() {
+        console.log('deletebooks');
+    }
+    this.displayBooks = function() {
+        let books = this.loadBooks();
+        const ui = new UI();
+        books.forEach(function(book) {
+            ui.addBookToList(book);
+        })
+    }
+
+}
+
+// instantiate store
+const store = new Store();
+
+/*
+Event Listeners
+*/
+
+
+// DOM load event
+document.addEventListener('DOMContentLoaded', store.displayBooks());
 
 // event listener for adding book
 document.getElementById('book-form').addEventListener('submit',
@@ -86,6 +129,8 @@ document.getElementById('book-form').addEventListener('submit',
         } else {
             // add book to list
             ui.addBookToList(book);
+            // store book in LS
+            store.addBook(book);
             ui.showAlert('Book successfully added!', 'success');
             // clear fields
             ui.clearFields();

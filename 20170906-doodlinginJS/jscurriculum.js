@@ -67,174 +67,174 @@ Sources:
 // }
 
 
-let val;
+// let val;
 
-val = 5;
+// val = 5;
 
-console.log(typeof val);
+// console.log(typeof val);
 
-val = String(5);
+// val = String(5);
 
-val = (5).toString();
+// val = (5).toString();
 
-val = Number('5'); // 5
+// val = Number('5'); // 5
 
-val = Number(true); // gives 1
-val = Number(false); // gives 0
-val = Number(null); // also gives 0
-val = Number('Some string'); // gives NaN
-val = Number([1, 2, 3, 4, 5]); // gives NaN
-
-
-val = parseInt('100.30'); // returns 100
-val = parseFloat('100.33'); // returns 100.3
-val = val.toFixed(2); // to get 2 more spaces
-
-// type coercion - when JS engine auto converts one data type to another
-
-// Math Object
-Math.PI
-Math.E
-Math.round() // rounds up or down depending on decimal
-Math.ceil() // rounds up always
-Math.floor() // rounds down always
-Math.sqrt()
-Math.abs()
-Math.pow(2, 2);
-Math.min()
-Math.max()
-
-// randomNumber = Math.floor(Math.random() * 10 + 1);
-
-// console.log(randomNumber);
+// val = Number(true); // gives 1
+// val = Number(false); // gives 0
+// val = Number(null); // also gives 0
+// val = Number('Some string'); // gives NaN
+// val = Number([1, 2, 3, 4, 5]); // gives NaN
 
 
-// Strings
+// val = parseInt('100.30'); // returns 100
+// val = parseFloat('100.33'); // returns 100.3
+// val = val.toFixed(2); // to get 2 more spaces
 
-let stringVal = 'some string';
+// // type coercion - when JS engine auto converts one data type to another
 
-stringVal = stringVal.concat(' ', 'and some concatenated material');
+// // Math Object
+// Math.PI
+// Math.E
+// Math.round() // rounds up or down depending on decimal
+// Math.ceil() // rounds up always
+// Math.floor() // rounds down always
+// Math.sqrt()
+// Math.abs()
+// Math.pow(2, 2);
+// Math.min()
+// Math.max()
 
-console.log(stringVal);
+// // randomNumber = Math.floor(Math.random() * 10 + 1);
 
-val = stringVal.indexOf('s');
-console.log(val);
-val = stringVal.lastIndexOf('s');
-console.log(val);
-val = stringVal.charAt('4');
-console.log(val);
-val = stringVal.charAt(stringVal.length - 1);
-console.log(val);
-
-val = stringVal.substring(0, 20); // end is non-inclusive; if no 
-// end indicated goes to end of string
-console.log(val);
-
-val = stringVal.slice(0, 20);
-console.log(val);
-val = stringVal.slice(-10);
-console.log(val);
-
-val = 'tag1, tag2, tag3, tag4, tag5';
-val = val.split(', ');
-console.log(val);
-
-val = stringVal.replace('material', 'string');
-
-console.log(val);
-
-val = stringVal.includes('Humpty');
-console.log(val);
-
-// Template literals - introduced in ES6
-const name = 'Joe';
-const age = 30;
-const job = 'consigliere';
-const city = 'New York';
-let html;
-
-// without template strings (es5)
-html = '<ul><li>Name: ' + name + '</li><li>, etc.</li></ul>';
-
-document.body.querySelector('#js-pad').innerHTML = html;
-
-// with template literals
-html = `<ul>
-            <li>Name: ${name}</li>
-            <li>, etc.</li>
-        </ul>`
-
-document.body.querySelector('#js-pad').innerHTML = html;
-
-/* 
-Arrays
-*/
-testArray = new Array();
-
-for (var i = 0; i < 10; i++) {
-  testArray[i] = i + 45;
-}
-
-console.log(testArray);
-
-// testArray.unshift() // - adds on to the front.
-// testArray.shift() // remove from the front
-// testArray.splice();
-// testArray.reverse();
-
-testArray.sort(function (x, y) {
-  return x - y;
-})
-
-console.log(testArray);
-
-// finding with specific criteria
-
-function over50(num) {
-  return num > 50;
-}
+// // console.log(randomNumber);
 
 
-val = testArray.find(over50);
+// // Strings
 
-console.log(val);
+// let stringVal = 'some string';
 
-/* 
-OBJECT LITERAL
-*/
+// stringVal = stringVal.concat(' ', 'and some concatenated material');
 
-person = {
-  name: 'Harry',
-  age: 11,
-  address: {
-    city: 'Little Whinging',
-    state: 'Surrey'
-  },
-  getBirthYear: function () {
-    return 2018 - this.age;
-  }
-}
+// console.log(stringVal);
 
-/* 
-Dates and Times
-*/
+// val = stringVal.indexOf('s');
+// console.log(val);
+// val = stringVal.lastIndexOf('s');
+// console.log(val);
+// val = stringVal.charAt('4');
+// console.log(val);
+// val = stringVal.charAt(stringVal.length - 1);
+// console.log(val);
 
-let someDate = new Date('10 12 1999 12:23:15');
-console.log(someDate);
+// val = stringVal.substring(0, 20); // end is non-inclusive; if no 
+// // end indicated goes to end of string
+// console.log(val);
 
-someDate = new Date('October 12 1999 12:23:15');
-console.log(someDate);
+// val = stringVal.slice(0, 20);
+// console.log(val);
+// val = stringVal.slice(-10);
+// console.log(val);
 
-someDate = new Date('10/12/1999 12:23:15');
-console.log(someDate);
+// val = 'tag1, tag2, tag3, tag4, tag5';
+// val = val.split(', ');
+// console.log(val);
 
-let someDate2 = new Date();
-console.log(someDate2);
+// val = stringVal.replace('material', 'string');
 
-val = someDate2.getMonth(); // starts off at 0, so each month is one less
-console.log(val);
+// console.log(val);
 
-someDate.getTime(); // gets the time since a set date
+// val = stringVal.includes('Humpty');
+// console.log(val);
+
+// // Template literals - introduced in ES6
+// const name = 'Joe';
+// const age = 30;
+// const job = 'consigliere';
+// const city = 'New York';
+// let html;
+
+// // without template strings (es5)
+// html = '<ul><li>Name: ' + name + '</li><li>, etc.</li></ul>';
+
+// document.body.querySelector('#js-pad').innerHTML = html;
+
+// // with template literals
+// html = `<ul>
+//             <li>Name: ${name}</li>
+//             <li>, etc.</li>
+//         </ul>`
+
+// document.body.querySelector('#js-pad').innerHTML = html;
+
+// /* 
+// Arrays
+// */
+// testArray = new Array();
+
+// for (var i = 0; i < 10; i++) {
+//   testArray[i] = i + 45;
+// }
+
+// console.log(testArray);
+
+// // testArray.unshift() // - adds on to the front.
+// // testArray.shift() // remove from the front
+// // testArray.splice();
+// // testArray.reverse();
+
+// testArray.sort(function (x, y) {
+//   return x - y;
+// })
+
+// console.log(testArray);
+
+// // finding with specific criteria
+
+// function over50(num) {
+//   return num > 50;
+// }
+
+
+// val = testArray.find(over50);
+
+// console.log(val);
+
+// /* 
+// OBJECT LITERAL
+// */
+
+// person = {
+//   name: 'Harry',
+//   age: 11,
+//   address: {
+//     city: 'Little Whinging',
+//     state: 'Surrey'
+//   },
+//   getBirthYear: function () {
+//     return 2018 - this.age;
+//   }
+// }
+
+// /* 
+// Dates and Times
+// */
+
+// let someDate = new Date('10 12 1999 12:23:15');
+// console.log(someDate);
+
+// someDate = new Date('October 12 1999 12:23:15');
+// console.log(someDate);
+
+// someDate = new Date('10/12/1999 12:23:15');
+// console.log(someDate);
+
+// let someDate2 = new Date();
+// console.log(someDate2);
+
+// val = someDate2.getMonth(); // starts off at 0, so each month is one less
+// console.log(val);
+
+// someDate.getTime(); // gets the time since a set date
 
 
 // ##############################################################################################################
@@ -253,180 +253,205 @@ someDate.getTime(); // gets the time since a set date
 // Loops
 // #############################################################################
 
-// While loops
-console.log("Print all Numbers between -10 and 19");
+// // While loops
+// console.log("Print all Numbers between -10 and 19");
 
-var counter = -10;
+// var counter = -10;
 
-while(counter < 20){
-    console.log(counter);
-    counter++;
-}
+// while(counter < 20){
+//     console.log(counter);
+//     counter++;
+// }
 
-console.log("Print all even numbers between 10 and 40");
-var counter = 10;
+// console.log("Print all even numbers between 10 and 40");
+// var counter = 10;
 
-while(counter < 40){
-    if(counter % 2 ===0){
-        console.log(counter);
-    }
-    counter++;
-}
+// while(counter < 40){
+//     if(counter % 2 ===0){
+//         console.log(counter);
+//     }
+//     counter++;
+// }
 
-console.log("Print all odd numbers between 300 and 333");
-var counter = 300;
+// console.log("Print all odd numbers between 300 and 333");
+// var counter = 300;
 
-while(counter < 333){
-    if(counter % 2 !== 0){
-        console.log(counter);
-    }
-    counter++;
-}
+// while(counter < 333){
+//     if(counter % 2 !== 0){
+//         console.log(counter);
+//     }
+//     counter++;
+// }
 
-console.log("Print all numbers divisible by 5 and 3 between 5 and 50");
-var counter = 5;
+// console.log("Print all numbers divisible by 5 and 3 between 5 and 50");
+// var counter = 5;
 
-while(counter < 50){
-    if(counter % 5 === 0 && counter % 3 === 0){
-        console.log(counter);
-    }
-    counter++;
-}
+// while(counter < 50){
+//     if(counter % 5 === 0 && counter % 3 === 0){
+//         console.log(counter);
+//     }
+//     counter++;
+// }
 
-// For loops
-console.log("Print all Numbers between -10 and 19");
-function printNum(){
-    for(var i = -10; i < 20; i++){
-	console.log(i);
-    }
-};
-console.log("Print all even numbers between 10 and 40");
+// // For loops
+// console.log("Print all Numbers between -10 and 19");
+// function printNum(){
+//     for(var i = -10; i < 20; i++){
+// 	console.log(i);
+//     }
+// };
+// console.log("Print all even numbers between 10 and 40");
 
-function printEven(){
-  for(var i = 10; i < 40; i++){
-      if(i % 2 === 0){
-          console.log(i);
-      }
-  }
-};
+// function printEven(){
+//   for(var i = 10; i < 40; i++){
+//       if(i % 2 === 0){
+//           console.log(i);
+//       }
+//   }
+// };
 
-console.log("Print all odd numbers between 300 and 333");
-function printOdd(){
-  for(var i = 300; i < 333; i++){
-      if(i % 2 !== 0){
-          console.log(i);
-      }
-  }
-};
+// console.log("Print all odd numbers between 300 and 333");
+// function printOdd(){
+//   for(var i = 300; i < 333; i++){
+//       if(i % 2 !== 0){
+//           console.log(i);
+//       }
+//   }
+// };
 
-console.log("Print all numbers divisible by 5 and 3 between 5 and 50");
-function printOddFew(){
-  for(var i = 5; i < 50; i++){
-      if(i % 5 === 0 && i % 3 === 0){
-          console.log(i);
-      }
-  }
-};
-
-
-
+// console.log("Print all numbers divisible by 5 and 3 between 5 and 50");
+// function printOddFew(){
+//   for(var i = 5; i < 50; i++){
+//       if(i % 5 === 0 && i % 3 === 0){
+//           console.log(i);
+//       }
+//   }
+// };
 
 
 // #############################################################################
 //FACTORIALIZE
 // #############################################################################
 
-console.log("Houston, we have a connection.");
+// console.log("Houston, we have a connection.");
 
-function factorialize(num) {
-  if (num > 0) {
-    var factorialization = num;
-    for (var i = 1; i < num; i++) {
-      factorialization *= (num - i);
-    }
-    return factorialization;
-  }
-  return 1;
-}
+// function factorialize(num) {
+//   if (num > 0) {
+//     var factorialization = num;
+//     for (var i = 1; i < num; i++) {
+//       factorialization *= (num - i);
+//     }
+//     return factorialization;
+//   }
+//   return 1;
+// }
 
-//var num = prompt("Enter a number to be factorialized: ");
-//var numfactorial = factorialize(num);
-//alert("The factorial of " + num + " = " + numfactorial);
+// //var num = prompt("Enter a number to be factorialized: ");
+// //var numfactorial = factorialize(num);
+// //alert("The factorial of " + num + " = " + numfactorial);
 
 // #############################################################################
 //PALINDROME
 // #############################################################################
 
-// function palindromeTest(str){
-//   str = str.replace(/[\W_]/g, '');
+// // function palindromeTest(str){
+// //   str = str.replace(/[\W_]/g, '');
+// // }
+
+// function palindromeOne(str) {
+//   str = str.replace(/[\W_]/g, ''); //was not assigning string with the replaced regex to anything
+//   console.log(str);
+//   str = str.toLowerCase();
+//   console.log(str);
+//   var strreversed = str.split('').reverse().join('');
+//   console.log(strreversed);
+//   if (str === strreversed) {
+//     return true;
+//   }
+
+//   return false;
 // }
 
-function palindromeOne(str) {
-  str = str.replace(/[\W_]/g, ''); //was not assigning string with the replaced regex to anything
-  console.log(str);
-  str = str.toLowerCase();
-  console.log(str);
-  var strreversed = str.split('').reverse().join('');
-  console.log(strreversed);
-  if (str === strreversed) {
-    return true;
-  }
+// // console.log(palindromeOne("eye"));
+// // console.log(palindromeOne("race car"));
+// // console.log(palindromeOne("_eye"));
 
-  return false;
-}
+// //this version of the palindromeChecker is more efficient, since it
+// //compares first letter by last letter--that means it only has to check half--and
+// //detects a failure as early as possible, after which it reports the failure
+// //without needlessly checking subsequent letters
+// function palindromeTwo(str) {
+//   str = str.toLowerCase().replace(/[\W_]/g, '');
+//   console.log(str);
+//   for (var i = 0, len = str.length - 1; i < len / 2; i++) {
+//     if (str[i] !== str[len - i]) {
+//       return false;
+//     }
 
-// console.log(palindromeOne("eye"));
-// console.log(palindromeOne("race car"));
-// console.log(palindromeOne("_eye"));
+//     return true;
+//   }
+// }
 
-//this version of the palindromeChecker is more efficient, since it
-//compares first letter by last letter--that means it only has to check half--and
-//detects a failure as early as possible, after which it reports the failure
-//without needlessly checking subsequent letters
-function palindromeTwo(str) {
-  str = str.toLowerCase().replace(/[\W_]/g, '');
-  console.log(str);
-  for (var i = 0, len = str.length - 1; i < len / 2; i++) {
-    if (str[i] !== str[len - i]) {
-      return false;
-    }
+// // console.log(palindromeTwo("eye"));
+// // console.log(palindromeTwo("race car"));
+// // console.log(palindromeTwo("_eye"));
 
-    return true;
-  }
-}
+// //this version of the palindrome check is the shortest
+// function palindromeThree(str) {
+//   return str.replace(/[\W_]/g, '').toLowerCase().split('').reverse().join('') ===
+//     str.replace(/[\W_]/g, '').toLowerCase();
+// }
 
-// console.log(palindromeTwo("eye"));
-// console.log(palindromeTwo("race car"));
-// console.log(palindromeTwo("_eye"));
-
-//this version of the palindrome check is the shortest
-function palindromeThree(str) {
-  return str.replace(/[\W_]/g, '').toLowerCase().split('').reverse().join('') ===
-    str.replace(/[\W_]/g, '').toLowerCase();
-}
-
-// console.log(palindromeThree("eye"));
-// console.log(palindromeThree("race car"));
-// console.log(palindromeThree("_eye"));
-// console.log(palindromeThree("not a palindrome"));
+// // console.log(palindromeThree("eye"));
+// // console.log(palindromeThree("race car"));
+// // console.log(palindromeThree("_eye"));
+// // console.log(palindromeThree("not a palindrome"));
 
 // #############################################################################
 // Find WORD LENGTH, Return length of longest word
 // #############################################################################
 
-// // First Try
+// // // First Try
+// // function findLongestWord(str) {
+// //   strarray = str.split(" ");
+// //   var longest = '';
+// //
+// //   for(var i = 0; i < strarray.length-1; i++){
+// //     if(strarray[i].length > strarray[i+1].length){
+// //       if(longest < strarray[i].length){
+// //         longest = strarray[i];
+// //       }
+// //     }else{
+// //       if(longest < strarray[i+1].length){
+// //         longest = strarray[i+1];
+// //       }
+// //     }
+// //   }
+// //   console.log(longest);
+// //   return longest.length;
+// // }
+
+// // Second Try - works BUT:
+// // I forgot to compare the LENGTH of longest to the length of the array element; careless mistake
+// // unnecessary length and convolutedness.
 // function findLongestWord(str) {
 //   strarray = str.split(" ");
 //   var longest = '';
-//
-//   for(var i = 0; i < strarray.length-1; i++){
-//     if(strarray[i].length > strarray[i+1].length){
-//       if(longest < strarray[i].length){
+//   // console.log(strarray.length);
+//   // console.log(strarray[9]);
+//   for (var i = 0; i < strarray.length - 1; i++) {
+//     //using length-1 with i < is made neccessary only by the convoluted logic within the function.
+//     //and only works because of "i+1" below
+//     //var i = 0; i < strarray would work as well if i+1 hadn't been used.
+//     // console.log(strarray[i]); //the last word would never be printed because i ends at strarray[length-1]
+//     //the comparison would still work though, because i+1 ensures the scan is to the end.
+//     if (strarray[i].length > strarray[i + 1].length) {
+//       if (longest.length < strarray[i].length) {
 //         longest = strarray[i];
 //       }
-//     }else{
-//       if(longest < strarray[i+1].length){
-//         longest = strarray[i+1];
+//     } else {
+//       if (longest.length < strarray[i + 1].length) {
+//         longest = strarray[i + 1];
 //       }
 //     }
 //   }
@@ -434,147 +459,133 @@ function palindromeThree(str) {
 //   return longest.length;
 // }
 
-// Second Try - works BUT:
-// I forgot to compare the LENGTH of longest to the length of the array element; careless mistake
-// unnecessary length and convolutedness.
-function findLongestWord(str) {
-  strarray = str.split(" ");
-  var longest = '';
-  // console.log(strarray.length);
-  // console.log(strarray[9]);
-  for (var i = 0; i < strarray.length - 1; i++) {
-    //using length-1 with i < is made neccessary only by the convoluted logic within the function.
-    //and only works because of "i+1" below
-    //var i = 0; i < strarray would work as well if i+1 hadn't been used.
-    // console.log(strarray[i]); //the last word would never be printed because i ends at strarray[length-1]
-    //the comparison would still work though, because i+1 ensures the scan is to the end.
-    if (strarray[i].length > strarray[i + 1].length) {
-      if (longest.length < strarray[i].length) {
-        longest = strarray[i];
-      }
-    } else {
-      if (longest.length < strarray[i + 1].length) {
-        longest = strarray[i + 1];
-      }
-    }
-  }
-  console.log(longest);
-  return longest.length;
-}
-
-// console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
-// console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); //should return 6.
-// console.log(findLongestWord("May the force be with you")); //should return 5.
-// console.log(findLongestWord("Google do a barrel roll")); //should return 6.
-// console.log(findLongestWord("What is the average airspeed velocity of an unladen swallow")); //should return 8.
-// console.log(findLongestWord("What if we try a super-long word such as otorhinolaryngology")); //should return 19.
+// // console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
+// // console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); //should return 6.
+// // console.log(findLongestWord("May the force be with you")); //should return 5.
+// // console.log(findLongestWord("Google do a barrel roll")); //should return 6.
+// // console.log(findLongestWord("What is the average airspeed velocity of an unladen swallow")); //should return 8.
+// // console.log(findLongestWord("What if we try a super-long word such as otorhinolaryngology")); //should return 19.
 
 
-// for just finding the maximum length, without returning the longest word:
-function longestWord(str) {
-  var words = str.split(" ");
-  var maxlength = 0;
+// // for just finding the maximum length, without returning the longest word:
+// function longestWord(str) {
+//   var words = str.split(" ");
+//   var maxlength = 0;
 
-  for (var i = 0; i < words.length; i++) {
-    console.log(words[i]);
-    if (words[i].length > maxlength) {
-      maxlength = words[i].length;
-    }
-  }
+//   for (var i = 0; i < words.length; i++) {
+//     console.log(words[i]);
+//     if (words[i].length > maxlength) {
+//       maxlength = words[i].length;
+//     }
+//   }
 
-  return maxlength;
-}
-// console.log(longestWord("The quick brown fox jumped over the lazy dog"));
+//   return maxlength;
+// }
+// // console.log(longestWord("The quick brown fox jumped over the lazy dog"));
 
-// Another solution, using the Array object's reduce() method:
+// // Another solution, using the Array object's reduce() method:
 
-function longestWordReduce(str) {
-  return str.split(" ")
-    .reduce(function (x, y) {
-      return Math.max(x, y.length)
-    }, [0]);
-}
-// see: https://forum.freecodecamp.org/t/javascript-array-prototype-reduce/14299
-// AND: https://forum.freecodecamp.org/t/using-array-prototype-reduce-to-reduce-conceptual-boilerplate-for-problems-on-arrays/14687
+// function longestWordReduce(str) {
+//   return str.split(" ")
+//     .reduce(function (x, y) {
+//       return Math.max(x, y.length)
+//     }, [0]);
+// }
+// // see: https://forum.freecodecamp.org/t/javascript-array-prototype-reduce/14299
+// // AND: https://forum.freecodecamp.org/t/using-array-prototype-reduce-to-reduce-conceptual-boilerplate-for-problems-on-arrays/14687
 
-// console.log(longestWordReduce("What if we try a super-long word such as otorhinolaryngology"));
+// // console.log(longestWordReduce("What if we try a super-long word such as otorhinolaryngology"));
 
-// Advanced solution, seems most efficient because it compares a shorter
-// array each time, using splice to get rid of the parts already compared
-// and found to be shorter
+// // Advanced solution, seems most efficient because it compares a shorter
+// // array each time, using splice to get rid of the parts already compared
+// // and found to be shorter
 
-function findLongestRecursion(str) {
-  // splits each time because of the recursion
-  str = str.split(" ");
+// function findLongestRecursion(str) {
+//   // splits each time because of the recursion
+//   str = str.split(" ");
 
-  // if the array resulting from split is just one element long
-  // then that singular element is the longest
-  if (str.length == 1) {
-    return str[0].length;
-  }
+//   // if the array resulting from split is just one element long
+//   // then that singular element is the longest
+//   if (str.length == 1) {
+//     return str[0].length;
+//   }
 
-  //compares first two elements; if first is greater, discard second
-  //and pass back to function as argument.
-  if (str[0].length >= str[1].length) {
-    str.splice(1, 1);
-    return findLongestRecursion(str.join(" "));
-  }
-  // if second is greater, cut away the second and subsequent elements
-  // away from the first and pass back to function as argument
-  if (str[0].length <= str[1].length) {
-    return findLongestRecursion(str.slice(1, str.length).join(" "));
-  }
-}
+//   //compares first two elements; if first is greater, discard second
+//   //and pass back to function as argument.
+//   if (str[0].length >= str[1].length) {
+//     str.splice(1, 1);
+//     return findLongestRecursion(str.join(" "));
+//   }
+//   // if second is greater, cut away the second and subsequent elements
+//   // away from the first and pass back to function as argument
+//   if (str[0].length <= str[1].length) {
+//     return findLongestRecursion(str.slice(1, str.length).join(" "));
+//   }
+// }
 
 // #############################################################################
 //TitleCase A Sentence:
 // #############################################################################
 
-//First Try:
-// function titleCase(str) {
-//   var words = str.split(" ");
-//
-//   for(var i = 0; i < words.length; i++){
-//     var letters = words[i].split('');
-//     letters[0].toUpperCase();
-//     words[i] = letters;
-//   }
-//   str = words.join(" ");
-//   return str;
-// }
+// //First Try:
+// // function titleCase(str) {
+// //   var words = str.split(" ");
+// //
+// //   for(var i = 0; i < words.length; i++){
+// //     var letters = words[i].split('');
+// //     letters[0].toUpperCase();
+// //     words[i] = letters;
+// //   }
+// //   str = words.join(" ");
+// //   return str;
+// // }
 
-//Second Try:
-// function titleCase(str) {
-//   var words = str.split(" ");
-//
-//   for(var i = 0; i < words.length; i++){
-//     var letters = words[i].split('');
-//     letters[0].toUpperCase();
-//     words[i] = letters.join('');
-//   }
-//   str = words.join(" ");
-//   return str;
-// }
+// //Second Try:
+// // function titleCase(str) {
+// //   var words = str.split(" ");
+// //
+// //   for(var i = 0; i < words.length; i++){
+// //     var letters = words[i].split('');
+// //     letters[0].toUpperCase();
+// //     words[i] = letters.join('');
+// //   }
+// //   str = words.join(" ");
+// //   return str;
+// // }
 
-//Third Try:
+// //Third Try:
 
-// function titleCase(str) {
-//   var words = str.split(" ");
-//
-//   for(var i = 0; i < words.length; i++){
-//     var letters = words[i].split('');
-//     letters[0].to_s.toUpperCase();
-//     words[i] = letters.join('');
-//   }
-//   str = words.join(" ");
-//   return str;
-// }
+// // function titleCase(str) {
+// //   var words = str.split(" ");
+// //
+// //   for(var i = 0; i < words.length; i++){
+// //     var letters = words[i].split('');
+// //     letters[0].to_s.toUpperCase();
+// //     words[i] = letters.join('');
+// //   }
+// //   str = words.join(" ");
+// //   return str;
+// // }
 
-//FourthTry:
+// //FourthTry:
+// // function titleCase(str) {
+// //   var words = str.split(" ");
+// //
+// //   for(var i = 0; i < words.length; i++){
+// //     var letters = words[i].split('');
+// //     var firstLetter = letters[0];
+// //     letters[0] = firstLetter.toUpperCase();
+// //     words[i] = letters.join('');
+// //   }
+// //   str = words.join(" ");
+// //   return str;
+// // }
+
+// // My Solution:
 // function titleCase(str) {
-//   var words = str.split(" ");
-//
-//   for(var i = 0; i < words.length; i++){
+//   var words = str.toLowerCase().split(" ");
+
+//   for (var i = 0; i < words.length; i++) {
 //     var letters = words[i].split('');
 //     var firstLetter = letters[0];
 //     letters[0] = firstLetter.toUpperCase();
@@ -584,122 +595,108 @@ function findLongestRecursion(str) {
 //   return str;
 // }
 
-// My Solution:
-function titleCase(str) {
-  var words = str.toLowerCase().split(" ");
+// titleCase("i'm a little tea pot");
 
-  for (var i = 0; i < words.length; i++) {
-    var letters = words[i].split('');
-    var firstLetter = letters[0];
-    letters[0] = firstLetter.toUpperCase();
-    words[i] = letters.join('');
-  }
-  str = words.join(" ");
-  return str;
-}
+// //Review attempt:
+// //function titleCase(str) {
+// //  var words = str.toLowerCase().split(" ");
+// //  for(var i = 0; i < words.length; i++){
+// //    var eachWord = words[i];
+// //    var lttrs = eachWord.split('');
+// //    lttrs[0] = lttrs[0].toUpperCase();
+// //    words[i] = lttrs.join('');
+// //  }
+// //  return words.join(" ");
+// //}
 
-titleCase("i'm a little tea pot");
-
-//Review attempt:
-//function titleCase(str) {
-//  var words = str.toLowerCase().split(" ");
-//  for(var i = 0; i < words.length; i++){
-//    var eachWord = words[i];
-//    var lttrs = eachWord.split('');
-//    lttrs[0] = lttrs[0].toUpperCase();
-//    words[i] = lttrs.join('');
-//  }
-//  return words.join(" ");
-//}
-
-//2017-09-30
-//FCCamp "Basic" solution for TitleCase problem:
-String.prototype.replaceAt = function (index, character) {
-  return this.substr(0, index) + character + this.substr(index + character.length);
-};
+// //2017-09-30
+// //FCCamp "Basic" solution for TitleCase problem:
+// String.prototype.replaceAt = function (index, character) {
+//   return this.substr(0, index) + character + this.substr(index + character.length);
+// };
 
 
-function titleCase(str) {
-  var newTitle = str.split(' ');
-  var updatedTitle = [];
-  for (var st in newTitle) {
-    updatedTitle[st] = newTitle[st].toLowerCase().replaceAt(0, newTitle[st].charAt(0).toUpperCase());
-  }
-  return updatedTitle.join(' ');
-}
+// function titleCase(str) {
+//   var newTitle = str.split(' ');
+//   var updatedTitle = [];
+//   for (var st in newTitle) {
+//     updatedTitle[st] = newTitle[st].toLowerCase().replaceAt(0, newTitle[st].charAt(0).toUpperCase());
+//   }
+//   return updatedTitle.join(' ');
+// }
 
 
-//Intermediate Solution on FCCamp
-function titleCase(str) {
-  var convertToArray = str.toLowerCase().split(" ");
-  var result = convertToArray.map(function (val) {
-    return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
-  });
-  return result.join(" ");
-}
+// //Intermediate Solution on FCCamp
+// function titleCase(str) {
+//   var convertToArray = str.toLowerCase().split(" ");
+//   var result = convertToArray.map(function (val) {
+//     return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+//   });
+//   return result.join(" ");
+// }
 
-titleCase("I'm a little tea pot");
+// titleCase("I'm a little tea pot");
 
-//Advanced solution:
-function titleCase(str) {
-  return str.toLowerCase().replace(/(^|\s)\S/g, (L) => L.toUpperCase());
-}
+// //Advanced solution:
+// function titleCase(str) {
+//   return str.toLowerCase().replace(/(^|\s)\S/g, (L) => L.toUpperCase());
+// }
 
-//the regex searches from the beginning of the string (^) for a non-whitespace character (\S) that comes only after a whitespace (\s), and the search is global.
+// //the regex searches from the beginning of the string (^) for a non-whitespace character (\S) that comes only after a whitespace (\s), and the search is global.
 
 // #############################################################################
 //Retrieve Largest Numbers from two dimensional Array
 // #############################################################################
 
-//first Try
-function largestOfFour(arr) {
-  var maxNumArr = [];
-  var maxNum = 0;
-  for (var i = 0; i < arr.length; i++) {
-    for (var j = 0; j < arr[i].length; j++) {
-      if (arr[i][j] > maxNum) {
-        maxNum = arr[i][j];
-      }
-    }
-    maxNumArr.push(maxNum);
-    maxNum = 0; //this shouldn't necessarily be set to zero here; could be reset to arr[i][0] at each round above
-  }
-  return maxNumArr;
-}
+// //first Try
+// function largestOfFour(arr) {
+//   var maxNumArr = [];
+//   var maxNum = 0;
+//   for (var i = 0; i < arr.length; i++) {
+//     for (var j = 0; j < arr[i].length; j++) {
+//       if (arr[i][j] > maxNum) {
+//         maxNum = arr[i][j];
+//       }
+//     }
+//     maxNumArr.push(maxNum);
+//     maxNum = 0; //this shouldn't necessarily be set to zero here; could be reset to arr[i][0] at each round above
+//   }
+//   return maxNumArr;
+// }
 
-//Second try
-function largestOfFour(arr) {
-  var maxNumArr = [];
-  var maxNum = 0;
-  for (var i = 0; i < arr.length; i++) {
-    for (var j = 0; j < arr[i].length; j++) {
-      maxNum = arr[i][0];
-      if (arr[i][j] > maxNum) {
-        maxNum = arr[i][j];
-      }
-    }
-    maxNumArr.push(maxNum);
-  }
-  return maxNumArr;
-}
+// //Second try
+// function largestOfFour(arr) {
+//   var maxNumArr = [];
+//   var maxNum = 0;
+//   for (var i = 0; i < arr.length; i++) {
+//     for (var j = 0; j < arr[i].length; j++) {
+//       maxNum = arr[i][0];
+//       if (arr[i][j] > maxNum) {
+//         maxNum = arr[i][j];
+//       }
+//     }
+//     maxNumArr.push(maxNum);
+//   }
+//   return maxNumArr;
+// }
 
 // #############################################################################
 //CONFIRM ENDING
 // #############################################################################
-//My Solution
-function confirmEnding(str, target) {
-  var x = target.length;
-  if (str.substr(str.length - x, x) === target) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// //My Solution
+// function confirmEnding(str, target) {
+//   var x = target.length;
+//   if (str.substr(str.length - x, x) === target) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
-console.log(confirmEnding("Bastian", "n"));
+// console.log(confirmEnding("Bastian", "n"));
 
-//https://forum.freecodecamp.org/t/freecodecamp-algorithm-challenge-guide-confirm-the-ending/16006
-//[See confirmEnding solutions at link above]
+// //https://forum.freecodecamp.org/t/freecodecamp-algorithm-challenge-guide-confirm-the-ending/16006
+// //[See confirmEnding solutions at link above]
 
 // #############################################################################
 //REPEAT STRING

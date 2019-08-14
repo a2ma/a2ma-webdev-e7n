@@ -1080,7 +1080,7 @@ var collection = {
   },
   "1245": {
     "artist": "Robert Palmer",
-    "tracks": [ ]
+    "tracks": []
   },
   "5439": {
     "album": "ABBA Gold"
@@ -1091,20 +1091,20 @@ var collectionCopy = JSON.parse(JSON.stringify(collection));
 
 // Only change code below this line
 function updateRecords(id, prop, value) {
-if (prop == 'tracks' && value != ''){
-  if(!collection[id].hasOwnProperty(prop)){
-    collection[id][prop] = [];
-    collection[id][prop].push(value);
-  }else{
-    collection[id][prop].push(value);
-  }
-}else if(!collection.hasOwnProperty(prop) && value !=''){
+  if (prop == 'tracks' && value != '') {
+    if (!collection[id].hasOwnProperty(prop)) {
+      collection[id][prop] = [];
+      collection[id][prop].push(value);
+    } else {
+      collection[id][prop].push(value);
+    }
+  } else if (!collection.hasOwnProperty(prop) && value != '') {
     collection[id][prop] = value;
-}if(value == '') {
-  delete collection[id][prop];
-  console.log(collection[id]);
-}
-return collection;
+  } if (value == '') {
+    delete collection[id][prop];
+    console.log(collection[id]);
+  }
+  return collection;
 }
 
 // Alter values below to test your code
@@ -1158,7 +1158,7 @@ Notes:
 #############################################################################*/
 
 // smart testing for undefined/defined variable:
-if(typeof id !== 'undefined'){
+if (typeof id !== 'undefined') {
   console.log(`The id is ${id}`);
 } else {
   console.log('No id. ')
@@ -1191,7 +1191,7 @@ const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
 const squareList = (arr) => {
   "use strict";
   // change code below this line
-  const squaredIntegers = (arr.filter((num) => num > 0 && num % 1 === 0)).map((num) => Math.pow(num,2));
+  const squaredIntegers = (arr.filter((num) => num > 0 && num % 1 === 0)).map((num) => Math.pow(num, 2));
   // change code above this line
   return squaredIntegers;
 };
@@ -1204,7 +1204,7 @@ ES6 Example of setting default parameter, 2019-01-26, FreeCodeCamp
 Notes:
 #############################################################################*/
 
-const increment = (function() {
+const increment = (function () {
   "use strict";
   return function increment(number, value = 1) {
     return number + value;
@@ -1231,7 +1231,7 @@ Notes:
 
 // AFTER
 
-const sum = (function() {
+const sum = (function () {
   "use strict";
   return function sum(...args) {
     return args.reduce((a, b) => a + b, 0);
@@ -1260,7 +1260,7 @@ console.log(b); // should be 8
 Notes:
 #############################################################################*/
 
-const source = [1,2,3,4,5,6,7,8,9,10];
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 function removeFirstTwo(list) {
   "use strict";
   // change code below this line
@@ -1297,11 +1297,11 @@ const stats = {
   min: -0.75,
   average: 35.85
 };
-const half = (function() {
+const half = (function () {
   "use strict"; // do not change this line
 
   // change code below this line
-  return function half({max, min}) {
+  return function half({ max, min }) {
     // use function argument destructuring
     return (max + min) / 2.0;
   };
@@ -1380,7 +1380,7 @@ Notes:
 class Vegetable {
   "use strict";
   /* Alter code below this line */
-  constructor (name) {
+  constructor(name) {
     this.name = name;
   }
   /* Alter code above this line */
@@ -1402,12 +1402,12 @@ function makeClass() {
       this._fahrenheit = fahrenheit;
     }
 
-    get temperature(){
-      return (this._fahrenheit - 32) * 5/9;
+    get temperature() {
+      return (this._fahrenheit - 32) * 5 / 9;
     }
 
-    set temperature(updatedTemp){
-      this._fahrenheit = (updatedTemp *9.0 / 5)+ 32;
+    set temperature(updatedTemp) {
+      this._fahrenheit = (updatedTemp * 9.0 / 5) + 32;
     }
   }
   /* Alter code above this line */
@@ -1635,7 +1635,7 @@ Notes:
 #############################################################################*/
 
 let myArray = [1, 2, 3];
-let arraySum = myArray.reduce((previous, current) =>  previous + current);
+let arraySum = myArray.reduce((previous, current) => previous + current);
 console.log(`Sum of array values is: ${arraySum}`);
 
 /* #############################################################################
@@ -1649,7 +1649,7 @@ function zeroArray(m, n) {
   let row = [];
   for (let i = 0; i < m; i++) {
     // Adds the m-th row into newArray
-    row =[];
+    row = [];
     console.log('i is' + i)
     for (let j = 0; j < n; j++) {
       // Pushes n zeroes into the current row to create the columns
@@ -1682,8 +1682,8 @@ function htmlColorNames(arr) {
   arr.splice(0, 2, 'DarkSalmon', 'BlanchedAlmond')
   // change code above this line
   return arr;
-} 
- 
+}
+
 // do not change code below this line
 console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurqoise', 'FireBrick']));
 
@@ -2191,7 +2191,7 @@ console.log(frankenSplice([1, 2, 3], [4, 5], 1));
 
 /* #############################################################################
 // // ES5 and ES2015: Prototypal Inheritance
-#############################################################################*/ 
+#############################################################################*/
 
 // function Person(firstName, lastName) {
 //   this.firstName = firstName;
@@ -2365,6 +2365,29 @@ console.log(frankenSplice([1, 2, 3], [4, 5], 1));
 //   }
 //   return -1;
 // }
+
+// ##############################################################################################################
+
+// Browser Practice
+
+// ##############################################################################################################
+
+// let someWord = 'difficult';
+// // undefined
+// someWord[0].toUpperCase();
+// // "D"
+// someWord
+// // "difficult"
+// someWord.slice(1);
+// // "ifficult"
+// someWord
+// // "difficult"
+// let someSentence = 'This is a sentence, pretty and bold.';
+// someSentence.split(" ");
+// // returns Array(7)["This", "is", "a", "sentence,", "pretty", "and", "bold."]
+// let body = document.querySelector('body');
+// function randNum() { return Math.round(Math.random() * 255); }
+// setInterval(function () { body.style.backgroundColor = `rgb(${randNum()}, ${randNum()}, ${randNum()})` }, 500);
 
 
 // ##############################################################################################################

@@ -2390,6 +2390,25 @@ console.log(frankenSplice([1, 2, 3], [4, 5], 1));
 // setInterval(function () { body.style.backgroundColor = `rgb(${randNum()}, ${randNum()}, ${randNum()})` }, 500);
 
 
+// // Browser Countdown Practice
+// let seconds = prompt("Count down from how many seconds?");
+
+// function printTime(seconds) {
+//   let intervalId = setInterval(
+//     function () {
+//       if (seconds <= 0) {
+//         console.log("Ring Ring Ring!!!")
+//         clearInterval(intervalId);
+//       } else {
+//         console.log("Time remaining: " + seconds);
+//       }
+//       seconds--;
+//     }, 1000);
+// }
+
+// printTime(seconds);
+
+
 // ##############################################################################################################
 
 // Algorithms in JavaScript

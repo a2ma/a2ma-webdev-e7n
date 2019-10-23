@@ -328,6 +328,60 @@ Sources:
 //   }
 // };
 
+// Basic JavaScript: Profile Lookup
+//Setup
+// var contacts = [
+//   {
+//     "firstName": "Akira",
+//     "lastName": "Laine",
+//     "number": "0543236543",
+//     "likes": ["Pizza", "Coding", "Brownie Points"]
+//   },
+//   {
+//     "firstName": "Harry",
+//     "lastName": "Potter",
+//     "number": "0994372684",
+//     "likes": ["Hogwarts", "Magic", "Hagrid"]
+//   },
+//   {
+//     "firstName": "Sherlock",
+//     "lastName": "Holmes",
+//     "number": "0487345643",
+//     "likes": ["Intriguing Cases", "Violin"]
+//   },
+//   {
+//     "firstName": "Kristian",
+//     "lastName": "Vos",
+//     "number": "unknown",
+//     "likes": ["JavaScript", "Gaming", "Foxes"]
+//   }
+// ];
+
+
+// function lookUpProfile(name, prop) {
+//   // Only change code below this line
+//   for (let i = 0; i < contacts.length; i++) {
+//     if (contacts[i].firstName == name) {
+//       if (contacts[i].hasOwnProperty(prop)) {
+//         return contacts[i][prop];
+//       } else {
+//         return "No such property";
+//       }
+
+//     }
+//   }
+//   return "No such contact";
+//   // Only change code above this line
+// }
+
+// // Change these values to test your function
+// console.log(lookUpProfile("Sherlock", "likes"));
+// console.log(lookUpProfile("Kristian", "lastName"));
+// console.log(lookUpProfile("Harry", "likes"));
+// console.log(lookUpProfile("Bob", "number"));
+// console.log(lookUpProfile("Bob", "potato"));
+// console.log(lookUpProfile("Akira", "address"));
+
 
 // #############################################################################
 //FACTORIALIZE
@@ -1020,96 +1074,112 @@ rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.");
 //REVIEW: isEven, factorial, replace characters with regex 2018-06-26, CSteele Web Dev Bootcamp, Udemy
 // #############################################################################
 
-function isEven(num) {
-  if (num % 2 == 0) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// function isEven(num) {
+//   if (num % 2 == 0) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
-function isEvenShorter(num) {
-  return num % 2 == 0;
-}
+// function isEvenShorter(num) {
+//   return num % 2 == 0;
+// }
 
-//recursive factorialization
-function factorialRecursive(num) {
-  if (num > 1) {
-    return num * (factorialRecursive(num - 1));
-  } else if (num = 1) {
-    return 1;
-  } else {
-    return "Error";
-  }
-}
+// //recursive factorialization
+// function factorialRecursive(num) {
+//   if (num > 1) {
+//     return num * (factorialRecursive(num - 1));
+//   } else if (num = 1) {
+//     return 1;
+//   } else {
+//     return "Error";
+//   }
+// }
 
-function factorial(num) {
-  var result = 1;
-  for (var i = 2; i <= num; i++) {
-    result *= i;
-  }
-  return result;
-}
+// function factorial(num) {
+//   var result = 1;
+//   for (var i = 2; i <= num; i++) {
+//     result *= i;
+//   }
+//   return result;
+// }
 
 
-function kebabToSnake(str) {
-  return str.replace(/-/g, '_');
-}
+// function kebabToSnake(str) {
+//   return str.replace(/-/g, '_');
+// }
 
 // #############################################################################
 //Basic JS Objects: record collection, 2019-01-08, FreeCodeCamp
 // #############################################################################
 
-// Setup
-var collection = {
-  "2548": {
-    "album": "Slippery When Wet",
-    "artist": "Bon Jovi",
-    "tracks": [
-      "Let It Rock",
-      "You Give Love a Bad Name"
-    ]
-  },
-  "2468": {
-    "album": "1999",
-    "artist": "Prince",
-    "tracks": [
-      "1999",
-      "Little Red Corvette"
-    ]
-  },
-  "1245": {
-    "artist": "Robert Palmer",
-    "tracks": []
-  },
-  "5439": {
-    "album": "ABBA Gold"
-  }
-};
-// Keep a copy of the collection for tests
-var collectionCopy = JSON.parse(JSON.stringify(collection));
+// // Setup
+// var collection = {
+//   "2548": {
+//     "album": "Slippery When Wet",
+//     "artist": "Bon Jovi",
+//     "tracks": [
+//       "Let It Rock",
+//       "You Give Love a Bad Name"
+//     ]
+//   },
+//   "2468": {
+//     "album": "1999",
+//     "artist": "Prince",
+//     "tracks": [
+//       "1999",
+//       "Little Red Corvette"
+//     ]
+//   },
+//   "1245": {
+//     "artist": "Robert Palmer",
+//     "tracks": []
+//   },
+//   "5439": {
+//     "album": "ABBA Gold"
+//   }
+// };
+// // Keep a copy of the collection for tests
+// var collectionCopy = JSON.parse(JSON.stringify(collection));
 
-// Only change code below this line
-function updateRecords(id, prop, value) {
-  if (prop == 'tracks' && value != '') {
-    if (!collection[id].hasOwnProperty(prop)) {
-      collection[id][prop] = [];
-      collection[id][prop].push(value);
-    } else {
-      collection[id][prop].push(value);
-    }
-  } else if (!collection.hasOwnProperty(prop) && value != '') {
-    collection[id][prop] = value;
-  } if (value == '') {
-    delete collection[id][prop];
-    console.log(collection[id]);
-  }
-  return collection;
-}
+// // Only change code below this line
+// function updateRecords(id, prop, value) {
+//   if (prop == 'tracks' && value != '') {
+//     if (!collection[id].hasOwnProperty(prop)) {
+//       collection[id][prop] = [];
+//       collection[id][prop].push(value);
+//     } else {
+//       collection[id][prop].push(value);
+//     }
+//   } else if (!collection.hasOwnProperty(prop) && value != '') {
+//     collection[id][prop] = value;
+//   } if (value == '') {
+//     delete collection[id][prop];
+//     console.log(collection[id]);
+//   }
+//   return collection;
+// }
 
-// Alter values below to test your code
-updateRecords(5439, "artist", "ABBA");
-updateRecords(2548, "artist", "");
+// // OR
+
+// function updateRecords(id, prop, value) {
+//   if (value == '') {
+//     delete collection[id][prop];
+//   } else if (prop == 'tracks') {
+//     if (!collection[id].hasOwnProperty(prop)) {
+//       collection[id][prop] = [];
+//     }
+//     collection[id][prop].push(value);
+//   } else {
+//     collection[id][prop] = value;
+//   }
+//   return collection;
+// }
+
+// // Alter values below to test your code
+// updateRecords(5439, "artist", "ABBA");
+// updateRecords(2548, "artist", "");
 
 
 /* #############################################################################
@@ -1186,18 +1256,18 @@ Notes:
 // const squaredIntegers = squareList(realNumberArray);
 // console.log(squaredIntegers);
 
-// OR
-const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
-const squareList = (arr) => {
-  "use strict";
-  // change code below this line
-  const squaredIntegers = (arr.filter((num) => num > 0 && num % 1 === 0)).map((num) => Math.pow(num, 2));
-  // change code above this line
-  return squaredIntegers;
-};
-// test your code
-const squaredIntegers = squareList(realNumberArray);
-console.log(squaredIntegers);
+// // OR
+// const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+// const squareList = (arr) => {
+//   "use strict";
+//   // change code below this line
+//   const squaredIntegers = (arr.filter((num) => num > 0 && num % 1 === 0)).map((num) => Math.pow(num, 2));
+//   // change code above this line
+//   return squaredIntegers;
+// };
+// // test your code
+// const squaredIntegers = squareList(realNumberArray);
+// console.log(squaredIntegers);
 
 /* #############################################################################
 ES6 Example of setting default parameter, 2019-01-26, FreeCodeCamp
@@ -1312,30 +1382,30 @@ console.log(stats); // should be object
 console.log(half(stats)); // should be 28.015
 
 
-// // Create strings with template literals
-// const result = {
-//   success: ["max-length", "no-amd", "prefer-arrow-functions"],
-//   failure: ["no-var", "var-on-top", "linebreak"],
-//   skipped: ["id-blacklist", "no-dup-keys"]
-// };
+// // // Create strings with template literals
+// // const result = {
+// //   success: ["max-length", "no-amd", "prefer-arrow-functions"],
+// //   failure: ["no-var", "var-on-top", "linebreak"],
+// //   skipped: ["id-blacklist", "no-dup-keys"]
+// // };
 
-function makeList(arr) {
-  "use strict";
+// function makeList(arr) {
+//   "use strict";
 
-  // change code below this line
-  const resultDisplayArray = [`<li class="text-warning">${arr[0]}</li>`, `<li class="text-warning">${arr[1]}</li>`, `<li class="text-warning">${arr[2]}</li>`];
-  // change code above this line
+//   // change code below this line
+//   const resultDisplayArray = [`<li class="text-warning">${arr[0]}</li>`, `<li class="text-warning">${arr[1]}</li>`, `<li class="text-warning">${arr[2]}</li>`];
+//   // change code above this line
 
-  return resultDisplayArray;
-}
-/**
- * makeList(result.failure) should return:
- * [ `<li class="text-warning">no-var</li>`,
- *   `<li class="text-warning">var-on-top</li>`,
- *   `<li class="text-warning">linebreak</li>` ]
- **/
-const resultDisplayArray = makeList(result.failure);
-console.log(resultDisplayArray);
+//   return resultDisplayArray;
+// }
+// /**
+//  * makeList(result.failure) should return:
+//  * [ `<li class="text-warning">no-var</li>`,
+//  *   `<li class="text-warning">var-on-top</li>`,
+//  *   `<li class="text-warning">linebreak</li>` ]
+//  **/
+// const resultDisplayArray = makeList(result.failure);
+// console.log(resultDisplayArray);
 
 /* #############################################################################
 2019-02-02 - ES6 concise object literal declaration - FreeCodeCamp
@@ -1377,49 +1447,91 @@ console.log(bicycle.gear);
 Notes:
 #############################################################################*/
 
-class Vegetable {
-  "use strict";
-  /* Alter code below this line */
-  constructor(name) {
-    this.name = name;
-  }
-  /* Alter code above this line */
-}
+// class Vegetable {
+//   "use strict";
+//   /* Alter code below this line */
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   /* Alter code above this line */
+// }
 
-const carrot = new Vegetable('carrot');
-console.log(carrot.name); // => should be 'carrot'
+// const carrot = new Vegetable('carrot');
+// console.log(carrot.name); // => should be 'carrot'
+
+// 2019-09-14 - in my second pass, the problem was phrased as follows:
+// function makeClass() {
+//   "use strict";
+//   /* Alter code below this line */
+//   class Vegetable {
+//     constructor(name) {
+//       this.name = name;
+//     }
+//   }
+//   return Vegetable;
+// }
+// const Vegetable = makeClass();
+// const carrot = new Vegetable('carrot');
+// console.log(carrot.name); // => should be 'carrot'
 
 /* #############################################################################
 2019-02-04 - ES6 getter and setter - FreeCodeCamp
 Notes:
 #############################################################################*/
 
-function makeClass() {
-  "use strict";
-  /* Alter code below this line */
-  class Thermostat {
-    constructor(fahrenheit) {
-      this._fahrenheit = fahrenheit;
-    }
+// function makeClass() {
+//   "use strict";
+//   /* Alter code below this line */
+//   class Thermostat {
+//     constructor(fahrenheit) {
+//       this._fahrenheit = fahrenheit;
+//     }
 
-    get temperature() {
-      return (this._fahrenheit - 32) * 5 / 9;
-    }
+//     get temperature() {
+//       return (this._fahrenheit - 32) * 5 / 9;
+//     }
 
-    set temperature(updatedTemp) {
-      this._fahrenheit = (updatedTemp * 9.0 / 5) + 32;
-    }
-  }
-  /* Alter code above this line */
-  return Thermostat;
-}
-const Thermostat = makeClass();
-const thermos = new Thermostat(76); // setting in Fahrenheit scale
-let temp = thermos.temperature; // 24.44 in C
-console.log(temp);
-thermos.temperature = 26;
-temp = thermos.temperature; // 26 in C
-console.log(temp);
+//     set temperature(updatedTemp) {
+//       this._fahrenheit = (updatedTemp * 9.0 / 5) + 32; 
+        // don't think this makes sense, because the user would be using fahrenheit for getter and setter
+        // implementation below better
+//     }
+//   }
+//   /* Alter code above this line */
+//   return Thermostat;
+// }
+// const Thermostat = makeClass();
+// const thermos = new Thermostat(76); // setting in Fahrenheit scale
+// let temp = thermos.temperature; // 24.44 in C
+// console.log(temp);
+// thermos.temperature = 26;
+// temp = thermos.temperature; // 26 in C
+// console.log(temp);
+
+// function makeClass() {
+//   "use strict";
+//   /* Alter code below this line */
+//   class Thermostat {
+//     constructor(fahrenheit) {
+//       this.fahrenheit = fahrenheit;
+//     }
+
+//     get celsius() {
+//       return 5 / 9 * (this.fahrenheit - 32)
+//     }
+
+//     set celsius(changedFahrenheit) {
+//       this.fahrenheit = changedFahrenheit;
+//     }
+//   }
+//   /* Alter code above this line */
+//   return Thermostat;
+// }
+// const Thermostat = makeClass();
+// const thermos = new Thermostat(76); // setting in Fahrenheit scale
+// let temp = thermos.temperature; // 24.44 in C
+// thermos.temperature = 26;
+// temp = thermos.temperature; // 26 in C
 
 // ##############################################################################################################
 
@@ -1451,40 +1563,40 @@ Notes:
 Notes:
 #############################################################################*/
 
-let quoteSample = "3 blind mice.";
-let myRegex = /[^\d^aeiou]/gi; // Change this line
-let result = quoteSample.match(myRegex); // Change this line
-console.log(result);
+// let quoteSample = "3 blind mice.";
+// let myRegex = /[^\d^aeiou]/gi; // Change this line
+// let result = quoteSample.match(myRegex); // Change this line
+// console.log(result);
 
 /* #############################################################################
 2019-02-19 - RegEx example of matching one or more consecutively recurring characters - FreeCodeCamp
 Notes:
 #############################################################################*/
 
-let difficultSpelling = "Mississippi";
-let myRegex = /s+/g; // Change this line
-let result = difficultSpelling.match(myRegex);
-console.log(result);
+// let difficultSpelling = "Mississippi";
+// let myRegex = /s+/g; // Change this line
+// let result = difficultSpelling.match(myRegex);
+// console.log(result);
 
 /* #############################################################################
 2019-02-19 - RegEx example of finding a character that occurs zero or more times, consecutively - FreeCodeCamp
 Notes:
 #############################################################################*/
 
-let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
-let chewieRegex = /Aa*/; // Change this line
-let result = chewieQuote.match(chewieRegex);
-console.log(result);
+// let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+// let chewieRegex = /Aa*/; // Change this line
+// let result = chewieQuote.match(chewieRegex);
+// console.log(result);
 
 /* #############################################################################
 2019-02-20 - RegEx example of finding lazy match - FreeCodeCamp
 Notes:
 #############################################################################*/
 
-let text = "<h1>Winter is coming</h1>";
-let myRegex = /<.*?>/; // Change this line
-let result = text.match(myRegex);
-console.log(result);
+// let text = "<h1>Winter is coming</h1>";
+// let myRegex = /<.*?>/; // Change this line
+// let result = text.match(myRegex);
+// console.log(result);
 
 /* #############################################################################
 2019-02-20 - RegEx exercise - FreeCodeCamp
@@ -1492,12 +1604,12 @@ Notes:
 #############################################################################*/
 
 // example crowd gathering
-let crowd = 'P1P2P3P4P5P6CCCP7P8P9';
+// let crowd = 'P1P2P3P4P5P6CCCP7P8P9';
 
-let reCriminals = /C+/g; // Change this line
+// let reCriminals = /C+/g; // Change this line
 
-let matchedCriminals = crowd.match(reCriminals);
-console.log(matchedCriminals);
+// let matchedCriminals = crowd.match(reCriminals);
+// console.log(matchedCriminals);
 
 /* #############################################################################
 2019-02-20 - RegEx example: finding a term only at the beginning of a searched value - FreeCodeCamp
@@ -1931,17 +2043,17 @@ Notes: shown on FCCamp as finished, but I can't find it in my notes or this file
 so I'll do it again.
 #############################################################################*/
 
-function convertToF(celsius) {
-  let fahrenheit;
-  fahrenheit = celsius * (9 / 5) + 32;
-  return fahrenheit;
-}
+// function convertToF(celsius) {
+//   let fahrenheit;
+//   fahrenheit = celsius * (9 / 5) + 32;
+//   return fahrenheit;
+// }
 
-console.log(convertToF(30));
-console.log(convertToF(0));
-console.log(convertToF(-30));
-console.log(convertToF(-10));
-console.log(convertToF(20));
+// console.log(convertToF(30));
+// console.log(convertToF(0));
+// console.log(convertToF(-30));
+// console.log(convertToF(-10));
+// console.log(convertToF(20));
 
 /* #############################################################################
 2019-05-04 - basic algorithm scripting: Reverse a string - FreeCodeCamp
@@ -1949,19 +2061,28 @@ Notes: shown on FCCamp as finished, but I can't find it in my notes or this file
 so I'll do it again.
 #############################################################################*/
 
-function reverseStringShort(str) {
-  return str.split('').reverse().join('');
-}
+// function reverseStringShort(str) {
+//   return str.split('').reverse().join('');
+// }
 
-reverseString("hello");
+// reverseString("hello");
 
-LONGER
-function reverseStringLong(str) {
-  var array = str.split('');
-  var reversedArray = array.reverse();
-  reversedString = reversedArray.join('');
-  return reversedString;
-}
+// // LONGER
+// function reverseStringLong(str) {
+//   var array = str.split('');
+//   var reversedArray = array.reverse();
+//   reversedString = reversedArray.join('');
+//   return reversedString;
+// }
+
+// // OR
+// function reverseString(str) {
+//   let strArr = str.split('').reverse();
+//   str = strArr.join('');
+//   return str;
+// }
+
+// console.log(reverseString("hello"));
 
 /* #############################################################################
 2019-05-04 - basic algorithm scripting: Factorialize - FreeCodeCamp

@@ -3,7 +3,8 @@ JavaScript Curriculum
 Sources:
   -FreeCodeCamp
   -Traversy - JavaScript Course, Udemy
-*A2MA - 2017-09-06
+A2MA - 2017-09-06
+Notes: search 'b5h-stub' for stubs
 */
 
 //alert("بسم الله الرحمن الرحيم");
@@ -1184,8 +1185,26 @@ rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.");
 
 /* #############################################################################
 Do...While, 2019-01-09, FreeCodeCamp
-Notes: stub
+Notes: b5h-stub
 #############################################################################*/
+
+
+
+/* #############################################################################
+Basic JavaScript: Replace Loops using Recursion, 2019-10-30, FreeCodeCamp
+Notes: 
+#############################################################################*/
+function sum(arr, n) {
+  // Only change code below this line
+  if (n <= 0) {
+    return arr[0];
+  } else {
+    return arr[n] + sum(arr, n - 1)
+  }
+  // Only change code above this line
+}
+
+// see freecodecamp correct answer not working 2019 - 10 - 22 135059.jpg
 
 /* #############################################################################
 parseInt, 2019-01-10, FreeCodeCamp
@@ -1684,6 +1703,13 @@ let result = favRegex.test(favWord);
 password for length and for at least two numbers. - FreeCodeCamp
 Notes:
 #############################################################################*/
+// A more practical use of lookaheads is to check two or more patterns in one string. Here is a (naively) simple password checker that looks for between 3 and 6 characters and at least one number:
+
+//     let password = "abc123";
+//     let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+//     checkPass.test(password); // Returns true
+
+// Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long and have two consecutive digits.
 
 let sampleWord = "astronaut";
 let pwRegex = /(?=\w{5,})(?=[\D]*\d\d)/; // Change this line
@@ -1844,13 +1870,13 @@ function spreadOut() {
   return sentence;
 }
 
-// do not change code below this line
-console.log(spreadOut());
+// // do not change code below this line
+// console.log(spreadOut());
 
 
 /* #############################################################################
 2019-04-16 - find an element in an array with indexOf() - FreeCodeCamp
-Notes: see B5h
+Notes: "Basic Data Structures: Check For The Presence of an Element With indexOf()"; see B5h
 #############################################################################*/
 function quickCheck(arr, elem) {
   // change code below this line
@@ -1862,8 +1888,8 @@ function quickCheck(arr, elem) {
   // change code above this line
 }
 
-// change code here to test different cases:
-console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+// // change code here to test different cases:
+// console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
 
 /* #############################################################################
 2019-04-19 - iteration with for loop - FreeCodeCamp
@@ -1883,11 +1909,29 @@ function filteredArray(arr, elem) {
   return newArr;
 }
 
-// change code here to test different cases:
-console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
-console.log(filteredArray([[10, 8, 3], [14, 6, 23], [3, 18, 6]], 18));
-console.log(filteredArray([["trumpets", 2], ["flutes", 4], ["saxophones", 2]], 2));
-console.log(filteredArray([["amy", "beth", "sam"], ["dave", "sean", "peter"]], "peter"));
+// // change code here to test different cases:
+// console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
+// console.log(filteredArray([[10, 8, 3], [14, 6, 23], [3, 18, 6]], 18));
+// console.log(filteredArray([["trumpets", 2], ["flutes", 4], ["saxophones", 2]], 2));
+// console.log(filteredArray([["amy", "beth", "sam"], ["dave", "sean", "peter"]], "peter"));
+
+//version from repeat (after losing progress):
+function filteredArray(arr, elem) {
+  let newArr = [];
+  // change code below this line
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i].length != 'undefined') {
+      if (arr[i].indexOf(elem) == -1) {
+        newArr.push(arr[i]);
+      }
+    }
+  }
+  // change code above this line
+  return newArr;
+}
+
+// // change code here to test different cases:
+// console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
 
 /* #############################################################################
 2019-04-21 - objects: nesting, access with dot and bracket notations - FreeCodeCamp
@@ -1909,6 +1953,27 @@ userActivity['data']['online'] = 45;
 // change code above this line
 
 console.log(userActivity);
+
+/* #############################################################################
+2019-10-25 - objects: add key value pairs - FreeCodeCamp
+Notes: see B5h, "Add Key-Value Pairs to JavaScript Objects"
+#############################################################################*/
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28
+};
+
+// change code below this line
+foods.bananas = 13;
+foods['grapes'] = 35;
+foods['strawberries'] = 27; // in quotations because it can also take in a variable name that refers to the key name, so outside of a variable the name has to be a string
+let kiwi = 'kiwi';
+foods[kiwi] = 34;
+// change code above this line
+
+console.log(foods);
+
 
 /* #############################################################################
 2019-04-21 - objects: delete keyword - FreeCodeCamp
@@ -1938,6 +2003,14 @@ console.log(foods);
 2019-04-21 - objects: check object for property - FreeCodeCamp
 Notes: see B5h
 #############################################################################*/
+
+// Basic Data Structures: Check if an Object has a Property
+
+
+// users.hasOwnProperty('Alan');
+// 'Alan' in users;
+// // both return true
+
 
 // My Solution 
 
@@ -2019,6 +2092,21 @@ function countOnline(obj) {
 console.log(countOnline(users));
 console.log(users.Jeff.online === false);
 
+// 2019-10-29 solution:
+// Basic Data Structures: Loop through Object with for…in…
+
+// function countOnline(usersObj) {
+//   // change code below this line
+//   let usersOnline = 0;
+//   for (let user in usersObj) {
+//     if (usersObj[user]['online'] == true) {
+//       usersOnline += 1;
+//     }
+//   }
+//   return usersOnline;
+//   // change code above this line
+// }
+
 /* #############################################################################
 2019-05-03 - generate array from object's keys; order is not specified. - FreeCodeCamp
 Notes: see B5h
@@ -2030,6 +2118,38 @@ function getArrayOfUsers(obj) {
   // change code above this line
 }
 
+/* #############################################################################
+2019-10-29- Modify an array stored in an object - FreeCodeCamp
+Notes: see B5h
+#############################################################################*/
+let user = {
+  name: 'Kenneth',
+  age: 28,
+  data: {
+    username: 'kennethCodesAllDay',
+    joinDate: 'March 26, 2016',
+    organization: 'freeCodeCamp',
+    friends: [
+      'Sam',
+      'Kira',
+      'Tomo'
+    ],
+    location: {
+      city: 'San Francisco',
+      state: 'CA',
+      country: 'USA'
+    }
+  }
+};
+
+function addFriend(userObj, friend) {
+  // change code below this line
+  userObj.data.friends.push(friend);
+  return userObj.data.friends
+  // change code above this line
+}
+
+console.log(addFriend(user, 'Pete'));
 
 // ##############################################################################################################
 

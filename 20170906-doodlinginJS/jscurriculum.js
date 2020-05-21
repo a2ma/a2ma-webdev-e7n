@@ -7,6 +7,12 @@ A2MA - 2017-09-06
 Notes: search 'b5h-stub' for stubs
 */
 
+// ##############################################################################################################
+// ##############################################################################################################
+// General > JavaScript Basics
+// ##############################################################################################################
+// ##############################################################################################################
+
 //alert("بسم الله الرحمن الرحيم");
 
 //Takes name and age
@@ -664,6 +670,23 @@ Notes: search 'b5h-stub' for stubs
 // //  return words.join(" ");
 // //}
 
+//2020 review
+// Basic Algorithm Scripting: Title Case a Sentence
+// function titleCase(str) {
+//   let strArr = str.toLowerCase().split(' ');
+//   let count = 0;
+//   strArr.forEach(function (w) {
+//     let wArr = w.split('');
+//     wArr[0] = wArr[0].toUpperCase();
+//     strArr[count] = wArr.join('');
+//     count++;
+//   });
+//   return strArr.join(' ');
+// }
+// console.log(titleCase("I'm a little tea pot"));
+
+// ERROR: TypeError: 0 is read-only: caused by trying to overwrite part of string with bracket notation
+
 // //2017-09-30
 // //FCCamp "Basic" solution for TitleCase problem:
 // String.prototype.replaceAt = function (index, character) {
@@ -757,43 +780,54 @@ Notes: search 'b5h-stub' for stubs
 //REPEAT STRING
 // #############################################################################
 
-function repeatStringNumTimes(str, num) {
-  var originalStr = str;
-  var count = num - 1;
-  if (num > 0) {
-    while (count > 0) {
-      str += originalStr;
-      count--;
-    }
-  } else {
-    str = "";
-  }
-  return str;
-}
+// function repeatStringNumTimes(str, num) {
+//   var originalStr = str;
+//   var count = num - 1;
+//   if (num > 0) {
+//     while (count > 0) {
+//       str += originalStr;
+//       count--;
+//     }
+//   } else {
+//     str = "";
+//   }
+//   return str;
+// }
 
-repeatStringNumTimes("abc", 3);
+// repeatStringNumTimes("abc", 3);
 
 
 // #############################################################################
 //TRUNCATE STRING
+// Basic Algorithm Scripting: Truncate a String
 // #############################################################################
 
-//A2MA - first succesful effort
-function truncateString(str, num) {
-  var truncStr = str;
-  if (str.length > num) {
-    if (num > 3) {
-      truncStr = str.slice(0, str.length - (str.length - (num - 3))) +
-        "...";
-    } else {
-      truncStr = str.slice(0, str.length - (str.length - num)) +
-        "...";
-    }
-  }
-  return truncStr;
-}
+// //A2MA - first succesful effort
+// function truncateString(str, num) {
+//   var truncStr = str;
+//   if (str.length > num) {
+//     if (num > 3) {
+//       truncStr = str.slice(0, str.length - (str.length - (num - 3))) +
+//         "...";
+//     } else {
+//       truncStr = str.slice(0, str.length - (str.length - num)) +
+//         "...";
+//     }
+//   }
+//   return truncStr;
+// }
 
-truncateString("A-tisket a-tasket A green and yellow basket", 11);
+// truncateString("A-tisket a-tasket A green and yellow basket", 11);
+
+// function truncateString(str, num) {
+//   // Clear out that junk in your trunk
+//   if (str.length <= num) {
+//     return str;
+//   } else {
+//     return str = str.substring(0, num) + "...";
+//   }
+// }
+// console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8));
 
 //FCCamp solutions @ https://forum.freecodecamp.org/t/freecodecamp-algorithm-challenge-guide-truncate-a-string/16089
 
@@ -866,6 +900,7 @@ function mutation(arr) {
 mutation(["hello", "hey"]);
 
 // #############################################################################
+// Basic Algorithm Scripting: Falsy Bouncer
 //Remove all Falsy Values from Array
 // #############################################################################
 
@@ -876,20 +911,51 @@ mutation(["hello", "hey"]);
 //    return arr;
 //}
 
+// attempt 2020-02-02
+function bouncer1(arr) {
+  // Don't show a false ID to this bouncer.
+  let tracker = arr.length;
+  for (let i = 0; i < tracker; i++) {
+    if (!arr[i] == true) {
+      arr.splice(i, 1);
+      i -= 1;
+      tracker -= 1;
+    }
+  }
+  return arr;
+}
+console.log(bouncer2([7, "ate", "", false, 9]));
+
 function bouncer(arr) {
   // Don't show a false ID to this bouncer.
   var filtered = arr.filter(Boolean);
   return filtered;
 }
 
+// OR 
+
+function bouncer3(arr) {
+  // Don't show a false ID to this bouncer.
+  return arr.filter(Boolean);
+}
+
 //OR
 
-function bouncer2(arr) {
+function bouncer4(arr) {
   // Don't show a false ID to this bouncer.
   var filtered = arr.filter(function (v) {
     return !!v;
   });
   return filtered;
+}
+
+// or
+
+function bouncer5(arr) {
+  // Don't show a false ID to this bouncer.
+  return arr.filter(function (v) {
+    return !!v;
+  });
 }
 
 //bouncer([7, "ate", "", false, 9]);
@@ -2246,24 +2312,50 @@ function findElement(arr, func) {
 findElement([1, 2, 3, 4], num => num % 2 === 0);
 
 /* #############################################################################
+Basic Algorithm Scripting: Finders Keepers - FreeCodeCamp
+Notes: see B5h
+#############################################################################*/
+
+function findElement(arr, func) {
+  let num;
+  for (let i = 0; i < arr.length; i++) {
+    if (func(arr[i]) == true) {
+      return arr[i];
+    }
+  }
+  return num;
+}
+console.log(findElement([1, 2, 3, 4], num => num % 2 === 0));
+
+
+/* #############################################################################
 2019-05-04 - check if value is classified as boolean primitive - FreeCodeCamp
 Notes: see B5h
 #############################################################################*/
 
-function booWho(thing) {
-  let bool;
-  if (typeof thing == "boolean") {
-    bool = true;
-  } else {
-    bool = false;
-  }
-  return bool;
-}
+// function booWho(thing) {
+//   let bool;
+//   if (typeof thing == "boolean") {
+//     bool = true;
+//   } else {
+//     bool = false;
+//   }
+//   return bool;
+// }
 
-booWho(null);
-booWho(true);
-booWho([1, 2, 3]);
-booWho(1);
+// booWho(null);
+// booWho(true);
+// booWho([1, 2, 3]);
+// booWho(1);
+
+// review
+
+// Basic Algorithm Scripting: Boo who
+// function booWho(bool) {
+//   // What is the new fad diet for ghost developers? The Boolean.
+//   return typeof bool == 'boolean';
+// }
+// console.log(booWho(null));
 
 /* #############################################################################
 2019-05-04 - :slice() and :splice() - FreeCodeCamp
@@ -2280,6 +2372,17 @@ function frankenSplice(arr1, arr2, n) {
 
 console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
 console.log(frankenSplice([1, 2, 3], [4, 5], 1));
+
+// 2019/2020 review:
+// Basic Algorithm Scripting: Slice and Splice
+
+function frankenSplice2(arr1, arr2, n) {
+  let arrF = arr2;
+  let arrRest = arrF.splice(n, arr2.length - n + 1)
+  arrF = arrF.concat(arr1.concat(arrRest));
+  return arrF;
+}
+console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
 
 
 // ##############################################################################################################

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCC Technical Documentation</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <header>Java Documentation</header>
+        <ul>
+            <li>
+                <a class="nav-link" href="#Java_Introduction">Java Introduction</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#Primitive_Data_Types">Primitive Data Types</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#Control_Flow">Control Flow</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#Loops">Loops</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#Classes_and_Objects">Classes and Objects</a>
+            </li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Java_Introduction">
+            <header onclick="">Java Introduction</header>
+            <p>Java identifiers are words like class, public, if, else, boolean, etc.; they can, however, be defined by
+                the user.
+                Examples include names for classes, methods, and variables. The names can have letters, digits,
+                underscores, and $--they
+                cannot begin with digits, however. The $ is usually reserved for mechanically generated source code.</p>
+            <p>Java identifiers with pre-set meanings cannot be again used as identifiers—they are reserved keywords.
+                Examples:</p>
+            <code></code>
+            <h2>Java Identifiers and Keywords</h2>
+            <ul>
+                <li>
+                    main
+                </li>
+                <li>
+                    String
+                </li>
+                <li>
+                    System
+                </li>
+                <li>
+                    out
+                </li>
+                <li>
+                    println
+                </li>
+                <li>
+                    public
+                </li>
+                <li>
+                    private
+                </li>
+                <li>
+                    protected
+                </li>
+                <li>
+                    package
+                </li>
+                <li>
+                    extends
+                </li>
+                <li>
+                    static
+                </li>
+                <li>
+                    void
+                </li>
+                <li>
+                    case
+                </li>
+                <li>
+                    class
+                </li>
+            </ul>
+            <p>A full list of the Java keywords can be found on <a
+                    href="https://en.wikipedia.org/wiki/List_of_Java_keywords" target="_blank">Wikipedia</a>.</p>
+            <h2>Java Literals</h2>
+            <p>What the program is merely passing through—e.g. to print out. A fixed value; compare to an expression
+                using variables.
+                Starting from Java 7, underscores can be used to make the literal more readable.</p>
+            <p>
+                An integer literal is automatically assumed to be of type int; to mark it as long, one has to include at
+                the end of the number an ‘L’ (or lowercase ‘l’, although uppercase is encouraged for readability). An integer literal
+                is by default decimal; to make it hexadecimal, preface it with a zero and an x—0X or 0x. To make it binary, preface
+                with 0b, or 0B. Floating point numbers are double by default; float can be used by appending f or F, and double can be
+                marked with d or
+                D.
+            </p>
+            <p>Scientific notation can be used with e or E to stand for the exponent—e.g. 1.475 x 10^2 is 1.475E2 [or
+                E+2];
+                1.475 x 10^, -2 is 1.475E -2. Underscores can be used between numbers in numerical literals.</p>
+            <h2>Evaluating Expressions and Operators</h2>
+            <p>Java calculates behind the scenes in its own way, but gives the same results as an arithmetical
+                expression. Generally,
+                the arithmetic order of operations applies—parentheticals, multiplication, division, remainder
+                (modulus), and then
+                addition and subtraction.</p>
+            <h2>Six Comparison Operators</h2>
+            <ol>
+                <li>></li>
+                <li><</li>
+                <li>>=</li>
+                <li><=</li>
+                <li>==</li>
+                <li>!=</li>
+            </ol>
+        </section>
+        <section class="main-section" id="Primitive_Data_Types">
+            <header>Primitive Data Types</header>
+            <p>Java is strongly-typed, because the Java compiler checks for consistency throughout the whole
+                program.Whenever you work with int, you get whole numbers and whole numbers only, no decimals. To get
+                decimals in a simple printout, make one of the numbers a double. Ex. System.out.println (11.0 / 4), and
+                not System.out.println (11 / 4). Avoiding using the double type for money operations; int would be far
+                better for the absolute beginner—more accurate and
+                brief.</p>
+            <p></p>
+            <ol>
+                <li>byte</li>
+                <li>short</li>
+                <li>int</li>
+                <li>long</li>
+                <li>float</li>
+                <li>double</li>
+                <li>char</li>
+                <li>boolean</li>
+            </ol>
+        </section>
+        <section class="main-section" id="Control_Flow">
+            <header>Control Flow</header>
+            <h2>Basic Conditionals</h2>
+            <p>Keyword 'if' introduces a conditional statement. Curly brackets or braces are used to set aside a block,
+                for more than one statement after a conditional. Format:</p>
+            <code>
+            if (Boolean expression) { <br>
+                Statements;<br>
+            }<br>
+            </code>
+            <p>Additional Control: Providing an “else if" or "else" alternative to “if.”</p>
+            <code>
+                if (Boolean expression) {<br>
+                Statement;<br>
+                } else if (Boolean expression) {<br>
+                Statement;<br>
+                } else {<br>
+                Statement;<br>
+            </code>
+            <p>
+                Additional if/else constructions can be nested within “else”
+                or “if.”
+            </p>
+            <code>
+                if (Boolean expression) {<br>
+                    if (Boolean expression) {<br>
+                    Statement;<br>
+                    } else (Boolean expression) {<br>
+                    Statement;<br>
+                    }
+                } else if (Boolean expression) {<br>
+                    Statement;<br>
+                } else {<br>
+                    Statement;<br>
+                }<br>
+            </code>
+            <p>Example of conditional statements to determine if a year is a leap year:</p>
+            <code>if(year%4!=0) return false;<br>
+            else if(year%100!=0) return true;<br>
+            else if(year%400!=0) return false;<br>
+            else return true;</code>
+            <h2>Ternary Operator</h2>
+            <p>The ternary operator: the “eval” function. Short for "if-then-else". To evaluate using the ternary operator, need a function with three arguments,
+            in the nature of f(b, e1, e2). B stands for boolean, and e1 and e2 can be of any type so long as they are the same
+            between them. The process can be expressed as: b? e1: e2. And so there are, in the case of the ternary operator, two
+            options preceded by a condition: if the first argument is true, the second argument (and only the second) is activated
+            (the third is not touched); if the first argument is false, then the third argument (and only the third) is activated.</p>
+            <code>class TernaryExample {<br>
+            public static String useTernary(boolean bool){<br>
+            String newString2 = (bool)?"True":"False";<br>
+            return newString2;<br>
+            }}</code>
+        </section>
+        <section class="main-section" id="Loops">
+            <header>Loops</header>
+            <h2>While Loop</h2>
+            <p>A loop that is first primed with a true condition if it is to be used, and then repeats a body of code within it until
+            the boolean proves false due to a condition within it. A break keyword will break out of the loop; a continue keyword
+            will skip the next iteration. The while statement/loop can be looped in other such statements by nesting. Bart Burd says that "most five-layered loops are hidden within method calls" (Burd, 2014).</p>
+            <code>while (diskScanner.hasNext ()) { statements; }</code>
+            <h2>For Loop</h2>
+            <p>The For loop sets a variable that is modified every recurrence and compared to another variable. When the comparison returns false, the loop
+                ends. For loop structure is as follows:
+            </p>
+            <code>
+                for (Initialization; Condition/termination; Update/increment) {
+                Statements;
+                }
+            </code>
+            <h2>Do...While Statement</h2>
+            <code>do { Statements } while (condition);</code>
+            <h2>Enhanced For Loop (For-each)</h2>
+            <p>Format:</p>
+            <code>for (&lt;TypeName&gt;
+                &lt;variableName&gt; : &lt;RangeOfValues&gt;) { Statement(s); }</code>
+            <p>Example:</p>
+            <code>int [] toFive = {1,2,3,4,5};
+            for(int i : toFive) {
+            System.out.println("Your number is " + i);
+            }</code>
+        </section>
+        <section class="main-section" id="Classes_and_Objects">
+            <header>Classes and Objects</header>
+            <h2>Classes and Object-Oriented Programming</h2>
+            <p>Java is object-oriented. OOP always begins with a class. Java programs need a class—every Java program must have at least one
+            class. Class names begin with an upper-case letter.
+            In Java, we take two ways of description—behavior (methods) and states (fields, known in Java and other languages as
+            variables)—and encapsulate them with the fitting language constructs in objects. Objects of the same kind belong to
+            the same class. An object's states can be accessed from without the class, if the proper permission is granted.</p>
+            <p>A class is set off with curly braces {} and is usually indented to make it easier for humans to examine and work on. A
+            class is created like so:</p>
+            <code>class Classname {
+            [list of attributes:]
+            attributetype attributename;
+            ...
+            [list of methods]
+            public/private static/etc. void/returntype methodName(){attribute = x;}
+            ...
+            }</code>
+            <p>A class can be created in it's own .java file (recommended), in the Main.java file but outside of the main class, or
+            even created and initialized at once inside the main class as an "inline" (this is used in Android apps, commonly for
+            "click listeners").</p>
+            <p>Earlier, we talked about primitive types like char, int, boolean, and double (see BBurd, ch. 6,7,8). Earlier languages
+            were limited to these simple types and had to break down complex processes with multiple different data types and values
+            into simple parts. Newer languages like Java can create a type of basket in which simpler types/values are combined into
+            what can be thought of as a new, composite "type/value." This is called a "reference type" (BBurd, 2014, p. 335). When
+            all the parts of a process are kept in one integral construction, tracking and repair are easier.</p>
+            <h2>Objects</h2>
+            <p>Objects "come from" classes. Classes are the plans, objects are the ends. Objects have attributes and methods that were
+            specified in their class. Classes describe how the object will be created in a main method which is called the
+            constructor—how pieces of data are initialized, combined, and used. A constructor has three characteristics:</p>
+            <ol>
+                <li>Must be named as the class is</li>
+                <li>Must not have a return type—including void</li>
+                <li>Must be invoked with the new operator in the creation of an object; it then initializes an object.</li>
+            </ol>
+            <p>Constructors may be overloaded like other methods are. This allows one to initialize objects in different ways. Usually,
+            a constructor without arguments is provided. This is called a <strong>no-arg or no-argument constructor</strong>. If no constructor is made in the class definition, the Java compiler will make one automatically, with no arguments. This is implicit definition—a public no-arg constructor with no body is provided.</p>
+        </section>
+    </main>
+</body>
+
+</html>

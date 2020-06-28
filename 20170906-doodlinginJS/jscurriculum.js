@@ -2681,6 +2681,53 @@ console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
 
 // ##############################################################################################################
 
+// Functional Programming
+// FreeCodeCamp
+/* move from OneNote to here */
+// ##############################################################################################################
+
+
+// ##############################################################################################################
+
+// Intermediate Algorithm Scripting
+// FreeCodeCamp
+
+// ##############################################################################################################
+
+/* #############################################################################
+// // 2020-06-27: Intermediate Algorithm Scripting: Sum All Numbers in a Range
+#############################################################################*/
+
+function sumAll(arr) {
+  let numBw = [];
+  numBw = numBw.concat(arr).sort((a, b) => { return a - b });
+  let sum = 0;
+  for (let i = numBw[0]; i <= numBw[numBw.length - 1]; i++) {
+    sum += i;
+  }
+  return sum;
+}
+
+console.log(sumAll([1, 4]));
+console.log(sumAll([4, 1]));
+console.log(sumAll([5, 10]));
+
+/* #############################################################################
+// // 2020-06-27: Intermediate Algorithm Scripting: Diff Two Arrays
+#############################################################################*/
+function diffArray(arr1, arr2) {
+  var newArr = [];
+  newArr = arr1.filter(value => arr2.indexOf(value) == -1);
+  newArr = newArr.concat(arr2.filter(value => arr1.indexOf(value) == -1));
+  return newArr;
+}
+
+// console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+// console.log(diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
+// console.log(diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
+
+// ##############################################################################################################
+
 // Async Foundations
 // CSteele Web Dev Bootcamp, Udemy
 

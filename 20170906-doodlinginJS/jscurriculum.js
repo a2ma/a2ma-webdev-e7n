@@ -1286,7 +1286,7 @@ convertToInteger("56");
 
 
 /* #############################################################################
-Ternary Operator, 2019-01-10, FreeCodeCamp
+Ternary (conditional) Operator, 2019-01-10, FreeCodeCamp
 Notes: short version of if else. Syntax: condition ? <statement if true>: <statement if false>;.
 Chaining together ternary operators can achieve the effect of if-else if-else:
 (condition if) ? <statement> : (condition else if) ? <statement> : <statement for else>;
@@ -1319,7 +1319,54 @@ if (typeof id !== 'undefined') {
   console.log('No id. ')
 }
 
-// ##############################################################################################
+/* #############################################################################
+Use recursion to create a countdown, 2019-11 or thereafter in early 2020, FreeCodeCamp
+Notes: 
+#############################################################################*/
+
+// Basic JavaScript: Use Recursion to Create a Countdown
+//Only change code below this line
+function countdown(myArray, n){
+  if(n == 1) {
+    return myArray.push(1);
+  } else if(n>1) {
+    myArray.push(n);
+    countdown(myArray, n-1);
+    return myArray;
+  }
+}
+console.log(countdown([], 10));
+
+OR
+
+// Basic JavaScript: Use Recursion to Create a Countdown
+//Only change code below this line
+function countdown(myArray, n){
+  if(n == 1) {
+    return myArray.push(1);
+  } else if(n>1) {
+    myArray.push(n);
+    return countdown(myArray, n-1);;
+  }
+}
+console.log(countdown([], 10));
+
+/* #############################################################################
+Basic JavaScript: Use Recursion to Create a Range of Numbers, 2019-11 or thereafter in early 2020, FreeCodeCamp
+Notes: 
+#############################################################################*/
+
+// Basic JavaScript: Use Recursion to Create a Range of Numbers:
+
+function rangeOfNumbers(startNum, endNum) {
+  if (startNum == endNum) {
+    return [startNum];
+  } else {
+    let arrNums = rangeOfNumbers(startNum, endNum - 1)
+    arrNums.push(endNum);
+    return arrNums;
+  }
+}
 
 // ES6
 
@@ -1493,6 +1540,26 @@ console.log(half(stats)); // should be 28.015
 // console.log(resultDisplayArray);
 
 /* #############################################################################
+Date:? - ES6: Use Destructuring Assignment to Extract Values from Objects - FreeCodeCamp
+Notes:
+#############################################################################*/
+// ES6: Use Destructuring Assignment to Extract Values from Objects
+const HIGH_TEMPERATURES = {
+  yesterday: 75,
+  today: 77,
+  tomorrow: 80
+};
+// change code below this line
+const { today, tomorrow } = HIGH_TEMPERATURES;
+// const today = HIGH_TEMPERATURES.today;
+// const tomorrow = HIGH_TEMPERATURES.tomorrow;
+// change code above this line
+console.log(yesterday) // should be not defined
+console.log(today); // should be 77
+console.log(tomorrow); // should be 80
+
+
+/* #############################################################################
 2019-02-02 - ES6 concise object literal declaration - FreeCodeCamp
 Notes:
 #############################################################################*/
@@ -1617,6 +1684,87 @@ Notes:
 // let temp = thermos.temperature; // 24.44 in C
 // thermos.temperature = 26;
 // temp = thermos.temperature; // 26 in C
+
+/* #############################################################################
+2019-02-04 - ES6: Create a Module Script - FreeCodeCamp
+Notes:
+#############################################################################*/
+
+// <!-- ES6: Create a Module Script -->
+// <html>
+//   <body>
+//     <!-- add your code below -->
+//     <script type="module" src="index.js"> </script>
+//     <!-- add your code above -->
+//   </body>
+// </html>
+
+/* #############################################################################
+// ES6: Create a JavaScript Promise - FreeCodeCamp
+Notes:
+#############################################################################*/
+// ES6: Create a JavaScript Promise
+const makeServerRequest = new Promise((resolve, reject) => {
+});
+
+
+/* #############################################################################
+// ES6: Complete a Promise with resolve and reject - FreeCodeCamp
+Notes:
+#############################################################################*/
+// ES6: Complete a Promise with resolve and reject
+// Make the promise handle success and failure. If responseFromServer is true, call the resolve method to successfully complete the promise. Pass resolve a string with the value We got the data. If responseFromServer is false, use the reject method instead and pass it the string: Data not received.
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer represents a response from a server
+  let responseFromServer;
+    
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+});
+
+/* #############################################################################
+// ES6: Handle a Fulfilled Promise with then - FreeCodeCamp
+Notes:
+#############################################################################*/
+// ES6: Handle a Fulfilled Promise with then
+// Add the then method to your promise. Use result as the parameter of its callback function and log result to the console.
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer is set to true to represent a successful response from a server
+  let responseFromServer = true;
+    
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+}).then(result => {
+  console.log(result);
+});
+
+/* #############################################################################
+// ES6: Handle a Rejected Promise with catch - FreeCodeCamp
+Notes:
+#############################################################################*/
+// ES6: Handle a Rejected Promise with catch
+// Add the catch method to your promise. Use error as the parameter of its callback function and log error to the console.
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer is set to false to represent an unsuccessful response from a server
+  let responseFromServer = false;
+    
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+});
+makeServerRequest.then(result => {
+  console.log(result);
+}).catch(error => {
+  console.log(error);
+});
 
 // ##############################################################################################################
 
@@ -1818,6 +1966,32 @@ let wsRegex = /^\s+|\s+$/g; // Change this line
 let result = hello.replace(wsRegex, ''); // Change this line
 console.log(result);
 
+/* #############################################################################
+Date:? - various additional regex exercises - FreeCodeCamp
+Notes: review later; why is g necessary?
+#############################################################################*/
+
+// Regular Expressions: Check For Mixed Grouping of Characters
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Franklin|Eleanor) .*Roosevelt/; // Change this line
+let result = myRegex.test(myString); // Change this line
+// After passing the challenge experiment with myString and see how the grouping works
+
+// Regular Expressions: Use Capture Groups to Search and Replace
+let huhText = "This sandwich is good.";
+let fixRegex = /good/; // Change this line
+let replaceText = "okey-dokey"; // Change this line
+let result = huhText.replace(fixRegex, replaceText);
+
+// Regular Expressions: Remove Whitespace from Start and End
+let hello = "   Hello, World!  ";
+let wsRegex = /(\s+)(.+\S)(\s+)/; // Change this line
+let result = hello.replace(wsRegex, '$2'); // Change this line
+console.log(result);
+
+// Their solution:
+let wsRegex = /^\s+|\s$/g;
+let result = hello.replace(wsRegex, '');
 
 // ##############################################################################################################
 
@@ -1825,6 +1999,8 @@ console.log(result);
 // *No notes or work taken.
 
 // ##############################################################################################################
+
+// use typeof to check type of variable
 
 
 // ##############################################################################################################
@@ -2384,6 +2560,160 @@ function frankenSplice2(arr1, arr2, n) {
 }
 console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
 
+/* #############################################################################
+Date: end of 2019 - various additions - FreeCodeCamp
+Notes:
+#############################################################################*/
+
+// Basic Algorithm Scripting: Find the Longest Word in a String
+function findLongestWordLength(str) {
+  let sentenceArr = str.split(' ');
+  let longest = '';
+  for(let i = 0; i < sentenceArr.length; i++){
+    // console.log(sentenceArr[i]);
+    if(sentenceArr[i].length > longest.length){
+      longest = sentenceArr[i];
+    }
+  }
+  console.log(longest);
+  return longest.length;
+}
+findLongestWordLength("The quick brown fox jumped over the lazy dog");
+
+//  Basic Algorithm Scripting: Return Largest Numbers in Arrays
+function largestOfFour(arr) {
+  // You can do this!
+  let max = 0;
+  let maxArr = []; 
+  for(var i = 0; i < arr.length; i++){
+    max = arr[i][0];
+    for(var j = 0; j < arr[i].length; j++){
+      if(arr[i][j] > max){
+        max = arr[i][j];
+      }
+    }
+    maxArr.push(max);
+  }
+  return maxArr;
+}
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+console.log(largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]));
+
+// Basic Algorithm Scripting: Confirm the Ending
+function confirmEnding(str, target) {
+  // "Never give up and good luck will find you."
+  // -- Falcor
+  return str.substring(str.length-target.length) == target;
+}
+console.log(confirmEnding("Bastian", "n"));
+
+
+// Basic Algorithm Scripting: Repeat a String Repeat a String
+function repeatStringNumTimes(str, num) {
+  // repeat after me
+  let multStr = '';
+  if (num > 0) {
+    while(num > 0) {
+      multStr += str;
+      num--;
+    }
+    return multStr;
+  } else {
+    return '';
+  }
+}
+console.log(repeatStringNumTimes("abc", 3));
+
+
+
+
+
+
+// Basic Algorithm Scripting: Where do I Belong
+function getIndexToIns(arr, num) {
+  // Find my place in this sorted array.
+  let place = arr.length;
+  arr.sort(function (a, b) {
+    if (a < b) {
+      return -1;
+    } else if (a > b ) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] >= num){
+      place = i;
+      break;
+    }
+  }
+  return place;
+}
+console.log(getIndexToIns([40, 60], 50));
+console.log(getIndexToIns([5, 3, 20, 3], 5));
+console.log(getIndexToIns([10, 20, 30, 40, 50], 35));
+console.log(getIndexToIns([10, 20, 30, 40, 50], 30));
+console.log(getIndexToIns([2, 5, 10], 15));
+
+
+// Basic Algorithm Scripting: Mutations
+function mutation(arr) {
+  let includes = false;
+  for(let i = 0; i < arr[1].length; i++){
+    if(!arr[0].toLowerCase().includes(arr[1][i].toLowerCase())){
+      includes = false;
+      break;
+    }else{
+      includes = true;
+    }
+  }
+  return includes;
+}
+console.log(mutation(["hello", "hey"]));
+console.log(mutation(["hello", "neo"]));
+console.log(mutation(["hello", "Hello"]));
+console.log(mutation(["Mary", "Army"]));
+// mutation(["hello", "Hello"]) should return true.
+// mutation(["Mary", "Army"]) should return true.
+// mutation(["Mary", "Aarmy"]) should return true.
+// mutation(["Noel", "Ole"]) should return true.
+
+
+// OR
+
+// Basic Algorithm Scripting: Mutations
+function mutation2(arr) {
+  let includes = false;
+  for(let i = 0; i < arr[1].length; i++){
+    includes = arr[0].toLowerCase().includes(arr[1][i].toLowerCase());
+    if(!includes){
+      break;
+    }
+  }
+  return includes;
+}
+console.log(mutation(["hello", "hey"]));
+console.log(mutation(["hello", "neo"]));
+console.log(mutation(["hello", "Hello"]));
+console.log(mutation(["Mary", "Army"]));
+
+
+// Basic Algorithm Scripting: Chunky Monkey
+// Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+function chunkArrayInGroups(arr, size) {
+  let start = 0;
+  let newArr = [];
+  for(let i = 0; i < arr.length; i+=size){
+    newArr.push(arr.slice(start, start+size));
+    start += size;
+    console.log(start);
+  }
+  return newArr;
+}
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4));
+
 
 // ##############################################################################################################
 
@@ -2679,6 +3009,326 @@ console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
 
 // // can use methods extended from parent class
 
+
+/* #############################################################################
+// end of 2019: Object oriented programming additions from FCCamp.
+#############################################################################*/
+
+// Object Oriented Programming: Create a Method on an Object
+let dog = {
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: function() { return "This dog has " + dog.numLegs +" legs."}
+};
+dog.sayLegs();
+
+// Object Oriented Programming: Make Code More Reusable with the this Keyword
+let dog = {
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: function() {return "This dog has " + this.numLegs + " legs.";}
+};
+dog.sayLegs();
+
+
+// Object Oriented Programming: Define a Constructor Function
+function Dog() {
+    this.name = '';
+    this.color = '';
+    this.numLegs = 1;
+}
+
+// Object Oriented Programming: Use a Constructor to Create Objects
+function Dog() {
+  this.name = "Rupert";
+  this.color = "brown";
+  this.numLegs = 4;
+}
+// Add your code below this line
+let hound = new Dog();
+
+// Object Oriented Programming: Extend Constructors to Receive Arguments
+function Dog(name, color) {
+    this.name = name;
+    this.color = color;
+    this.numLegs = 4;
+}
+let terrier = new Dog("Henry", "grey");
+
+// Object Oriented Programming: Verify an Object's Constructor with instanceof
+/* jshint expr: true */
+function House(numBedrooms) {
+  this.numBedrooms = numBedrooms;
+}
+// Add your code below this line
+let myHouse = new House(4);
+myHouse instanceof House;
+
+
+// Object Oriented Programming: Understand Own Properties
+
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
+}
+
+let canary = new Bird("Tweety");
+let ownProps = [];
+// Add your code below this line
+for (let prop in canary){
+  if(canary.hasOwnProperty(prop)){
+    ownProps.push(prop);
+  }
+}
+
+// Object Oriented Programming: Use Prototype Properties to Reduce Duplicate Code
+
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+
+// Add your code above this line
+let beagle = new Dog("Snoopy");
+console.log(beagle.numLegs);  // prints 4
+
+// Object Oriented Programming: Iterate Over All Properties
+function Dog(name) {
+  this.name = name;
+}
+Dog.prototype.numLegs = 4;
+let beagle = new Dog("Snoopy");
+let ownProps = [];
+let prototypeProps = [];
+// Add your code below this line
+for (let prop in beagle) {
+  if(beagle.hasOwnProperty(prop)){
+    ownProps.push(prop);
+  }else{
+    prototypeProps.push(prop);
+  }
+}
+
+
+// Object Oriented Programming: Understand the Constructor Property
+function Dog(name) {
+  this.name = name;
+}
+let beagle = new Dog();
+// Add your code below this line
+function joinDogFraternity(candidate) {
+  return candidate.constructor === Dog;
+}
+// NOTE: constructor property can be overwritten; to check, better to use
+// instanceof method.
+console.log(joinDogFraternity(beagle))
+
+
+// Object Oriented Programming: Change the Prototype to a New Object
+function Dog(name) {
+  this.name = name;
+}
+Dog.prototype = {
+  // Add your code below this line
+  numLegs: 4,
+  eat: function() {
+    console.log("I am a dog that is eating, chow, chow, chow.")
+  },
+  describe: function(){
+    console.log("My name is " + this.name);
+  }
+};
+
+
+// Object Oriented Programming: Remember to Set the Constructor Property when Changing the Prototype
+function Dog(name) {
+  this.name = name;
+}
+// Modify the code below this line
+Dog.prototype = {
+  constructor: Dog,
+  numLegs: 4,
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+
+// Object Oriented Programming: Understand Where an Object’s Prototype Comes From
+function Dog(name) {
+  this.name = name;
+}
+let beagle = new Dog("Snoopy");
+// Add your code below this line
+Dog.prototype.isPrototypeOf(beagle);
+
+
+// Object Oriented Programming: Understand the Prototype Chain
+function Dog(name) {
+  this.name = name;
+}
+let beagle = new Dog("Snoopy");
+Dog.prototype.isPrototypeOf(beagle);  // => true
+// Fix the code below so that it evaluates to true
+Object.prototype.isPrototypeOf(Dog.prototype);
+
+// Object Oriented Programming: Use Inheritance So You Don't Repeat Yourself
+function Cat(name) {
+  this.name = name;
+}
+Cat.prototype = {
+  constructor: Cat,
+};
+function Bear(name) {
+  this.name = name;
+}
+Bear.prototype = {
+  constructor: Bear,
+};
+function Animal() { }
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+
+// Object Oriented Programming: Inherit Behaviors from a Supertype, pt 1
+function Animal() { }
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+// Add your code below this line
+let duck = Object.create(Animal.prototype);
+let beagle = Object.create(Animal.prototype);
+duck.eat(); // Should print "nom nom nom"
+beagle.eat(); // Should print "nom nom nom"
+
+
+// Object Oriented Programming: Set the Child's Prototype to an Instance of the Parent
+function Animal() { }
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+function Dog() { }
+// Add your code below this line
+Dog.prototype = Object.create(Animal.prototype);
+let beagle = new Dog();
+beagle.eat();  // Should print "nom nom nom"
+
+
+// Object Oriented Programming: Reset an Inherited Constructor Property
+function Animal() { }
+function Bird() { }
+function Dog() { }
+Bird.prototype = Object.create(Animal.prototype);
+Dog.prototype = Object.create(Animal.prototype);
+// Add your code below this line
+Bird.prototype.constructor = Bird;
+Dog.prototype.constructor = Dog;
+let duck = new Bird();
+let beagle = new Dog();
+
+
+// Object Oriented Programming: Add Methods After Inheritance
+function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+function Dog() { }
+// Add your code below this line
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+Dog.prototype.bark = function() {
+    console.log("I am barking. Woof woof.");
+}
+
+// Add your code above this line
+let beagle = new Dog();
+beagle.eat(); // Should print "nom nom nom"
+beagle.bark(); // Should print "Woof!"
+
+
+// Object Oriented Programming: Override Inherited Methods
+function Bird() { }
+Bird.prototype.fly = function() { return "I am flying!"; };
+function Penguin() { }
+Penguin.prototype = Object.create(Bird.prototype);
+Penguin.prototype.constructor = Penguin;
+// Add your code below this line
+Penguin.prototype.fly = function(){
+    return ("Alas, this is a flightless bird.");
+}
+
+// Add your code above this line
+let penguin = new Penguin();
+console.log(penguin.fly());
+
+
+// Object Oriented Programming: Use a Mixin to Add Common Behavior Between Unrelated Objects
+
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+
+let boat = {
+  name: "Warrior",
+  type: "race-boat"
+};
+
+// Add your code below this line
+let glideMixin = function(obj) {
+  obj.glide = function(){
+    return "I am now glide. How marvelous it is to glide."
+  }
+}
+
+glideMixin(bird);
+glideMixin(boat);
+
+
+// Object Oriented Programming: Use Closure to Protect Properties Within an Object from Being Modified Externally - functions have access to context in which they are created.
+function Bird() {
+  let weight = 15;
+  this.getWeight = function(){
+    return weight;
+  }
+}
+
+
+// Object Oriented Programming: Understand the Immediately Invoked Function Expression (IIFE)
+(function () {
+  console.log("A cozy nest is ready");
+})();
+
+
+// Object Oriented Programming: Use an IIFE to Create a Module that contains similar functions
+let funModule = (function () {
+  return {
+    isCuteMixin: function (obj) {
+      obj.isCute = function () {
+        return true;
+      };
+    },
+    singMixin: function (obj) {
+      obj.sing = function () {
+        console.log("Singing to an awesome tune");
+      };
+    }
+  }
+})();
+// can then use module for storing similar functions and placing them in objects.
+
+
 // ##############################################################################################################
 
 // Functional Programming
@@ -2770,6 +3420,8 @@ function whatIsInAName(collection, source) {
 
 // console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
 // whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 }) should return [{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }].
+
+
 
 // ##############################################################################################################
 

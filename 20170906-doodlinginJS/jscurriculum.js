@@ -3421,6 +3421,25 @@ function whatIsInAName(collection, source) {
 // console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
 // whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 }) should return [{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }].
 
+/* #############################################################################
+// // 2020-07-03: Intermediate Algorithm Scripting: Spinal Tap Case
+#############################################################################*/
+
+// From <https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/spinal-tap-case> 
+
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+function spinalCase(str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[\s_]/g, "-").toLowerCase();
+}
+console.log(spinalCase('This Is Spinal Tap'));
+console.log(spinalCase("thisIsSpinalTap"));
+console.log(spinalCase("The_Andy_Griffith_Show"));
+console.log(spinalCase("AllThe-small Things"));
+
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+
 
 
 // ##############################################################################################################
